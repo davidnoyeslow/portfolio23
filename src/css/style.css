@@ -133,15 +133,19 @@ HEADER STYLE
   radial-gradient(ellipse closest-side,  rgb(50, 129, 137) 9%, black 100%);
   background-size: 9px, 100% 2px;
   border-radius: 5%;
-	z-index: 2;
+  border: 3px solid gray;
+	/* z-index: 2; */
 	background-size: 100% 3px, 6px 100%;
   position: fixed;
   top: 50%;
   right: -1000px;
   max-height: 100vh;
-  width: 100%;
-  z-index: -97;
-  transition: all 1s cubic-bezier(0.83, 0, 0.17, 1);
+  width: 90%;
+  /* z-index: -97; */
+  box-shadow: 2px 7px 2px rgb(75, 74, 74), 2px -7px 2px rgb(75, 74, 74);
+  transform: translateX(-5%);
+  transition: all 1s cubic-bezier(0.83, 0, 0.17, 1); 
+  
   
 }
 
@@ -150,9 +154,9 @@ HEADER STYLE
   box-shadow:  0px 4px 5px 0px rgba(255, 251, 251, 1);
   position: absolute;
   top: 0;
-  height: 1px;
+  height: .5px;
   width: 100%;
-  animation: move 1s alternate-reverse infinite;
+  animation: move 1ms ease infinite;
   /* filter: blur(1px); */
   /* z-index: -98; */
 }
@@ -169,18 +173,18 @@ HEADER STYLE
   right: 0;
 }
 
-.navElement1,
+/* .navElement1,
 .navElement2 {
-  /* background: url('../img/trees.jpg') no-repeat; */
   background-position: 80% 20%;
   transition: all .2s cubic-bezier(0.83, 0, 0.17, 1);
   opacity: .9;
-}
+  animation: distort 5s ease infinite;
+} */
 
 
 
-.overlay3 {
-  /* background: url('../img/trees.jpg') no-repeat; */
+/* .overlay3 {
+  background: url('../img/trees.jpg') no-repeat;
   background-size: 100%;
   background-position: 50% 60%;
   position: absolute;
@@ -193,20 +197,17 @@ HEADER STYLE
   animation: track 10s infinite;
   z-index: -97;
   
-}
+} */
 
-.navSection div:hover {
-  transform: skewX(0);
-  box-shadow: none;
-  border: none;
-}
+
 
 
 .nav-link1,
 .nav-link2 {
   text-align: center;
   opacity: 0;
-  animation: appear 1s 1, textShadow 5s infinite;
+  animation: textShadow 5s infinite;
+  
   
 }
 
@@ -220,15 +221,8 @@ HEADER STYLE
 	bottom: 0;
 	right: 0;
 	background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-	/* z-index: 2; */
 	background-size: 100% 2px;
 	pointer-events: none;
-  animation: track 1s infinite;
-  
-}
-
-.nav-link1::after,
-.nav-link2::after {
   
 }
 
@@ -238,29 +232,18 @@ HEADER STYLE
   text-shadow: none;
   transition: all .5s ease;
 }
-.nav-item:hover > .nav-link1 {
+.nav-link1:hover,
+.nav-link2:hover {
   /* transform: translateY(6%); */
+  background-color: rgba(107, 118, 11, 0.5);
   transition: all.5s ease;
   animation: distort 1s infinite alternate-reverse;
+  cursor: pointer;
 }
 
-.nav-item:hover > .nav-link2::before {
-  /* content: ''; */
-  transform: translate(-1%,1%);
-  text-shadow: none;
-  transition: all .5s ease;
-  
-}
-.nav-item:hover > .nav-link2 {
-  /* transform: translateY(6%); */
-  transition: all.5s ease;
-  
-}
 
 .item-show {
-  
   opacity: 1;
-  
 }
 
 .overlay {
@@ -294,7 +277,7 @@ NAVIGATION STYLE
     height: 50px;
     width: 50px;
     margin: 5px 20px 0 0;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     right: 0;
     -webkit-transform: rotate(0deg);
@@ -373,8 +356,8 @@ ABOUT STYLE
 
 .about {
   background-color: black;
-  padding-top: 4rem;
   position: relative;
+  /* top: 0; */
   /* height: 1000px; */
   /* max-height: 100vh; */
   width: 100%;
@@ -579,21 +562,6 @@ FOOTER STYLE
 	88% { bottom:0; }
 }
 
-
-  /* .crt::after {
-	content: " ";
-	display: block;
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	background: rgba(18, 16, 16, 0.1);
-	opacity: 0;
-	z-index: 2;
-	pointer-events: none;
-	animation: flicker 0.15s infinite;
-  } */
   .crt::before {
 	content: " ";
 	display: block;
@@ -607,10 +575,7 @@ FOOTER STYLE
 	background-size: 100% 2px, 3px 100%;
 	pointer-events: none;
   }
-  .crt {
-	/* animation: textShadow 1.6s infinite; */
-  }
-
+ 
 @keyframes distort {
   10% {
       opacity: 1;

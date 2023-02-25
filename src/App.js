@@ -21,7 +21,7 @@ function App() {
         <Home/> 
         <MenuButton parentCallback={showMenu}/>  
         <Navbar clicked={clicked} setClicked={setClicked} aboutActive={aboutActive} setAboutActive={setAboutActive}/>
-        <About/> 
+        { aboutActive && <About/> }
      
       
         
