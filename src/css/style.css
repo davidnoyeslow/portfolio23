@@ -12,10 +12,18 @@
 /********************************************************
 MAIN ELEMENT STYLES
 *********************************************************/
+*{
+  /* overflow: hidden; */
+}
 
-h1, h3, h6, p {
+h1, h2, h3, h6, p {
     font-family: 'oswaldbold', sans-serif;
     color: ghostwhite;
+}
+
+h2 {
+  
+  text-decoration: overline 2px rgba(233, 240, 11, 0.9);
 }
 
 p {
@@ -76,77 +84,30 @@ footer {
 HEADER STYLE
 **********************************************************/
 
-/* .body {
+.home-container {
+  position: relative;
+  height: 100vh;
+  z-index: -99;
   
-  background: linear-gradient(to top, rgb(0, 0, 0) 1%, transparent), url("../img/trees.jpg") ;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  margin: 0 auto;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  max-height: 100vh;
-  position: absolute;
-  bottom: 0;
-  z-index: -98;
-} */
-
-/* .body {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  margin: 0 auto;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  max-height: 100vh;
-  position: absolute;
-  bottom: 0;
-  display:grid;
-  grid-auto-flow: column;
-  place-content: right;
-  gap: 40px;
-  min-height: 100vh;
-  background: url('../img/trees.jpg');
-  --_i: 0% /;
-  --_g: /60% 9% no-repeat linear-gradient(#000 0 0);
-  --m:
-  top  0% right 0%  /10% 9% no-repeat linear-gradient(#000 0 0),
-  top 20% right 0%  /30% 9% no-repeat linear-gradient(#000 0 0),
-  top 40% right 0%  /60% 9% no-repeat linear-gradient(#000 0 0),
-  top 60% right 0%  /90% 9% no-repeat linear-gradient(#000 0 0);
--webkit-mask: var(--m);
-        mask: var(--m);
-      
-  outline: 10px solid #000000;
-  outline-offset: -100vmax;
-  transition: .3s linear;
-  cursor: pointer;
-  z-index: -98;
-} */
-
-/* .body:hover {
-  --_i: 20%;
-  outline-color: #0000;
-} */
+}
 
 .body {
-  background: url('../img/trees.jpg');
+  background: linear-gradient(to top, rgb(0,0,0, 0.5) 10%, transparent), url('../img/trees.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  /* display: flex;
+  flex-direction: column; */
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 98;
+  /* height: 100%; */
   width: 100%;
   max-height: 100vh;
   z-index: -97;
+  
 }
 .overlay2 {
   position: absolute;
@@ -156,61 +117,153 @@ HEADER STYLE
   height: 100%;
   background: url('../img/pattern2.png') repeat top left;
   opacity: 0.9;
-  /* -webkit-animation: pulse 2s infinite alternate;
-    animation: pulse 2s infinite alternate; */
-  z-index: -99;
+  z-index: 0;
 }
 
+.title {
+  text-align: center;
+  font-size: 5rem;
+  text-shadow: 5px 1px 1px black;
+  animation: textShadow 1.6s infinite;
+  filter: blur(2px);
+}
 
-
-
-
-.body div:nth-child(2) {
-  background: url('../img/trees.jpg') no-repeat;
-  background-position: var(--n);
-  position: absolute;
-  top: 1rem;
-  right: 0;
-  height: 4%;
-  width: 30%;
+.navSection {
+  background: 
+  radial-gradient(ellipse closest-side,  rgb(50, 129, 137) 9%, black 100%);
+  background-size: 9px, 100% 2px;
+  border-radius: 5%;
+	z-index: 2;
+	background-size: 100% 3px, 6px 100%;
+  position: fixed;
+  top: 50%;
+  right: -1000px;
+  max-height: 100vh;
+  width: 100%;
+  z-index: -97;
+  transition: all 1s cubic-bezier(0.83, 0, 0.17, 1);
   
 }
 
-.body div:nth-child(3) {
-  background: url('../img/trees.jpg') no-repeat;
-  background-position: var(--n2);
+.blur {
+  background-color: white;
+  box-shadow:  0px 4px 5px 0px rgba(255, 251, 251, 1);
   position: absolute;
-  top: 10rem;
-  right: 0;
-  height: 8%;
-  width: 50%;
-  
+  top: 0;
+  height: 1px;
+  width: 100%;
+  animation: move 1s alternate-reverse infinite;
+  /* filter: blur(1px); */
+  /* z-index: -98; */
 }
 
-.body div:nth-child(4) {
-  background: url('../img/trees.jpg') no-repeat;
-  background-position: var(--n3);
-  position: absolute;
-  top: 25rem;
+@keyframes move {
+  0% {
+    top: 0
+  }
+  100% {
+    top: 100%
+  }
+}
+.menu-show {
   right: 0;
-  height: 10%;
-  width: 60%;
-  animation: moveBackground 2s infinite;
 }
 
-.body div:nth-child(5) {
-  background: url('../img/trees.jpg') no-repeat;
+.navElement1,
+.navElement2 {
+  /* background: url('../img/trees.jpg') no-repeat; */
   background-position: 80% 20%;
+  transition: all .2s cubic-bezier(0.83, 0, 0.17, 1);
+  opacity: .9;
+}
+
+
+
+.overlay3 {
+  /* background: url('../img/trees.jpg') no-repeat; */
+  background-size: 100%;
+  background-position: 50% 60%;
   position: absolute;
-  top: 40rem;
+  top: 0;
   right: 0;
-  height: 10%;
-  width: 80%;
-  animation: moveBackground 2s infinite;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  filter: hue-rotate(180deg);
+  animation: track 10s infinite;
+  z-index: -97;
+  
+}
+
+.navSection div:hover {
+  transform: skewX(0);
+  box-shadow: none;
+  border: none;
+}
+
+
+.nav-link1,
+.nav-link2 {
+  text-align: center;
+  opacity: 0;
+  animation: appear 1s 1, textShadow 5s infinite;
+  
+}
+
+.nav-link1::before,
+.nav-link2::before {
+  content: " ";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+	/* z-index: 2; */
+	background-size: 100% 2px;
+	pointer-events: none;
+  animation: track 1s infinite;
+  
+}
+
+.nav-link1::after,
+.nav-link2::after {
+  
+}
+
+.nav-item:hover > .nav-link1::before {
+  /* content: ''; */
+  transform: translate(-1%,1%);
+  text-shadow: none;
+  transition: all .5s ease;
+}
+.nav-item:hover > .nav-link1 {
+  /* transform: translateY(6%); */
+  transition: all.5s ease;
+  animation: distort 1s infinite alternate-reverse;
+}
+
+.nav-item:hover > .nav-link2::before {
+  /* content: ''; */
+  transform: translate(-1%,1%);
+  text-shadow: none;
+  transition: all .5s ease;
+  
+}
+.nav-item:hover > .nav-link2 {
+  /* transform: translateY(6%); */
+  transition: all.5s ease;
+  
+}
+
+.item-show {
+  
+  opacity: 1;
+  
 }
 
 .overlay {
-  
   position: absolute;
   top: 0;
   bottom: 0;
@@ -219,55 +272,16 @@ HEADER STYLE
   z-index: -99;
 }
 
-.logo {
-    margin: 0 auto;
-    width: 80%;
-    animation: distort 1s infinite alternate-reverse;
-}
-
-.title {
-  color: white;
-  font-family: 'oswaldreg', sans-serif;
-  font-size: 2.3rem;
-  margin: 0 auto;
-  position: relative;
-  text-align: center;
+.lines {
   width: 100%;
-  animation: distort 1s infinite alternate-reverse;
+  height: 5px;
+  position: absolute;
+  bottom: 0;
+  animation: title-jump 5ms infinite, animation-delay 3s infinite;
+  
 }
 
 
-
-  .crt::after {
-	content: " ";
-	display: block;
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	background: rgba(18, 16, 16, 0.1);
-	opacity: 0;
-	z-index: 2;
-	pointer-events: none;
-	animation: flicker 0.15s infinite;
-  }
-  .crt::before {
-	content: " ";
-	display: block;
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-	z-index: 2;
-	background-size: 100% 2px, 3px 100%;
-	pointer-events: none;
-  }
-  .crt {
-	animation: textShadow 1.6s infinite;
-  }
 
 
 
@@ -292,6 +306,7 @@ NAVIGATION STYLE
     -o-transition: .5s ease-in-out;
     transition: .5s ease-in-out;
     cursor: pointer;
+    z-index: 5;
   }
 
   .nav-button span {
@@ -351,73 +366,86 @@ NAVIGATION STYLE
     left: 50%;
   }
 
-  .menu {
-    background: rgba(144, 174, 230, 0.7);
-    border-style: ridge;
-    /* border-color: silver; */
-    border-width: 1px;
-    border-right: none;
-    display: flex;
-    flex-direction: column;
-    font-family: 'oswaldreg', sans-serif;
-    font-size: 1.5rem;
-    position: fixed;
-    bottom: 44px;
-    /* right: 0; */
-    height: auto;
-    width: 100%;
-    overflow: hidden;
-    -webkit-transition: all .5s ease;
-    transition: all .5s ease;
-    /* visibility: hidden; */
-    width: 100%;
-    /* max-width: 0; */
-    z-index: 99;
-  }
-
-  .menu-show {
-    max-width: 70%;
-    visibility: visible;
-  }
-
-  .nav-item {
-    color: white;
-    padding: 5px 10px;
-    text-align: center;
-    margin-bottom: 5px;
-    position: relative;
-  }
-
-  .nav-item a {
-    width: 100%;
-    
-  }
-
-  .sticky-nav-bar {
-    background-color: rgba(1, 0, 0, 0.5);
-    position: fixed;
-    top: 0;
-    z-index: 99;
-    height: 4rem;
-    width: 100%;
-  }
-
 
 /*********************************************************
 ABOUT STYLE
 **********************************************************/  
 
-
-
 .about {
+  background-color: black;
+  padding-top: 4rem;
   position: relative;
-  background: #223;
-  padding: 0 2rem;
-  margin: 0 2rem;
+  /* height: 1000px; */
+  /* max-height: 100vh; */
   width: 100%;
-  z-index: 5;
+  z-index: -99;
+  
 }
 
+.about-backdrop {
+  background: url('../img/roots.png') top repeat-x;
+  background-size: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 4%;
+  /* height: 100%; */
+  width: 100%;
+  max-height: 100vh;
+  /* z-index:1; */
+}
+
+.icons {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  width: 100%;
+  height: 8rem;
+  margin: 2rem;
+  z-index: 2;
+}
+
+.js {
+  position: relative;
+  background: url('../img/brands/javascript.svg') left no-repeat;
+  background-size: contain;
+  height: 4rem;
+  width: 50%;
+  z-index: 2;
+}
+
+.react {
+  background: url('../img/brands/react.svg') left no-repeat;
+  background-size: contain;
+  height: 4rem;
+  width: 30%;
+  transform: translateY(10%);
+  z-index: 2;
+}
+
+.headline {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.about-one,
+.about-two {
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 1.5em;
+  position: relative;
+  padding: 2rem;
+  margin: 2rem 2rem;
+  z-index: 2;
+  border: 2px solid silver;
+}
+
+.about-one h1 {
+  
+}
 /*********************************************************
 FOOTER STYLE
 **********************************************************/
@@ -494,39 +522,201 @@ FOOTER STYLE
 /*******************************************
   ANIMATION KEYFRAMES
 *******************************************/
+@keyframes track {
+
+  40% { opacity:1; 
+	  		top:0; 
+	  		left:0;  
+	  		transform:scale(1,1);  
+	  		transform:skew(0,0);
+        
+      }
+  41% { 	opacity:0.8; top:0px; left:-100px; 
+	  		transform:scale(1,1.2);  
+	  		transform:skew(10deg,0);}
+  42% { 	opacity:0.8; 
+	  		top:0px; 
+	  		left:100px; 
+	  		transform:scale(1,1.2);  
+	  		transform:skew(-10deg,0);}
+  43% { 
+	  		opacity:1; 
+	  		top:0; 
+	  		left:0; 
+	  		transform:scale(1,1);  
+	  		transform:skew(0,0);}
+}
+
+@keyframes animation-delay {
+  
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  25.1% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+  
+}
+
+@keyframes title-jump {
+	0% { bottom:0; }
+ 	10% { bottom: -100px;
+    background: url('../img/eye.jpg') top 50% left no-repeat;
+    background-size: cover;
+    height: 200px;}
+	12% { bottom:0; }
+	54% { bottom:0; }
+	55% { bottom: 300px; }
+	56% { bottom:0; }
+	86% { bottom:0; }
+	87% { top: 0; }
+	88% { bottom:0; }
+}
+
+
+  /* .crt::after {
+	content: " ";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: rgba(18, 16, 16, 0.1);
+	opacity: 0;
+	z-index: 2;
+	pointer-events: none;
+	animation: flicker 0.15s infinite;
+  } */
+  .crt::before {
+	content: " ";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+	z-index: 2;
+	background-size: 100% 2px, 3px 100%;
+	pointer-events: none;
+  }
+  .crt {
+	/* animation: textShadow 1.6s infinite; */
+  }
 
 @keyframes distort {
   10% {
       opacity: 1;
-      top: 0;
-      left: 0;
+      /* top: 0;
+      left: 0; */
       transform: scale(1, 1);
-      transform: skew(0, 0);
+      transform: skew(20deg, 0);
   }
   11% {
       opacity: 0.8;
-      top: 0px;
-      left: -100px;
+      /* top: 0px; */
+      /* left: -100px; */
       transform: scale(1, 1.2);
       transform: skew(50deg, 0);
   }
   12% {
       opacity: 0.2;
-      top: 0px;
-      left: 100px;
+      /* top: 0px; */
+      /* left: 100px; */
       transform: scale(1, 1.2);
       transform: skew(-80deg, 0);
   }
   13% {
       opacity: 1;
-      top: 0;
-      left: 0;
+      /* top: 0;
+      left: 0; */
       transform: scale(1, 1);
       transform: skew(0, 0);
   }
 }
 
-@keyframes flicker {
+@keyframes track {
+
+  40% { opacity:1; 
+	  		top:0; 
+	  		left:0;  
+	  		transform:scale(1,1);  
+	  		transform:skew(0,0);
+        
+      }
+  41% { 	opacity:0.8; top:0px; left:-100px; 
+	  		transform:scale(1,1.2);  
+	  		transform:skew(10deg,0);}
+  42% { 	opacity:0.8; 
+	  		top:0px; 
+	  		left:100px; 
+	  		transform:scale(1,1.2);  
+	  		transform:skew(-10deg,0);}
+  43% { 
+	  		opacity:1; 
+	  		top:0; 
+	  		left:0; 
+	  		transform:scale(1,1);  
+	  		transform:skew(0,0);}
+}
+
+
+@keyframes animation-delay {
+  
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  25.1% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+  
+}
+
+  .crt::after {
+	content: " ";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: rgba(18, 16, 16, 0.1);
+	opacity: 0;
+	z-index: 2;
+	pointer-events: none;
+	/* animation: flicker 0.15s infinite; */
+  }
+  .crt::before {
+	content: " ";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: linear-gradient(rgba(5, 10, 22, 0) 50%, rgba(109, 79, 217, 0.25) 50%), linear-gradient(50deg, rgb(57, 42, 191, 0.3), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+	z-index: 2;
+	background-size: 100% 12px, 3px 100%;
+	pointer-events: none;
+  }
+  .crt {
+	
+  }
+
+/* @keyframes flicker {
 	0% {
 	  opacity: 0.27861;
 	}
@@ -590,7 +780,7 @@ FOOTER STYLE
 	100% {
 	  opacity: 0.24387;
 	}
-  }
+  } */
   @keyframes textShadow {
 	0% {
 	  text-shadow: 0.4389924193300864px 0 1px rgba(0,30,255,0.5), -0.4389924193300864px 0 1px rgba(255,0,80,0.3), 0 0 3px;
@@ -690,10 +880,6 @@ FOOTER STYLE
       	width: 50%;
     }
 
-    .nav-button {
-      	display: none;
-    }
-
     .menu {
       	background: none;
       	bottom: 0;
@@ -707,18 +893,7 @@ FOOTER STYLE
 		  z-index: 99;
     }
 
-    .nav-item {
-        border-right: 1px solid white;
-    }
-
-    .nav-item:last-child {
-        border: none;
-    }
-
-	.nav-item:hover::before,
-	.nav-item:hover::after {
-		left: 15%;
-	}
+    
 
     .sticky-nav-bar {
         background-color: rgba(1, 0, 0, 0.5);
