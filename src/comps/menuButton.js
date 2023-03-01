@@ -1,16 +1,12 @@
 import React, {useState} from "react";
 
-const MenuButton = ({ parentCallback }) => {
-    const [ clicked, setClicked ] = useState(false);
+const MenuButton = ({ clicked, setClicked }) => {
+    
 
 
-    const changeHandler = (e) => {
-        clicked === true ? setClicked(false) : setClicked(true);
-        return parentCallback(clicked);
-    }
-
+   
     return (
-        <div className={ clicked ? "nav-button open" : "nav-button"} onClick={changeHandler}>
+        <div className={ clicked ? "nav-button open" : "nav-button"} onClick={() => clicked ? setClicked(false) : setClicked(true)}>
                     <span></span>
                     <span></span>
                     <span></span>

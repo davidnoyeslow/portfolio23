@@ -81,7 +81,7 @@ footer {
   }
 
 /*********************************************************
-HEADER STYLE
+HOME STYLE
 **********************************************************/
 
 .home-container {
@@ -92,15 +92,17 @@ HEADER STYLE
 }
 
 .body {
-  background: linear-gradient(to top, rgb(0,0,0, 0.5) 10%, transparent), url('../img/trees.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  background: url("../img/IMG_1840.jpg") center no-repeat;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+     background-size: cover;
   /* display: flex;
   flex-direction: column; */
   position: absolute;
   top: 0;
-  bottom: 0;
+  bottom: -10%;
   left: 0;
   right: 0;
   /* height: 100%; */
@@ -109,13 +111,24 @@ HEADER STYLE
   z-index: -97;
   
 }
-.overlay2 {
+
+.eye-banner {
+  width: 100%;
+  height: 5px;
   position: absolute;
+  top: 0;
+  animation: title-jump 1ms infinite, animation-delay 3s infinite;
+  
+}
+
+.overlay2 {
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: url('../img/pattern2.png') repeat top left;
+  background-size: 2%;
   opacity: 0.9;
   z-index: 0;
 }
@@ -124,17 +137,29 @@ HEADER STYLE
   text-align: center;
   font-size: 5rem;
   text-shadow: 5px 1px 1px black;
-  animation: textShadow 1.6s infinite;
+  /* animation: textShadow 1.6s infinite; */
   filter: blur(2px);
 }
 
+.name {
+  position: relative;
+  font-size:74.6667px;
+  font-family:'Electronica Display Outline';-inkscape-font-specification:'Electronica Display Outline';white-space:pre;shape-inside:url(#rect186);
+  opacity:1;
+  /* fill:#2c6580; */
+  fill-opacity:0;
+  stroke:#2b6580;
+  stroke-opacity:1;
+  stroke-width: 2px;
+  z-index: 1;
+}
 .navSection {
   background: 
   radial-gradient(ellipse closest-side,  rgb(50, 129, 137) 9%, black 100%);
   background-size: 9px, 100% 2px;
   border-radius: 5%;
   border: 3px solid gray;
-	/* z-index: 2; */
+	z-index: 2;
 	background-size: 100% 3px, 6px 100%;
   position: fixed;
   top: 50%;
@@ -145,65 +170,28 @@ HEADER STYLE
   box-shadow: 2px 7px 2px rgb(75, 74, 74), 2px -7px 2px rgb(75, 74, 74);
   transform: translateX(-5%);
   transition: all 1s cubic-bezier(0.83, 0, 0.17, 1); 
-  
-  
 }
 
-.blur {
+.lines {
   background-color: white;
   box-shadow:  0px 4px 5px 0px rgba(255, 251, 251, 1);
   position: absolute;
   top: 0;
   height: .5px;
   width: 100%;
-  animation: move 1ms ease infinite;
+  animation: scanLine 1ms ease infinite;
   /* filter: blur(1px); */
   /* z-index: -98; */
 }
 
-@keyframes move {
-  0% {
-    top: 0
-  }
-  100% {
-    top: 100%
-  }
-}
+
 .menu-show {
   right: 0;
 }
 
-/* .navElement1,
-.navElement2 {
-  background-position: 80% 20%;
-  transition: all .2s cubic-bezier(0.83, 0, 0.17, 1);
-  opacity: .9;
-  animation: distort 5s ease infinite;
-} */
-
-
-
-/* .overlay3 {
-  background: url('../img/trees.jpg') no-repeat;
-  background-size: 100%;
-  background-position: 50% 60%;
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  filter: hue-rotate(180deg);
-  animation: track 10s infinite;
-  z-index: -97;
-  
-} */
-
-
-
-
 .nav-link1,
-.nav-link2 {
+.nav-link2,
+.nav-link3 {
   text-align: center;
   opacity: 0;
   animation: textShadow 5s infinite;
@@ -212,7 +200,8 @@ HEADER STYLE
 }
 
 .nav-link1::before,
-.nav-link2::before {
+.nav-link2::before,
+.nav-link3::before {
   content: " ";
 	display: block;
 	position: absolute;
@@ -220,27 +209,21 @@ HEADER STYLE
 	left: 0;
 	bottom: 0;
 	right: 0;
-	background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+	background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.01), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
 	background-size: 100% 2px;
 	pointer-events: none;
   
 }
 
-.nav-item:hover > .nav-link1::before {
-  /* content: ''; */
-  transform: translate(-1%,1%);
-  text-shadow: none;
-  transition: all .5s ease;
-}
 .nav-link1:hover,
-.nav-link2:hover {
+.nav-link2:hover,
+.nav-link3:hover {
   /* transform: translateY(6%); */
-  background-color: rgba(107, 118, 11, 0.5);
-  transition: all.5s ease;
-  animation: distort 1s infinite alternate-reverse;
+  background: rgba(107, 118, 11, 0.5);
+  /* transition: all.5s ease; */
+  /* animation: distort 1s infinite alternate-reverse; */
   cursor: pointer;
 }
-
 
 .item-show {
   opacity: 1;
@@ -255,21 +238,8 @@ HEADER STYLE
   z-index: -99;
 }
 
-.lines {
-  width: 100%;
-  height: 5px;
-  position: absolute;
-  bottom: 0;
-  animation: title-jump 5ms infinite, animation-delay 3s infinite;
-  
-}
-
-
-
-
-
 /*********************************************************
-NAVIGATION STYLE
+NAV BUTTON STYLE
 **********************************************************/
 .nav-button {
     border: 10px black;
@@ -353,30 +323,62 @@ NAVIGATION STYLE
 /*********************************************************
 ABOUT STYLE
 **********************************************************/  
+.about-wrapper {
+  position: absolute;
+  perspective: 1200px;
+  top: 0;
+}
+
+.card-wrapper {
+  position: relative;
+  
+}
 
 .about {
-  background-color: black;
-  position: relative;
+  position: absolute;
   /* top: 0; */
-  /* height: 1000px; */
+  height: 3000px;
   /* max-height: 100vh; */
   width: 100%;
   z-index: -99;
+  padding-top: 2rem;
+  /* transform:rotateY(30deg);
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  will-change: transform; */
+  overflow: hidden;
   
 }
 
 .about-backdrop {
-  background: url('../img/roots.png') top repeat-x;
-  background-size: 100%;
+  /* background: url('../img/roots.png') top repeat-y; */
+  background-size: cover;
+  /* background-position: top; */
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 4%;
+  /* left: 4%; */
   /* height: 100%; */
   width: 100%;
-  max-height: 100vh;
-  /* z-index:1; */
+  /* height: 3000px; */
+  /* max-height: 100vh; */
+  opacity: 1;
+  animation: scanLine 5ms linear infinite;
+  filter: blur(5px);
 }
+
+.card-wrapper {
+  /* background: url('../img/trees.jpg')  no-repeat;
+  background-size: cover;
+  height: 100vh; */
+}
+
+
+.about h1 {
+  font-size: 6em;
+  text-align: center;
+}
+
 
 .icons {
   position: relative;
@@ -394,7 +396,7 @@ ABOUT STYLE
   background: url('../img/brands/javascript.svg') left no-repeat;
   background-size: contain;
   height: 4rem;
-  width: 50%;
+  width: 20%;
   z-index: 2;
 }
 
@@ -402,7 +404,7 @@ ABOUT STYLE
   background: url('../img/brands/react.svg') left no-repeat;
   background-size: contain;
   height: 4rem;
-  width: 30%;
+  width: 20%;
   transform: translateY(10%);
   z-index: 2;
 }
@@ -415,6 +417,10 @@ ABOUT STYLE
   width: 100%;
 }
 
+.headline h2 {
+  margin: 0 auto;
+}
+
 .about-one,
 .about-two {
   background-color: rgba(0, 0, 0, 0.5);
@@ -424,6 +430,12 @@ ABOUT STYLE
   margin: 2rem 2rem;
   z-index: 2;
   border: 2px solid silver;
+  width: 50%;
+  transform:rotateY(-30deg) translateX(60%);
+  transform-origin: right center;
+  transform-style: preserve-3d;
+  will-change: transform;
+  /* opacity: 0; */
 }
 
 .about-one h1 {
@@ -548,67 +560,60 @@ FOOTER STYLE
 }
 
 @keyframes title-jump {
-	0% { bottom:0; }
- 	10% { bottom: -100px;
+	0% { top:0;}
+ 	10% { top: 10%;
     background: url('../img/eye.jpg') top 50% left no-repeat;
     background-size: cover;
     height: 200px;}
-	12% { bottom:0; }
-	54% { bottom:0; }
-	55% { bottom: 300px; }
-	56% { bottom:0; }
-	86% { bottom:0; }
-	87% { top: 0; }
-	88% { bottom:0; }
+	12% { top:10%;}
+	54% { top:50%;}
+	55% { top: 100%;}
+	56% { top:0; }
+	86% { top:60%; }
+	87% { top: 0;}
+	88% { bottom:0;}
 }
 
-  .crt::before {
-	content: " ";
-	display: block;
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-	z-index: 2;
-	background-size: 100% 2px, 3px 100%;
-	pointer-events: none;
+@keyframes root-jump {
+	0% { transform: translateY(200%); }
+ 	100% { transform: translateY(-100%); }
+}
+
+@keyframes scanLine {
+  0% {
+    top: 0
   }
+  100% {
+    top: 100%
+  }
+}
+
+
  
 @keyframes distort {
   10% {
       opacity: 1;
-      /* top: 0;
-      left: 0; */
       transform: scale(1, 1);
       transform: skew(20deg, 0);
   }
   11% {
       opacity: 0.8;
-      /* top: 0px; */
-      /* left: -100px; */
       transform: scale(1, 1.2);
       transform: skew(50deg, 0);
   }
   12% {
       opacity: 0.2;
-      /* top: 0px; */
-      /* left: 100px; */
       transform: scale(1, 1.2);
       transform: skew(-80deg, 0);
   }
   13% {
       opacity: 1;
-      /* top: 0;
-      left: 0; */
       transform: scale(1, 1);
       transform: skew(0, 0);
   }
 }
 
 @keyframes track {
-
   40% { opacity:1; 
 	  		top:0; 
 	  		left:0;  
@@ -672,16 +677,14 @@ FOOTER STYLE
 	left: 0;
 	bottom: 0;
 	right: 0;
-	background: linear-gradient(rgba(5, 10, 22, 0) 50%, rgba(109, 79, 217, 0.25) 50%), linear-gradient(50deg, rgb(57, 42, 191, 0.3), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+	background: linear-gradient(rgba(5, 10, 22, 0.2) 50%, rgba(109, 79, 217, 0.25) 50%), linear-gradient(50deg, rgb(57, 42, 191, 0.5), rgba(0, 255, 0, 0.2), rgba(0, 0, 255, 0.06));
 	z-index: 2;
 	background-size: 100% 12px, 3px 100%;
 	pointer-events: none;
   }
-  .crt {
-	
-  }
 
-/* @keyframes flicker {
+
+@keyframes flicker {
 	0% {
 	  opacity: 0.27861;
 	}
@@ -745,7 +748,7 @@ FOOTER STYLE
 	100% {
 	  opacity: 0.24387;
 	}
-  } */
+  }
   @keyframes textShadow {
 	0% {
 	  text-shadow: 0.4389924193300864px 0 1px rgba(0,30,255,0.5), -0.4389924193300864px 0 1px rgba(255,0,80,0.3), 0 0 3px;
@@ -813,10 +816,6 @@ FOOTER STYLE
   }
 
 
-
-
-
-  
 /*******************************************
   MEDIA QUERIES
 *******************************************/
@@ -857,8 +856,6 @@ FOOTER STYLE
 		    width: 100%;
 		  z-index: 99;
     }
-
-    
 
     .sticky-nav-bar {
         background-color: rgba(1, 0, 0, 0.5);
