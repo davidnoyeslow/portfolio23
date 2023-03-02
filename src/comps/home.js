@@ -5,14 +5,21 @@ const Home = () => {
 
     const icon = {
         hidden: {
+          top: "10%",
           opacity: 0,
           pathLength: 0,
-          fill: "rgba(255, 255, 255, 0)"
+          fillOpacity: 1,
+          fill: "rgb(0,0,0)",
+          stroke: "rgba(255, 255, 255, 1)"
         },
         visible: {
+          top: "2%",
           opacity: 1,
-          pathLength: 1
-        //   fill: "#2c6580"
+          pathLength: 1,
+          fillOpacity: 0,
+          fill: "#000000",
+          stroke: "#000000"
+          
         }
       };
     
@@ -25,22 +32,50 @@ const Home = () => {
                 className='overlay2'
                 key="overlay"
                 mode={"wait"}
-                initial={{backgroundSize: 0, opacity: 0}}
-                animate={{backgroundSize: "2%", opacity: 0.9}}
+                initial={{backgroundSize: "5%", opacity: 0}}
+                animate={{backgroundSize: "1%", opacity: 0.9}}
                 exit={{backgroundSize: "100%", opacity: 0}}
                 transition={{ 
-                    opacity: {duration: 2, ease: "easeInOut"}
+                    opacity: {duration: 2, ease: "easeInOut"},
+                    backgroundSize: {duration: 3,  }
                     }} 
             ></motion.div>
-            <div className='body'></div>
+            <motion.div 
+            className='body'
+            initial={{opacity: 0}}
+            animate={{opacity:1}}
+            transition={{
+              opacity: {duration:3, ease: "easeIn" }
+            }}
+            
+            ></motion.div>
+            <motion.div 
+            className="sillouette"
+            initial={{left:"-10%", opacity: 1}}
+            animate={{left:"5%", opacity: 0}}
+            transition={{
+              left: {duration: 2, ease: "easeIn"},
+              opacity: {duration: 2, ease: "easeIn"}
+            }}
+            ></motion.div>
             <motion.svg
    width="112.47301mm"
    height="15.797739mm"
    viewBox="0 0 112.47301 15.797739"
    version="1.1"
    id="svg5"
+   className="name"
    xmlns="http://www.w3.org/2000/svg"
-   xmlnssvg="http://www.w3.org/2000/svg">
+   xmlnssvg="http://www.w3.org/2000/svg"
+   variants={icon}
+        initial="hidden"
+        animate="visible"
+        transition={{
+          fillOpacity: {duration: 5},
+          top: {duration: 5},
+          fill: { duration: 2, ease: [1, 0, 0.8, 1] },
+          pathLength: { duration: 2, ease: "easeIn"}}}
+   >
   <defs
      id="defs2">
     
@@ -54,7 +89,8 @@ const Home = () => {
   <g
      id="layer1"
      transform="translate(-44.254331,-90.142294)"
-     className="name">
+     className="name"
+     >
     <g
        aria-label="DAVID LOW"
        transform="scale(0.26458333)"
@@ -69,7 +105,7 @@ const Home = () => {
         initial="hidden"
         animate="visible"
         transition={{
-          
+          top: {duration: 3, ease: "easeIn"},
           fill: { duration: 2, ease: [1, 0, 0.8, 1] },
           pathLength: { duration: 2, ease: "easeIn"}
 
@@ -82,7 +118,8 @@ const Home = () => {
         initial="hidden"
         animate="visible"
         transition={{
-          
+          top: {duration: 3, ease: "easeIn"},
+          default: { duration: 2, ease: "easeInOut" },
           fill: { duration: 2, ease: [1, 0, 0.8, 1] },
           pathLength: { duration: 2.3, ease: "easeIn"}
           
@@ -96,7 +133,8 @@ const Home = () => {
         initial="hidden"
         animate="visible"
         transition={{
-          
+          top: {duration: 3, ease: "easeIn"},
+          default: { duration: 2, ease: "easeInOut" },
           fill: { duration: 2, ease: [1, 0, 0.8, 1] },
           pathLength: { duration: 2.5, ease: "easeIn"}
           
@@ -110,7 +148,8 @@ const Home = () => {
         initial="hidden"
         animate="visible"
         transition={{
-          
+          top: {duration: 3, ease: "easeIn"},
+          default: { duration: 2, ease: "easeInOut" },
           fill: { duration: 2, ease: [1, 0, 0.8, 1] },
           pathLength: { duration: 2.8, ease: "easeIn"}
 
@@ -124,7 +163,8 @@ const Home = () => {
         initial="hidden"
         animate="visible"
         transition={{
-          
+          top: {duration: 3, ease: "easeIn"},
+          default: { duration: 2, ease: "easeInOut" },
           fill: { duration: 2, ease: [1, 0, 0.8, 1] },
           pathLength: { duration: 3.1, ease: "easeIn"}
 
@@ -138,6 +178,7 @@ const Home = () => {
         initial="hidden"
         animate="visible"
         transition={{
+          top: {duration: 3, ease: "easeIn"},
           default: { duration: 2, ease: "easeInOut" },
           fill: { duration: 2, ease: [1, 0, 0.8, 1] },
           pathLength: { duration: 3.3, ease: "easeIn"}
@@ -284,9 +325,7 @@ const Home = () => {
         }}/>
   </g>
 </motion.svg>
-                {/* <div className='eye-banner'>
-                    <h1 className='title'>DAVID LOW</h1>
-                </div> */}
+                
             </div>
         </AnimatePresence>
         
