@@ -18,7 +18,7 @@ const About = () => {
         visible: {
           opacity: 1,
           pathLength: 1,
-          fillOpacity: .6,
+          fillOpacity: .8,
           fill: "rgb(255,255,255)",
           stroke: "rgb(255,255,255, 1)"
           
@@ -109,7 +109,7 @@ const About = () => {
               transition={{
                 fillOpacity: { delay: 2, duration: 5},
                 fill: { delay: 2, duration: 2, ease: [1, 0, 0.8, 1] },
-                pathLength: { delay:2, duration: 2, ease: "easeIn"}}}>
+                pathLength: { delay:2, duration: 2, repeat: Infinity, ease: "easeIn"}}}>
   <defs
      id="defs8" />
   <sodipodinamedview

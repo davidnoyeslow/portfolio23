@@ -41,6 +41,7 @@ h1, h2, h3, h6 {
 
 p {
   font-family: 'oswaldreg', sans-serif;
+  margin: none;
 
 }
 a {
@@ -135,11 +136,26 @@ HOME STYLE
   top: 2%;
   left: 1rem;
   font-size:74.6667px;
-  font-family:'Electronica Display Outline';-inkscape-font-specification:'Electronica Display Outline';white-space:pre;shape-inside:url(#rect186);
+  font-family:'Electronica Display Outline';
+  -inkscape-font-specification:'Electronica Display Outline';
+  white-space:pre;
+  shape-inside:url(#rect186);
   opacity:1;
   stroke-opacity:1;
   stroke-width: 2px;
-  z-index: 1;
+  z-index: 2;
+  animation: logoShift 5s ease-in;
+  -webkit-animation: logoShift 5s ease-in;
+}
+@keyframes logoShift {
+  0% {
+    top: 50%;
+    opacity:0
+  }
+  100% {
+    top: 2%;
+    opacity: 1;
+  }
 }
 
 .sillouette {
@@ -376,7 +392,8 @@ ABOUT STYLE
 
 
 .about-backdrop {
-  background: linear-gradient(45deg, rgba(212,212,212,1) 0%, rgba(0, 0, 0, 0.5) 70%, rgb(255, 206, 127) 100%);
+  background: linear-gradient(90deg, rgba(212,212,212,0.5) 0%,rgba(0, 0, 0, 0.5) 10%,rgb(255, 206, 127, 0.8) 40%, rgba(0, 0, 0, 0.5) 70%, rgb(255, 206, 127, 1) 100%);
+  box-shadow: 4px 0 20px rgb(255, 206, 127, 0.9);
   width: 100%;
   height: 100vh;
   transform:rotateY(40deg);
@@ -384,6 +401,19 @@ ABOUT STYLE
   top: 0;
   left: 0;
   z-index: -98;
+  animation: glow 2s ease-in-out infinite alternate;
+  -webkit-animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  0% {
+    background: linear-gradient(90deg, rgba(212,212,212,0.5) 0%,rgba(0, 0, 0, 0.5) 10%,rgb(255, 206, 127, 0.4) 40%, rgba(0, 0, 0, 0.5) 70%, rgb(255, 206, 127, 0.5) 100%);
+    box-shadow: 4px 0 20px rgb(255, 206, 127, 0);
+  }
+  100% {
+    background: linear-gradient(90deg, rgba(212,212,212,0.5) 0%,rgba(0, 0, 0, 0.5) 10%,rgb(255, 206, 127, 0.8) 40%, rgba(0, 0, 0, 0.5) 70%, rgb(255, 206, 127, 1) 100%);
+    box-shadow: 4px 0 20px rgb(255, 206, 127, 0.9);
+  }
 }
 
 .about h1 {
@@ -410,7 +440,6 @@ ABOUT STYLE
   perspective: 1200px;
   padding-left: 0;
   transition: all 1s ease-in-out;
-  
 }
 
 .js {
@@ -418,7 +447,6 @@ ABOUT STYLE
   fill-opacity:0.11640212;
   stroke:#ffffff;stroke-width:7.20439;stroke-dasharray:none;stroke-opacity:1;opacity:1
 }
-
 
 .react {
   fill-opacity:1;
@@ -448,8 +476,6 @@ ABOUT STYLE
   overflow: hidden;
 }
 
-
-
 .about-card {
   backdrop-filter: blur(5px);
   font-size: 1.2rem;
@@ -458,16 +484,18 @@ ABOUT STYLE
   padding: 1rem 0;
   z-index: -97;
   width: auto;
-  /*max-width: 500px;
-  */border-width: 1px 1px 2px 0;
+  max-width: 500px;
+  border-width: 1px 3px 1px 0px;
   border-style: solid;
   border-color: silver;
+  box-shadow: inset 6px 0 9px black, 3px 0 3px silver;
   transform-origin: left;
   transform-style: preserve-3d;
   will-change: transform;
   margin: 0 auto;
   background-color:rgba(108, 108, 108, 0.2);
   cursor: pointer;
+  overflow: hidden;
   transform: rotateY(-30deg);
   -webkit-transform: rotateY(-30deg);
   -moz-transform: rotateY(-30deg);
@@ -476,15 +504,15 @@ ABOUT STYLE
 }
 
 .card-wrapper li:nth-child(1) {
-  top: 10rem;
+  top: 10%;
 }
 
 .card-wrapper li:nth-child(2) {
-  top: 22rem;
+  top: 35%;
 }
 
 .card-wrapper li:nth-child(3) {
-  top: 35rem;
+  top: 62%;
 }
 
 .headline-wrapper h2 {
@@ -505,17 +533,25 @@ ABOUT STYLE
 .about-card[data-openUXCard="true"][style],
 .about-card[data-openBackCard="true"][style] {
   background: rgba(0, 0, 0, 0.104);
-  margin: 0 auto;
-  transform: rotateY(0);
   left: 2%;
+  top: 10%;
   z-index: 2;
-  animation: hinge 5s ease-in;
+  border-left: 1px solid silver;
+  box-shadow: none;
+  animation: hinge 3s ease-in;
   animation-iteration-count: 1;
-  -webkit-animation: hinge 5s ease-in;
-  -webkit-transform: rotateY(0);
-  -moz-transform: rotateY(0);
-  -ms-transform: rotateY(0);
-  -o-transform: rotateY(0);
+  animation-fill-mode: forwards;
+  -webkit-animation: hinge s ease-in;
+  transform: rotateY(0);
+  -webkit-transform: rotateY(0) ;
+  -moz-transform: rotateY(0) ;
+  -ms-transform: rotateY(0) ;
+  -o-transform: rotateY(0) ;
+  transition: top 1s ease-in 2s;
+  -webkit-transition: top 1s ease-in 2s;
+  -moz-transition: top 1s ease-in 2s;
+  -ms-transition: top 1s ease-in 2s;
+  -o-transition: top 1s ease-in 2s;
 }
 @keyframes hinge {
   0% {
@@ -525,6 +561,7 @@ ABOUT STYLE
    -moz-transform: rotateY(-30deg);
    -ms-transform: rotateY(-30deg);
    -o-transform: rotateY(-30deg);
+   box-shadow: inset 5px 0 8px black, 3px 0 3px silver;
 }
   80% {
     left: 20%;
@@ -535,15 +572,19 @@ ABOUT STYLE
    -o-transform: rotateY(-30deg);
   }
 
-100% {
-  left: 2%;
-  right: 2%;
-  transform: rotateY(0);
-  -webkit-transform: rotateY(0);
-  -moz-transform: rotateY(0);
-  -ms-transform: rotateY(0);
-  -o-transform: rotateY(0);
-}
+  90% {
+    right: 30%;
+  }
+  100% {
+    left: 2%;
+    right: 2%;
+    transform: rotateY(0);
+    -webkit-transform: rotateY(0);
+    -moz-transform: rotateY(0);
+    -ms-transform: rotateY(0);
+    -o-transform: rotateY(0);
+    box-shadow: none;
+  }
   
 }
 
@@ -559,13 +600,16 @@ ABOUT STYLE
 .about-card[data-openbackcard="true"] > .headline-wrapper h2 {
   font-family: var(--main-outline-font);
   font-size: 2em;
-  /*margin: 0 auto;
-  */padding-left: 1rem;
+  margin: none;
+  padding: 1rem;
   opacity: 1;
+  border: 2px solid silver;
+  outline: ridge 2px silver;
+  outline-offset: 10px;
   width: 200px;
-  max-height: auto;
-  animation: headlineGrow 2s ease-in none 1 normal;
-  -webkit-animation: headlineGrow 2s ease-in none 1 normal;
+  animation: headlineGrow 2s ease-in 1 forwards;
+  animation: name duration timing-function delay iteration-count direction fill-mode;
+  -webkit-animation: headlineGrow 2s ease-in 1 forwards;
 }
 
 @keyframes headlineGrow {
@@ -575,8 +619,14 @@ ABOUT STYLE
     opacity: 0;
   }
 
+  40% {
+    max-height: 0;
+    width: 100px;
+    opacity: 0;
+  }
+
   100% {
-    max-height: fit-content;
+    max-height: 2rem;
     width: 200px;
     opacity: 1;
   }
@@ -591,19 +641,37 @@ ABOUT STYLE
   color: white;
   max-height: 700px;
   max-width: 500px;
+  margin: none;
   padding: 1rem;
   opacity: 1;
-  transition: all 5s ease-in-out 2s;
-  -webkit-transition: all 5s ease-in-out 2s;
-  -moz-transition: all 5s ease-in-out 2s;
-  -ms-transition: all 5s ease-in-out 2s;
-  -o-transition: all 5s ease-in-out 2s;
+  /*animation: showDetails 5s ease-in-out 1s 1 forwards;
+  */transition: max-height 2s ease-in-out 2s, max-width 2s ease-in-out 2s, opacity 2s ease-in 3s, padding 2s ease-in 2s;
+  -webkit-transition: max-height 2s ease-in-out 2s, max-width 2s ease-in-out 2s, opacity 2s ease-in 3s,;
+  -moz-transition: max-height 2s ease-in-out 2s, max-width 2s ease-in-out 2s, opacity 2s ease-in 3s,;
+  -ms-transition: max-height 2s ease-in-out 2s, max-width 2s ease-in-out 2s, opacity 2s ease-in 3s,;
+  -o-transition: max-height 2s ease-in-out 2s, max-width 2s ease-in-out 2s, opacity 2s ease-in 3s,;
 }
 
-.about-card[data-openwebcard="true"] > .details,
-.about-card[data-openuxcard="true"] > .details,
-.about-card[data-openbackcard="true"] > .details {
-  
+@keyframes showDetails {
+  0% {
+    opacity: 0;
+    max-width: 0;
+    max-height: 0;
+  }
+  80% {
+    opacity: 0.5;
+    max-width: 250px;
+    max-height: 350px;
+  }
+  100% {
+    opacity: 1;
+    max-width: 500px;
+    max-height: 700px;
+  }
+}
+
+.details {
+  margin: 0;
 }
 
 /*********************************************************
@@ -847,7 +915,7 @@ FOOTER STYLE
   0% {
     opacity: 0;
     transform: rotateY(0);
-    background-size: 200px;
+    background-size: 5%, 200px;
   }
   50% {
     opacity: 1;
@@ -855,7 +923,7 @@ FOOTER STYLE
     background-size: 200px;
   }
   100% {
-    background-size: 5px;
+    background-size:1%, 100px;
   }
 }
 
