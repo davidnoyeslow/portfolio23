@@ -1,5 +1,4 @@
-import React, {useState, useCallback, useEffect, useRef} from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, {useState} from 'react';
 import Home from './comps/home';
 import MenuButton from './comps/menuButton';
 import Navbar from './comps/navbar';
@@ -17,19 +16,8 @@ function App() {
   
   return (
     <div className="App">
-      <AnimatePresence>
-      { homeActive && 
-      <motion.div
-        exit={{ rotateY: 40}}
-        transition={{
-          ease: "easeOut",
-          duration: 1,
-
-        }} 
-      >
-        <Home aboutActive={aboutActive}/>
-      </motion.div> }
-      </AnimatePresence>
+    
+      { homeActive &&  <Home aboutActive={aboutActive}/> }
       <MenuButton clicked={clicked} setClicked={setClicked}/>  
       <Navbar clicked={clicked} setClicked={setClicked} 
       homeActive={homeActive} setHomeActive={setHomeActive} 

@@ -48,28 +48,7 @@ const Home = ({ aboutActive}) => {
     })
   }, []);
 
-
-    // const icon = {
-    //     hidden: {
-    //       top: "10%",
-    //       opacity: 0,
-    //       pathLength: 0,
-    //       fillOpacity: 1,
-    //       fill: "rgb(0,0,0)",
-    //       stroke: "rgba(255, 255, 255, 1)"
-    //     },
-    //     visible: {
-    //       top: "2%",
-    //       opacity: 1,
-    //       pathLength: 1,
-    //       fillOpacity: 0,
-    //       fill: "#000000",
-    //       stroke: "#000000"
-          
-    //     }
-    //   };
-
-      const slide = {
+  const slide = {
         type: "spring",
         stiffness: 700,
         damping: 30
@@ -77,7 +56,7 @@ const Home = ({ aboutActive}) => {
     
 
     return (
-      <>
+      <div>
           <motion.div id="home" className="home-container">
             <motion.div 
               className='overlay2'
@@ -256,7 +235,7 @@ const Home = ({ aboutActive}) => {
             </motion.svg>
                     
           </motion.div>     
-      </>
+      </div>
         
         
     )
