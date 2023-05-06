@@ -1,14 +1,21 @@
 import React, {useState, useRef} from "react";
-import { motion } from "framer-motion";
 
-const Navbar = ({ clicked, setClicked, homeActive, setHomeActive, aboutActive, setAboutActive, portfolioActive, setPortfolioActive }) => {
+
+const Navbar = ({ clicked, setClicked, currentBackGrnd, setCurrentBackGrnd, lastBackGrnd, setLastBackGrnd, homeActive, setHomeActive, aboutActive, setAboutActive, portfolioActive, setPortfolioActive }) => {
   
-  const data1 = { 'data-before': 'ABOUT'};
-  const data2 = { 'data-before' : 'PORTFOLIO'};
-  
+  function backgroundCheck () {
+    if(currentBackGrnd === 1 || currentBackGrnd === 3) {
+      setLastBackGrnd(currentBackGrnd);
+      setCurrentBackGrnd(2);
+    } else {
+      setLastBackGrnd(currentBackGrnd);
+      setCurrentBackGrnd(3);
+    }
+  }
   
   const navToHome = (e) => {
-    if( homeActive === false) {
+    setCurrentBackGrnd(1);
+    if( !homeActive ) {
       setAboutActive(false);
       setPortfolioActive(false);
       setHomeActive(true);
@@ -17,20 +24,26 @@ const Navbar = ({ clicked, setClicked, homeActive, setHomeActive, aboutActive, s
   }
 
   const navToAbout = (e) => {
-   if( aboutActive === false ) {
-    setHomeActive(false);
-    setPortfolioActive(false);
-    setAboutActive(true); 
-    setClicked(false);
+    if( aboutActive) {
+      setClicked(false);
+    } else {
+        setHomeActive(false);
+        setPortfolioActive(false);
+        setAboutActive(true); 
+        setClicked(false);
+        backgroundCheck();
     }
   }
   
   const navToPortfolio = (e) => {
-    if( portfolioActive === false ) {
+    if ( portfolioActive ) {
+      setClicked(false);
+    } else {
       setHomeActive(false);
       setPortfolioActive(true);
       setAboutActive(false); 
       setClicked(false);
+      backgroundCheck();
     }
   }
 
@@ -38,10 +51,9 @@ const Navbar = ({ clicked, setClicked, homeActive, setHomeActive, aboutActive, s
       <div>
         <ul id="navSection" className={clicked ? 'navSection menu-show crt' : 'navSection crt'}>
           <div className="blur"></div>
-          <div className="grain2"></div>
-          <li className='navElement1 nav-link' onClick={navToHome}><h1 className={clicked ? 'nav-link1 item-show' : 'nav-link1' } {...data1}>HOME</h1></li>
-          <li className='navElement2 nav-link' onClick={navToAbout}><h1 className={clicked ? 'nav-link2 item-show' : 'nav-link2' } {...data1}>ABOUT</h1></li>
-          <li className='navElement3 nav-link' onClick={navToPortfolio}><h1 className={clicked ? 'nav-link3 item-show' : 'nav-link3' } {...data2}>PORTFOLIO</h1></li>
+          <li className='navElement1 nav-link' onClick={navToHome}><h1 className={clicked ? 'nav-link1 item-show' : 'nav-link1' } data-label="HOME">HOME</h1></li>
+          <li className='navElement2 nav-link' onClick={navToAbout}><h1 className={clicked ? 'nav-link2 item-show' : 'nav-link2' } data-label="ABOUT">ABOUT</h1></li>
+          <li className='navElement3 nav-link' onClick={navToPortfolio}><h1 className={clicked ? 'nav-link3 item-show' : 'nav-link3' } data-label="PORTFOLIO">PORTFOLIO</h1></li>
         </ul>
        </div>
         

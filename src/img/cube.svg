@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="34.80204mm"
+   height="27.743677mm"
+   viewBox="0 0 34.80204 27.743677"
+   version="1.1"
+   id="svg5"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2" />
+  <g
+     id="layer1"
+     transform="translate(-121.14447,-251.35017)">
+    <g
+       id="g1286"
+       style="fill:#000000;stroke:#000000;stroke-width:11.3991;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill;opacity:1">
+      <path
+         id="path1298"
+         style="fill:#e9e9ff;fill-rule:evenodd;stroke:none;stroke-width:11.7618;stroke-linejoin:round"
+         d="m 140.03128,262.49578 15.7207,-3.84634 v 17.70053 l -15.7207,1.37002 z"
+         points="155.75198,258.64944 155.75198,276.34997 140.03128,277.71999 140.03128,262.49578 " />
+      <path
+         id="path1288"
+         style="fill:#353564;fill-rule:evenodd;stroke:none;stroke-width:11.7618;stroke-linejoin:round"
+         d="m 120.94994,257.67518 v 18.32777 l 19.08134,1.71704 v -15.22421 z"
+         points="120.94994,276.00295 140.03128,277.71999 140.03128,262.49578 120.94994,257.67518 " />
+      <path
+         id="path1290"
+         style="fill:#4d4d9f;fill-rule:evenodd;stroke:none;stroke-width:11.7618;stroke-linejoin:round"
+         d="m 120.94994,257.67518 15.70997,-5.76558 19.09207,6.73984 -15.7207,3.84634 z"
+         points="136.65991,251.9096 155.75198,258.64944 140.03128,262.49578 120.94994,257.67518 " />
+      <path
+         id="path1296"
+         style="fill:#afafde;fill-rule:evenodd;stroke:none;stroke-width:11.7618;stroke-linejoin:round"
+         d="m 120.94994,276.00295 15.70997,-2.05363 19.09207,2.40065 -15.7207,1.37002 z"
+         points="136.65991,273.94932 155.75198,276.34997 140.03128,277.71999 120.94994,276.00295 " />
+      <path
+         id="path1294"
+         style="fill:#d7d7ff;fill-rule:evenodd;stroke:none;stroke-width:11.7618;stroke-linejoin:round"
+         d="m 136.65991,251.9096 v 22.03972 l 19.09207,2.40065 v -17.70053 z"
+         points="136.65991,273.94932 155.75198,276.34997 155.75198,258.64944 136.65991,251.9096 " />
+      <path
+         id="path1292"
+         style="fill:#8686bf;fill-rule:evenodd;stroke:none;stroke-width:11.7618;stroke-linejoin:round"
+         d="m 120.94994,257.67518 15.70997,-5.76558 v 22.03972 l -15.70997,2.05363 z"
+         points="136.65991,251.9096 136.65991,273.94932 120.94994,276.00295 120.94994,257.67518 " />
+    </g>
+  </g>
+</svg>

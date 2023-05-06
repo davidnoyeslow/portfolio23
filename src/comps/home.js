@@ -1,27 +1,12 @@
 import React, {useEffect} from "react";
-import { motion, AnimatePresence, useAnimationControls } from 'framer-motion';
+import { motion, useAnimationControls } from 'framer-motion';
 
-const Home = ({ aboutActive}) => {
+const Home = () => {
 
-  const shadowEffect = useAnimationControls();
   const grain = useAnimationControls();
   const outline = useAnimationControls();
 
   useEffect(() => {
-    shadowEffect.start({
-      x: [-1,-15,-3, 0],
-      y: [3, -1, 2, -3],
-      opacity: [0.5,0.4,0.7,0.9],
-      transition: {
-        delay: 1,
-        duration: 9,
-        repeat: Infinity,
-        repeatType: "mirror",
-        type: "spring"
-      } 
-      
-    });
-
     grain.start({
       x: [-.2, -.4, .20, .4],
       y: [0.9, -.3, -.8, .8],
@@ -69,23 +54,8 @@ const Home = ({ aboutActive}) => {
                           backgroundSize: {duration: 3,  }
               }}>
             </motion.div>
-            <motion.div 
-              className='body'
-              key="body"
-              initial={{opacity: 0}}
-              animate={{opacity:1}}
-              transition={{
-                opacity: {duration:3, ease: "easeIn" }
-                }}>
-            </motion.div>
-            <motion.div 
-              className="sillouette"
-              key="sillouette"
-              animate={shadowEffect}>
-            </motion.div>
-            {/* <motion.div className="grain"
-            animate={grain}>
-            </motion.div> */}
+            <div className='body'></div>
+            <div className="sillouette"></div>
             <motion.svg
         width="112.47301mm"
         height="15.797739mm"
@@ -233,8 +203,8 @@ const Home = ({ aboutActive}) => {
             animate={outline}/>
         </g>
             </motion.svg>
-                    
-          </motion.div>     
+            </motion.div>
+                
       </div>
         
         
