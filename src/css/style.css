@@ -146,23 +146,32 @@ HOME STYLE
 
 
 
-.name-container {
-  position: absolute;
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  align-items: baseline;
+  z-index: -97;
+  margin-top: 1rem;
+}
+
+.logo {
+
+  /* max-width: 105px;
+  max-height: 100px; */
+  margin: 0 auto;
 }
 
 .name {
-  position: absolute;
-  top: 2%;
-  width: 90%;
-  left: 1rem;
-  right: 1rem;
+  width: 100%;
   font-size:74.6667px;
   font-family:'Electronica Display Outline';
   -inkscape-font-specification:'Electronica Display Outline';
   white-space:pre;
   opacity:1;
   stroke-opacity:1;
-  stroke-width: 2px;
+  stroke-width: 1px;
   z-index: 2;
   animation: logoShift 5s ease-in;
   -webkit-animation: logoShift 5s ease-in;
