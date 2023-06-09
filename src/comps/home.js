@@ -30,21 +30,14 @@ const Home = () => {
     return (
       <div>
           <motion.div id="home" className="home-container">
-            {/* <motion.div 
+            <motion.div 
               className='overlay2'
               key="overlay"
-              mode={"wait"}
-              initial={{backgroundSize: "50px", opacity: 0}}
-              animate={{backgroundSize: "6px", opacity: 0.9}}
-              transition={{ 
-                          opacity: {duration: 2, ease: "easeInOut"},
-                          backgroundSize: {duration: 3,  }
-              }}>
-            </motion.div> */}
+              >
+            </motion.div>
             <div className='body'></div>
             <div className="sillouette"></div>
             <div className="logo-container">
-              <Logo />
               <Name />
             </div>
             
