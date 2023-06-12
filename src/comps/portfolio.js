@@ -32,44 +32,39 @@ const Portfolio = ({ lastBackGrnd }) => {
     return (
 
         <div>
-            <div className="section-wrapper">
+            <div className="portfolio-wrapper">
                 {renderBackDrop(lastBackGrnd)}
                 <div className="overlay2" style={{backgroundSize:"6px", opacity: 0.9}}></div>
-                <ul className="portfolio-list">
-                    <li className="portfolio-item"
+                <div className="portfolio-list">
+                    <div className="portfolio-item"
                         data-opentwcard={state.openTWCard}
                         onClick={()=> setState({...state, openTWCard: state.openTWCard ? false : true, openAWCard: false, openWHCard: false})}>
-                        <div className="project-name">
-                            <img className="project-preview" src={require('../img/treewoman.jpg')} alt="tw-preview"></img>
-                            <span>TREEWOMAN</span>
-                        </div>    
-                        
-                        <div className="project-details">
-                            <img className="project-img" src={require('../img/treewoman.jpg')} alt="treewoman-thumbnail" />
+                        <span className="project-name">TREEWOMAN</span>    
+                        <img className="project-img" src={require('../img/treewoman.jpg')} alt="treewoman-thumbnail" />
+                        <div className="project-description">
+                            <h1>TREEWOMAN</h1>
                             <ul className="project-links">
                                 <li style={{display:"inline"}}>Github</li>
                                 <li style={{display:"inline"}}><a>URL</a></li>
                             </ul>
-                            <div className="project-description">
-                                <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                Vivamus eget condimentum turpis, non gravida orci. 
-                                Duis blandit, nisi quis congue consequat, augue ipsum tempor odio, non eleifend tortor nulla in purus. Donec tempor ex vel ipsum mollis aliquet. 
-                                Etiam mollis ac ligula non lacinia. Nullam id nisl nunc. Donec tortor leo, vulputate vitae tristique eget, suscipit in ligula. 
-                                Sed ultricies elit nisi. Quisque pretium rhoncus tortor varius euismod. Vivamus massa erat, cursus sit amet ipsum vitae, elementum ullamcorper nisl.
-                                </p>
-                            </div>
+                            <p>
+                                Treewoman is a photo based memorial website where individuals can upload photo
+                                memories as well as comment on photos added by others. This project was my first complex React
+                                application. What started as a simple concept grew in complexity as the need for security 
+                                and user authentication became neccessary. I utilized Firebase and Google Cloud to bootstrap the 
+                                back end and maintain the user database.
+                            </p>
                         </div>
-                    </li>
-                    <li className="portfolio-item"
+                    </div>
+                    <div className="portfolio-item"
                         data-openwhcard={state.openWHCard}
                         onClick={()=> setState({...state, openWHCard: state.openWHCard ? false : true, openTWCard: false, openAWCard: false})}>
                         <div className="project-name">
                             <img className="project-preview" src={require('../img/herzog_site.jpg')} alt="herzog-preview"></img>
                             <span>HERZOG QUOTES</span>
                         </div>    
-                    </li>
-                    <li className="portfolio-item"
+                    </div>
+                    <div className="portfolio-item"
                         data-openawcard={state.openAWCard}
                         onClick={()=> setState({...state, openAWCard: state.openAWCard ? false : true, openTWCard: false, openWHCard: false})}>
                         <div className="project-name">
@@ -77,8 +72,8 @@ const Portfolio = ({ lastBackGrnd }) => {
                             <span>ALAN WATTS TRIBUTE</span>
                         </div>
                         
-                    </li>
-                </ul>
+                    </div>
+                </div>
                 
             </div>
             
