@@ -22,24 +22,22 @@ function Logo() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="218.641"
-      height="212"
+      width="312.488"
+      height="126.158"
       version="1.1"
-      viewBox="0 0 55.732 56.092"
-      className="logo"
+      viewBox="0 0 82.679 33.379"
     >
       <defs>
         <marker
-          id="Dot"
-          markerHeight="9"
-          markerWidth="9"
+          id="marker5343"
+          markerHeight="1.667"
+          markerWidth="1.667"
           orient="auto"
           overflow="visible"
           preserveAspectRatio="xMidYMid"
           refX="0"
           refY="0"
-          viewBox="-1 -5 4.667 15.667"
-    
+          viewBox="0 0 5.667 5.667"
         >
           <path
             fill="context-stroke"
@@ -50,273 +48,189 @@ function Logo() {
           ></path>
         </marker>
         <marker
-          id="3dots"
-          markerHeight="9.5"
-          markerWidth="7.5"
-          orient="auto-start-reverse"
+          id="Dot"
+          markerHeight="2.667"
+          markerWidth="2.667"
+          orient="auto"
           overflow="visible"
           preserveAspectRatio="xMidYMid"
           refX="0"
           refY="0"
-          viewBox="0 0 8 5"
+          viewBox="0 0 5.667 5.667"
         >
-          <g
+          <path
             fill="context-stroke"
+            fillRule="evenodd"
             stroke="context-stroke"
-            transform="scale(.5)"
-          >
-            <circle cx="4" cy="0" r="1"></circle>
-            <circle cx="8" cy="0" r="1"></circle>
-            <circle cx="12" cy="0" r="1"></circle>
-          </g>
+            strokeWidth=".5pt"
+            d="M2.5 0a2.5 2.5 0 01-5 0c0-1.38 1.15-2.5 2.5-2.5A2.5 2.5 0 012.5 0z"
+          ></path>
         </marker>
-        <clipPath id="clipPath33978-1" clipPathUnits="userSpaceOnUse">
-          <ellipse
-            cx="90.113"
-            cy="122.252"
-            fill="#000"
-            fillOpacity="1"
-            stroke="none"
-            strokeDasharray="none"
-            strokeDashoffset="0"
-            strokeOpacity="1"
-            strokeWidth="0.192"
-            paintOrder="fill markers stroke"
-            rx="2.239"
-            ry="2.047"
-          ></ellipse>
-        </clipPath>
-        <clipPath id="clipPath33974-8" clipPathUnits="userSpaceOnUse">
-          <ellipse
-            cx="89.988"
-            cy="122.749"
-            fill="#000"
-            fillOpacity="1"
-            stroke="none"
-            strokeDasharray="none"
-            strokeDashoffset="0"
-            strokeOpacity="1"
-            strokeWidth="0.233"
-            paintOrder="fill markers stroke"
-            rx="2.657"
-            ry="2.524"
-          ></ellipse>
-        </clipPath>
-        <filter
-          id="filter33944-1"
-          width="3.297"
-          height="3.513"
-          x="-1.149"
-          y="-1.256"
-          colorInterpolationFilters="sRGB"
-        >
-          <feGaussianBlur stdDeviation="0.751"></feGaussianBlur>
-        </filter>
-        <clipPath id="clipPath33970-0" clipPathUnits="userSpaceOnUse">
-          <ellipse
-            cx="90.113"
-            cy="122.252"
-            fill="#000"
-            fillOpacity="1"
-            stroke="none"
-            strokeDasharray="none"
-            strokeDashoffset="0"
-            strokeOpacity="1"
-            strokeWidth="0.192"
-            paintOrder="fill markers stroke"
-            rx="2.239"
-            ry="2.047"
-          ></ellipse>
-        </clipPath>
-        <filter
-          id="filter33948-8"
-          width="2.057"
-          height="2.154"
-          x="-0.528"
-          y="-0.577"
-          colorInterpolationFilters="sRGB"
-        >
-          <feGaussianBlur stdDeviation="0.932"></feGaussianBlur>
-        </filter>
-        <clipPath id="clipPath33966-7" clipPathUnits="userSpaceOnUse">
-          <ellipse
-            cx="90.113"
-            cy="122.252"
-            fill="#000"
-            fillOpacity="1"
-            stroke="none"
-            strokeDasharray="none"
-            strokeDashoffset="0"
-            strokeOpacity="1"
-            strokeWidth="0.192"
-            paintOrder="fill markers stroke"
-            rx="2.239"
-            ry="2.047"
-          ></ellipse>
-        </clipPath>
-        <filter
-          id="filter33952-1"
-          width="2.05"
-          height="2.132"
-          x="-0.525"
-          y="-0.566"
-          colorInterpolationFilters="sRGB"
-        >
-          <feGaussianBlur stdDeviation="0.834"></feGaussianBlur>
-        </filter>
-        <clipPath id="clipPath33962-4" clipPathUnits="userSpaceOnUse">
-          <ellipse
-            cx="88.982"
-            cy="123.254"
-            fill="#000"
-            fillOpacity="1"
-            stroke="none"
-            strokeDasharray="none"
-            strokeDashoffset="0"
-            strokeOpacity="1"
-            strokeWidth="0.118"
-            paintOrder="fill markers stroke"
-            rx="1.348"
-            ry="1.273"
-          ></ellipse>
-        </clipPath>
-        <filter
-          id="filter33956-7"
-          width="1.411"
-          height="1.452"
-          x="-0.206"
-          y="-0.226"
-          colorInterpolationFilters="sRGB"
-        >
-          <feGaussianBlur stdDeviation="0.251"></feGaussianBlur>
-        </filter>
       </defs>
-      <g transform="translate(-87.297 -132.435)">
-        <g transform="matrix(1.99368 0 0 1.98377 -89.375 -136.006)">
+      <g transform="translate(-25.98 -55.372)">
+        <g
+          stroke="#000"
+          strokeOpacity="1"
+          ariaLabel="digitalnoyes"
+          style={{}}
+          strokeWidth="0.511"
+          fontFamily="Electronica Display Solid"
+          fontSize="19.756"
+          transform="translate(1.136)"
+        >
           <path
-            fill="none"
+            fill="#000"
             fillOpacity="1"
             stroke="#000"
-            strokeDasharray="none"
-            strokeOpacity="1"
-            strokeWidth="0.3"
-            d="M90.23 152.414a12.442 12.758 0 014.036-12.39l8.118 9.667z"
-            paintOrder="stroke markers fill"
+            d="M31.806 56.45h-5.57v14.223h5.57c4.445 0 7.112-2.667 7.112-7.112s-2.667-7.112-7.112-7.112zm0 11.142h-1.778v-8.06h1.778c2.134 0 3.32 1.441 3.32 4.03 0 2.587-1.186 4.03-3.32 4.03z"
+          ></path>
+          <path
+            fill="#000"
+            fillOpacity="1"
+            stroke="#000"
+            d="M45.319 67.592v-8.06h1.422v-3.083h-6.637v3.082h1.422v8.06h-1.422v3.082h6.637v-3.081z"
+          ></path>
+          <path
+            fill="#000"
+            fillOpacity="1"
+            stroke="#000"
+            d="M62.309 62.455h-7.27v2.608h3.635c-.553 1.422-1.877 2.41-3.398 2.41a3.92 3.92 0 01-3.912-3.912 3.92 3.92 0 013.912-3.911c1.264 0 2.39.592 3.101 1.54l2.727-2.093a7.317 7.317 0 00-5.828-2.885c-4.07 0-7.35 3.3-7.35 7.35 0 4.069 3.28 7.348 7.35 7.348 3.931 0 7.112-3.279 7.112-7.349 0-.375-.02-.75-.08-1.106z"
+          ></path>
+          <path
+            fill="#000"
+            fillOpacity="1"
+            stroke="#000"
+            d="M68.789 67.592v-8.06h1.422v-3.083h-6.638v3.082h1.423v8.06h-1.423v3.082h6.638v-3.081z"
+          ></path>
+          <path
+            fill="#000"
+            fillOpacity="1"
+            stroke="#000"
+            d="M71.396 56.45v3.081h3.675v11.142h3.793V59.531h3.675V56.45z"
+          ></path>
+          <path
+            fill="#000"
+            fillOpacity="1"
+            stroke="#000"
+            d="M88.228 55.975l-6.875 14.698h13.75zm0 7.843l1.877 4.01H86.35z"
+          ></path>
+          <path
+            fill="#000"
+            fillOpacity="1"
+            stroke="#000"
+            d="M100.477 56.45h-3.794v14.223h9.72v-3.081h-5.926z"
           ></path>
           <path
             fill="none"
-            stroke="#000"
+            stroke="#fff"
             strokeDasharray="none"
-            strokeDashoffset="0"
-            strokeWidth="0.527"
-            markerStart="url(#Dot)"
-            d="M115.869 152.582a13.67 13.874 0 01-11.428 10.615 13.67 13.874 0 01-13.856-7.03 13.67 13.874 0 011.508-15.648 13.67 13.874 0 0114.937-4.17"
-            paintOrder="stroke markers fill"
+            strokeWidth="0.911"
+            d="M41.113 67.914v6.994l-8.06-7.468v14.698h3.793v-6.993l8.06 7.468V67.914z"
           ></path>
           <path
             fill="none"
-            stroke="#000"
+            stroke="#fff"
             strokeDasharray="none"
-            strokeWidth="0.4"
-            d="M98.148 140.097a10.468 10.469 0 0113.77 4.788 10.468 10.469 0 01-4.37 13.91 10.468 10.469 0 01-14.034-3.951"
-            paintOrder="stroke markers fill"
+            strokeWidth="0.911"
+            d="M69.956 67.914l-2.568 4.307-2.568-4.307h-4.425l5.097 8.535v5.69h3.793v-5.69l5.097-8.535z"
           ></path>
           <path
             fill="none"
-            stroke="#000"
+            stroke="#fff"
             strokeDasharray="none"
-            strokeDashoffset="0"
-            strokeWidth="0.3"
-            markerStart="url(#3dots)"
-            d="M110.309 148.526a7.83 7.86 0 01-5.532 8.589 7.83 7.86 0 01-9.303-4.17 7.83 7.86 0 012.677-9.868"
-            paintOrder="stroke markers fill"
+            strokeWidth="0.911"
+            d="M79.36 79.057v-2.49h5.453v-3.081H79.36v-2.49h4.03v-3.082h-7.823v14.224h10.668v-3.081z"
           ></path>
           <path
             fill="none"
-            stroke="#000"
+            stroke="#fff"
             strokeDasharray="none"
-            strokeWidth="0.224"
-            d="M103.677 155.383a5.84 5.898 0 01-6.402-3.254 5.84 5.898 0 011.542-7.07 5.84 5.898 0 017.163-.237"
-            paintOrder="stroke markers fill"
+            strokeWidth="0.911"
+            d="M91.332 72.182c0-.83.77-1.304 2.133-1.304 1.364 0 2.134.553 2.134 1.54h3.793c0-3.042-2.114-4.74-5.927-4.74-3.812 0-5.926 1.62-5.926 4.504 0 5.808 8.179 2.844 8.179 5.69 0 .829-.81 1.303-2.253 1.303-1.442 0-2.252-.553-2.252-1.54H87.42c0 3.042 2.154 4.74 6.045 4.74 3.873 0 6.046-1.6 6.046-4.504 0-5.808-8.18-2.845-8.18-5.69z"
           ></path>
-          <path
-            fill="none"
-            stroke="#000"
-            strokeDasharray="none"
-            strokeWidth="0.169"
-            d="M101.577 145.274a4.397 4.46 0 014.871 2.286 4.397 4.46 0 01-.938 5.362 4.397 4.46 0 01-5.35.446"
-            paintOrder="stroke markers fill"
-          ></path>
-          <g transform="matrix(.2216 0 0 .2216 81.103 121.152)">
-            <path
-              style={{ mixBlendMode: "normal" }}
-              fill="#333"
-              fillOpacity="1"
-              stroke="none"
-              strokeDasharray="none"
-              strokeDashoffset="0"
-              strokeOpacity="1"
-              strokeWidth="0.1"
-              d="M89.286 120.35c-.618.225-1.095.69-1.301 1.268l2.717 2.608c.702-.175 1.267-.651 1.515-1.277-1.232-.569-2.324-1.301-2.931-2.6z"
-              clipPath="url(#clipPath33970-0)"
-              filter="url(#filter33948-8)"
-              paintOrder="fill markers stroke"
-              transform="matrix(3.93395 0 0 4.07263 -257.818 -369.343)"
-            ></path>
-            <g transform="matrix(1.01556 0 0 1 -1.367 0)">
-              <g
-                fillOpacity="1"
-                stroke="none"
-                strokeDasharray="none"
-                strokeDashoffset="0"
-                strokeOpacity="1"
-                paintOrder="fill markers stroke"
-                transform="matrix(1 0 0 1.01842 0 -2.522)"
-              >
-                <ellipse
-                  cx="90.113"
-                  cy="122.252"
-                  fill="#000"
-                  strokeWidth="0.192"
-                  clipPath="url(#clipPath33978-1)"
-                  rx="2.239"
-                  ry="2.047"
-                  transform="matrix(3.93395 0 0 4.07263 -257.818 -369.343)"
-                ></ellipse>
-                <ellipse
-                  style={{ mixBlendMode: "normal" }}
-                  cx="90.95"
-                  cy="121.444"
-                  fill="#fff"
-                  strokeWidth="0.067"
-                  clipPath="url(#clipPath33974-8)"
-                  filter="url(#filter33944-1)"
-                  rx="0.785"
-                  ry="0.718"
-                  transform="matrix(3.31548 0 0 3.3034 -201.671 -276.947)"
-                ></ellipse>
-                <path
-                  style={{ mixBlendMode: "normal" }}
-                  fill="#1a1a1a"
-                  strokeWidth="0.1"
-                  d="M88.578 120.762a1.98 1.98 0 00-.699 1.367l2.265 2.17a2.35 2.35 0 001.55-.598c-1.322-.655-2.49-1.485-3.116-2.939z"
-                  clipPath="url(#clipPath33966-7)"
-                  filter="url(#filter33952-1)"
-                  transform="matrix(3.93395 0 0 4.07263 -257.818 -369.343)"
-                ></path>
-                <path
-                  style={{ mixBlendMode: "normal" }}
-                  fill="#000"
-                  strokeWidth="0.1"
-                  d="M87.98 121.633c-.07.2-.106.409-.106.619 0 1.13 1.003 2.047 2.24 2.047.235 0 .468-.034.692-.101-1.334-.519-2.237-1.407-2.827-2.565z"
-                  clipPath="url(#clipPath33962-4)"
-                  filter="url(#filter33956-7)"
-                  transform="matrix(6.53455 0 0 6.549 -484.775 -678.648)"
-                ></path>
-              </g>
-            </g>
-          </g>
         </g>
+        <text
+          xmlSpace="preserve"
+          style={{}}
+          x="39.813"
+          y="115.432"
+          fill="#000"
+          fillOpacity="1"
+          stroke="#000"
+          strokeWidth="0.511"
+          fontFamily="Electronica Display Solid"
+          fontSize="19.756"
+        ></text>
+        <text
+          xmlSpace="preserve"
+          style={{}}
+          x="38.818"
+          y="87.863"
+          fill="#000"
+          fillOpacity="1"
+          stroke="#000"
+          strokeDasharray="none"
+          strokeDashoffset="0"
+          strokeOpacity="1"
+          strokeWidth="0.311"
+          fontFamily="Electronica Display Solid"
+          fontSize="4.939"
+        >
+          <tspan
+            x="38.818"
+            y="87.863"
+            fill="#000"
+            fillOpacity="1"
+            strokeDasharray="none"
+            strokeWidth="0.311"
+            fontFamily="Electronica Display Solid"
+          >
+            development/design
+          </tspan>
+        </text>
+        <g
+          fill="none"
+          stroke="#fff"
+          strokeDasharray="none"
+          strokeOpacity="1"
+          strokeWidth="0.779"
+          paintOrder="stroke markers fill"
+          transform="matrix(.57222 0 0 .53929 -3.31 -5.432)"
+        >
+          <path
+            strokeDashoffset="0"
+            strokeWidth="0.779"
+            markerStart="url(#Dot)"
+            d="M90.475 142.952a13.67 13.874 0 0115.862-6.827 13.67 13.874 0 019.846 14.35 13.67 13.874 0 01-11.81 12.731 13.67 13.874 0 01-14.706-9.11"
+          ></path>
+          <path
+            strokeWidth="0.779"
+            d="M92.486 146.768a10.468 10.469 0 0111.257-7.583 10.468 10.469 0 019.28 9.907 10.468 10.469 0 01-8.302 10.74 10.468 10.469 0 01-11.924-6.485"
+          ></path>
+          <path
+            strokeDashoffset="0"
+            strokeWidth="0.794"
+            d="M94.582 147.235a8.065 7.92 0 018.633-5.593 8.065 7.92 0 017.14 7.35 8.065 7.92 0 01-6.096 8.205 8.065 7.92 0 01-9.306-4.432"
+          ></path>
+          <path
+            strokeWidth="0.809"
+            d="M96.542 147.859a6.055 6.13 0 016.35-4.622 6.055 6.13 0 015.554 5.575 6.055 6.13 0 01-4.509 6.47 6.055 6.13 0 01-7.049-3.43"
+          ></path>
+          <path
+            strokeWidth="0.821"
+            markerEnd="url(#marker5343)"
+            d="M97.835 148.386a4.667 4.669 0 014.175-3.722 4.667 4.669 0 014.748 2.957 4.667 4.669 0 01-1.497 5.39 4.667 4.669 0 01-5.593.084"
+          ></path>
+        </g>
+        <path
+          fill="#fff"
+          fillOpacity="1"
+          stroke="#fff"
+          strokeDasharray="none"
+          strokeOpacity="1"
+          strokeWidth="0.389"
+          d="M54.86 75.54l-8.417-3.237.05 6.037z"
+        ></path>
       </g>
     </svg>
   );

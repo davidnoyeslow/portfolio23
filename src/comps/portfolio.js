@@ -29,6 +29,21 @@ const Portfolio = ({ lastBackGrnd }) => {
         }
     }
 
+    const card = {
+        offscreen: {
+            opacity: 0
+        },
+        
+        onscreen: {
+            opacity: 1,
+            transition: {
+                duration:1,
+                delay: 2,
+                ease: "easeIn"
+            }
+        }
+    }
+
     return (
 
         <div>
@@ -36,17 +51,27 @@ const Portfolio = ({ lastBackGrnd }) => {
                 {renderBackDrop(lastBackGrnd)}
                 <div className="overlay2" style={{backgroundSize:"6px", opacity: 0.9}}></div>
                 <div className="portfolio-list">
-                    <div className="portfolio-item"
+                    <motion.div className="portfolio-item"
+                        initial={{opacity: 0}}
+                        animate={{opacity:1}}
+                        transition={{
+                            duration: 2,
+                            delay: 2
+                                    }}
                         data-opentwcard={state.openTWCard}
                         onClick={()=> setState({...state, openTWCard: state.openTWCard ? false : true, openAWCard: false, openWHCard: false})}>
                         <span className="project-name">TREEWOMAN</span>    
                         <img className="project-img" src={require('../img/treewoman.jpg')} alt="treewoman-thumbnail" />
                         <div className="project-description">
                             <h1>TREEWOMAN</h1>
-                            <ul className="project-links">
-                                <li style={{display:"inline"}}>Github</li>
-                                <li style={{display:"inline"}}><a>URL</a></li>
-                            </ul>
+                            <div className="project-links">
+                                <a>
+                                    <i className="web-link-icon"></i>
+                                </a>
+                                <a>
+                                    <i className="github-link-icon"></i>
+                                </a>
+                            </div>
                             <p>
                                 Treewoman is a photo based memorial website where individuals can upload photo
                                 memories as well as comment on photos added by others. This project was my first complex React
@@ -55,24 +80,62 @@ const Portfolio = ({ lastBackGrnd }) => {
                                 back end and maintain the user database.
                             </p>
                         </div>
-                    </div>
-                    <div className="portfolio-item"
+                    </motion.div>
+                    <motion.div className="portfolio-item"
+                        initial={{opacity: 0}}
+                        animate={{opacity:1}}
+                        transition={{
+                            duration: 2,
+                            delay: 2.3
+                                    }}
                         data-openwhcard={state.openWHCard}
                         onClick={()=> setState({...state, openWHCard: state.openWHCard ? false : true, openTWCard: false, openAWCard: false})}>
-                        <div className="project-name">
-                            <img className="project-preview" src={require('../img/herzog_site.jpg')} alt="herzog-preview"></img>
-                            <span>HERZOG QUOTES</span>
+                        <span className="project-name">HERZOG QUOTES</span>
+                        <img className="project-img" src={require('../img/herzog_site.jpg')} alt="herzog-preview"></img>
+                        <div className="project-description">
+                            <h1>HERZOG QUOTES</h1>
+                            <div className="project-links">
+                                <a>
+                                    <i className="web-link-icon"></i>
+                                </a>
+                                <a>
+                                    <i className="github-link-icon"></i>
+                                </a>
+                            </div>    
+                            
+                            <p>
+                                Herzog Quotes is Awesome!
+                            </p>
                         </div>    
-                    </div>
-                    <div className="portfolio-item"
+                    </motion.div>
+                    <motion.div className="portfolio-item"
+                        initial={{opacity: 0}}
+                        animate={{opacity:1}}
+                        transition={{
+                            duration: 2,
+                            delay: 2.6
+                                    }}
                         data-openawcard={state.openAWCard}
                         onClick={()=> setState({...state, openAWCard: state.openAWCard ? false : true, openTWCard: false, openWHCard: false})}>
-                        <div className="project-name">
-                            <img className="project-preview" src={require('../img/alan_site.jpg')} alt="aw-preview"></img>
-                            <span>ALAN WATTS TRIBUTE</span>
+                        <span className="project-name">ALAN WATTS: A BRIEF TRIBUTE</span>
+                        <img className="project-img" src={require('../img/alan_site.jpg')} alt="aw-preview"></img>
+                        <div className="project-description">
+                            <h1>ALAN WATTS: A BRIEF TRIBUTE</h1>
+                            <div className="project-links">
+                                <a>
+                                    <i className="web-link-icon"></i>
+                                </a>
+                                <a>
+                                    <i className="github-link-icon"></i>
+                                </a>
+                            </div>
+                            <p>
+                                Herzog Quotes is Awesome!
+                            </p>
                         </div>
                         
-                    </div>
+                        
+                    </motion.div>
                 </div>
                 
             </div>

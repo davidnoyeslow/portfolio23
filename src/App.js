@@ -5,6 +5,7 @@ import Navbar from './comps/navbar';
 import About from './comps/about';
 import Portfolio from './comps/portfolio';
 import './css/style.css';
+import './css/style2.scss';
 
 
 
