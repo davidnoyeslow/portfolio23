@@ -1,0 +1,407 @@
+/*********************************************************
+HOME STYLE
+**********************************************************/
+
+.home-container {
+    background-color: #d4d4d4;
+    position: relative;
+    height: inherit;
+    z-index: -96;
+    // perspective: 1200px;
+    
+  }
+  
+  .home-container[data-aboutActive="true"] {
+    transform: translateX(-50%);
+  }
+  
+  .home-container[data-aboutActive="true"] > .body {
+    filter: blur(20px);
+  }
+  
+  .body {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat,#d4d4d4;
+    background-size: contain;
+    position: absolute;
+    mask-image: url('../img/cube.svg');
+    mask-position: top;
+    mask-size: 2px 2px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: -97;
+    opacity: 0;
+    animation: firstAnimate 4s ease-in .9s forwards, noise-1 4s ease-in 1s alternate-reverse;
+    -webkit-animation: firstAnimate 4s ease-in .9s forwards, noise-1 4s ease-in 1s alternate-reverse;
+  } 
+
+  .sillouette {
+    background: url('../img/sillouette2.png') no-repeat;
+    background-size: contain;
+    background-position: bottom;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -97;
+    mask-image: url('../img/cube.svg');
+    mask-position: top;
+    mask-size: 2px 4px;
+    animation: shadow 1s ease-in 2s alternate-reverse 4;
+    -webkit-animation: shadow 1s ease-in 2s alternate-reverse 4;
+  }
+
+  
+  .logo-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    align-items: baseline;
+    z-index: 2;
+    margin-top: 1rem;
+  }
+  
+  .logo {
+  
+    /* max-width: 105px;
+    max-height: 100px; */
+    margin: 0 auto;
+  }
+  
+  .name {
+    width: 100%;
+    font-size:74.6667px;
+    font-family:'Electronica Display Outline';
+    -inkscape-font-specification:'Electronica Display Outline';
+    opacity:1;
+    stroke-opacity:1;
+    stroke-width: 1px;
+    z-index: 2;
+    
+  }
+  
+  .noyes {
+    opacity: 0;
+    animation: logoShift .5s ease-in;
+    -webkit-animation: logoShift .5s ease-in;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-delay: 2.3s;
+    -webkit-animation-delay: 2.3s;
+    
+  }
+
+  
+  
+  .dd {
+    font-family: var(--main-solid-font);
+  }
+  
+  
+  .grain {
+    background: url('../img/grain2.png') repeat;
+    background-size: 200%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  
+  }
+  
+  
+  .home-container[data-aboutActive="true"] > .name {
+    opacity: 0 !important;
+  }
+
+  
+  
+  @keyframes logoShift {
+    0% {
+      opacity:0
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes shadow {
+    
+    5% {
+      
+      transform: skewX(90deg);
+    }
+    6% {
+      transform: skewY(0);
+    }
+    30% {
+      transform: skewX(-90deg);
+    }
+    31% {
+      transform: skewX(0);
+    }
+    
+  }
+  
+  @keyframes firstAnimate {
+    0% {
+      opacity: 0;
+      
+    }
+    1%{
+      opacity: 1;
+    }
+    99% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      
+    }
+  }
+  
+  @keyframes noise-1 {
+      $steps: 100;
+      @for $i from 1 through 50 {
+        #{percentage($i* calc(1/$steps))} {
+          $top: random(700);
+          $bottom: random(701 - $top);
+          $left: random(100);
+          $right: random(101 - $left);
+          clip-path: inset(#{$top}px 0 #{$bottom}px 0);
+        }
+        #{percentage($i* calc(8/$steps))} {
+          $size: random(10);
+          background: url("../img/IMG_1840.jpg") bottom no-repeat,#d4d4d4;
+          background-size: contain;
+          transform: translateX(.2rem);
+          mask-size: #{$size}px #{$size}px;
+        }
+        #{percentage($i* calc(10/$steps))} {
+          $size: random(20);
+          background: url('../img/sillouette_red.png') bottom no-repeat,#d4d4d4;
+          background-size: contain;
+          mask-size: #{$size}px #{$size}px;
+          z-index: 1;
+        }
+        #{percentage($i* calc(15/$steps))} {
+          background: url('../img/sillouette_blue.png') bottom no-repeat,#d4d4d4;
+          background-size: contain;
+          mask-size: 10px 3px;
+          transform: translateX(-.2rem);
+          z-index: -98;
+        }
+        
+      }
+    }
+    
+    @keyframes project-mask {
+      0% {
+        background: url("../img/IMG_1840.jpg") bottom no-repeat,#d4d4d4;
+        transform: skew(0);
+        mask-size: 2px 6px;
+        -webkit-transform: skew(0);
+        -moz-transform: skew(0);
+        -ms-transform: skew(0);
+        -o-transform: skew(0);
+    }
+      1% {
+        background: linear-gradient(to left, rgb(18, 31, 207, 0.3) 0%, rgb(0, 255, 0, 0.3) 53%, rgb(207, 21, 18, 0.5) 97%), #d4d4d4;
+        transform:translateY(-2rem);
+        -webkit-transform:translateY(-2rem);
+        -moz-transform:translateY(-2rem);
+        -ms-transform:translateY(-2rem);
+        -o-transform:translateY(-2rem);
+    }
+      2% {
+        background: url("../img/IMG_1840.jpg") bottom no-repeat,#d4d4d4;
+        background-size: contain;
+        transform: translateY(0) skew(-10deg, 0) rotateY(90deg);
+        -webkit-transform: translateY(0) skew(-10deg, 0) rotateY(90deg);
+        -moz-transform: translateY(0) skew(-10deg, 0) rotateY(90deg);
+        -ms-transform: translateY(0) skew(-10deg, 0) rotateY(90deg);
+        -o-transform: translateY(0) skew(-10deg, 0) rotateY(90deg);
+    }
+      3% {
+        transform: skew(0,0) rotateY(0);
+        -webkit-transform: skew(0,0) rotateY(0);
+        -moz-transform: skew(0,0) rotateY(0);
+        -ms-transform: skew(0,0) rotateY(0);
+        -o-transform: skew(0,0) rotateY(0);
+    }
+      8% {
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+    }
+      9% {
+        background: linear-gradient(to left, rgb(18, 31, 207, 0.3) 0%, rgb(0, 255, 0, 0.3) 53%, rgb(207, 21, 18, 0.5) 97%), url("../img/IMG_1840.jpg") bottom no-repeat,#d4d4d4; 
+        transform: translate(-5rem, 1rem);
+        -webkit-transform: translate(-5rem, 1rem);
+        -moz-transform: translate(-5rem, 1rem);
+        -ms-transform: translate(-5rem, 1rem);
+        -o-transform: translate(-5rem, 1rem);
+    }
+      10% {
+        background: url("../img/IMG_1840.jpg") bottom no-repeat,#d4d4d4;
+        background-size: contain;
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+    }
+      11% {
+      transform: skew(0) translateY(0);
+      -webkit-transform: skew(0) translateY(0);
+      -moz-transform: skew(0) translateY(0);
+      -ms-transform: skew(0) translateY(0);
+      -o-transform: skew(0) translateY(0);
+    }
+      12% {
+        transform: translateY(0);
+        mask-size: 1px 1px;
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+    }
+    100% {
+      background: url("../img/IMG_1840.jpg") bottom no-repeat,#d4d4d4;
+      background-size: contain;
+      mask-size: 1px 1px;
+      transform: skew(0);
+      -webkit-transform: skew(0);
+      -moz-transform: skew(0);
+      -ms-transform: skew(0);
+      -o-transform: skew(0);
+    }
+    }
+  
+  @keyframes shadow {
+    0% {
+      transform: translateX(-70%);
+      -webkit-transform: translateX(-70%);
+      -moz-transform: translateX(-70%);
+      -ms-transform: translateX(-70%);
+      -o-transform: translateX(-70%);
+    }
+  
+    2% {
+      transform: translateX(0);
+      -webkit-transform: translateX(0);
+      -moz-transform: translateX(0);
+      -ms-transform: translateX(0);
+      -o-transform: translateX(0);
+    }
+
+    9%{
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    }
+
+    10% {
+      transform: translateX(80%);
+      -webkit-transform: translateX(80%);
+      -moz-transform: translateX(80%);
+      -ms-transform: translateX(80%);
+      -o-transform: translateX(80%);
+    }
+
+    11%{
+      transform: translateX(0);
+      -webkit-transform: translateX(0);
+      -moz-transform: translateX(0);
+      -ms-transform: translateX(0);
+      -o-transform: translateX(0);
+    }
+
+    12% {
+    transform: translateX(-0.5rem);
+    }
+
+    13% {
+      transform: translateX(0.2rem);
+    }
+
+    14% {
+      transform: translateX(-0.1rem);
+    }
+
+    15% {
+      transform: translateX(0.1rem);
+    }
+
+    16% {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes shadow2 {
+    0% {
+      background: url('../img/sillouette2.png') bottom no-repeat, url('../img/sillouette_blue.png') bottom center no-repeat, url('../img/sillouette_red.png') bottom center no-repeat;
+      background-size: contain;
+    }
+    
+    100% {
+      background: url('../img/sillouette2.png') bottom no-repeat, url('../img/sillouette_blue.png') bottom left no-repeat, url('../img/sillouette_red.png') bottom right no-repeat;
+      background-size: contain;
+    }
+  }
+
+  @media only screen and (max-device-width: 320px) {
+    .logo-container {
+      width: 60%;
+      margin: 0 auto;
+    }
+    
+  }
+
+  @media only screen and (min-device-width: 768px) {
+    .sillouette {
+      background: url('../img/sillouette2.png') bottom no-repeat, url('../img/sillouette_blue.png') bottom left no-repeat, url('../img/sillouette_red.png') bottom right no-repeat;
+      background-size: contain;
+      mask-image: url('../img/cube.svg');
+      mask-position: top;
+      mask-size: 2px 4px;
+      animation: shadow 1s ease-in 2s alternate-reverse 4, shadow2 .2s ease-in 5s both;
+    -webkit-animation: shadow 1s ease-in 2s alternate-reverse 4, shadow2 .2s ease-in 5s both;
+    }
+  }
+
+  // @media only screen and (max-width: 768px ) {
+  //   .sillouette {
+  //     background: url('../img/sillouette2.png') bottom no-repeat;
+  //     background-size: contain;
+  //   }
+  // } 
+
+  @media only screen and (max-device-width: 768px ) and (orientation: landscape) {
+    .logo-container {
+      width: 46%;
+      height: 100px;
+      margin-left: .5rem;
+    }
+  }
+  
+  @media screen and ( min-width: 769px ) {
+
+    .name {
+      left: 1rem;
+      width: 50%;
+  
+    }
+  
+    .menu-show {
+      width: 50%;
+    }
+
+}

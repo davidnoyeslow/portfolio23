@@ -1,0 +1,258 @@
+/*********************************************************
+PORTFOLIO STYLE
+**********************************************************/  
+
+.portfolio-wrapper {
+    background-color: #000000;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    height: inherit;
+    perspective: 100px;
+    -webkit-perspective: 100px;
+    padding: 0 .1rem;
+    overflow: hidden;
+    -webkit-transform: translateZ(-100vw);
+  }
+  
+  .portfolio-list {
+    // position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 10;
+  }
+  
+  .portfolio-item {
+    position: relative;
+    background-color: #000000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: var(--main-outline-font);
+    font-size: 2rem;
+    cursor: pointer;
+    color: #ffffff;
+    border: 1px solid white;
+    width: 95%;
+    height: fit-content;
+    margin: 2rem auto;
+    z-index: 98;
+    transform-style: preserve-3d;
+  }
+  
+  .project-points {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .project-name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    width: 100%;
+    height: fit-content;
+    z-index: 1;
+  }
+  
+  .project-img {
+    margin: 0 auto;
+    width: 100%;
+    height: 100px;
+    opacity: 1;
+    object-fit: cover;
+    opacity: 0;
+    z-index: 0;
+  }
+  
+  
+  .project-description {
+    opacity: 0;
+    height: 0;
+  }
+  
+  .portfolio-item[data-opentwcard='true'],
+  .portfolio-item[data-openwhcard='true'],
+  .portfolio-item[data-openawcard='true'] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    align-items: center;
+    z-index: 99;
+  }
+
+  .portfolio-item[data-opentwcard='true'] > .project-img,
+  .portfolio-item[data-openwhcard='true'] > .project-img,
+  .portfolio-item[data-openawcard='true'] > .project-img {
+    mask: none;
+    filter: brightness(100%);
+    opacity: 1;
+    padding: .5rem .2rem;
+    height: 300px;
+    width: 90%;
+    // object-fit: contain;
+  }
+  
+  .portfolio-item[data-opentwcard='true'] > .project-description,
+  .portfolio-item[data-openwhcard='true'] > .project-description,
+  .portfolio-item[data-openawcard='true'] > .project-description {
+    height: fit-content;
+    opacity: 1;
+    transition: all .3s ease-in;
+  }
+  
+  .portfolio-item[data-opentwcard='true'] > .project-name,
+  .portfolio-item[data-openwhcard='true'] > .project-name,
+  .portfolio-item[data-openawcard='true'] > .project-name {
+    display: none;
+  }
+  
+  
+  
+  .project-description h1 {
+    text-align: center;
+    color: #ffffff;
+    font-size: 2rem;
+    margin: .5rem 0 0 0;
+  }
+  
+  .project-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: fit-content;
+    padding-bottom: 2rem ;
+  }
+  
+  .project-links a {
+    background-color: #ffffff;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    margin: .5rem;
+    text-decoration: none;
+  }
+  
+  .web-link-icon {
+    background: url(../img/social/weblink-icon.svg) center no-repeat;
+    background-size: contain;
+    display:inline-block;
+    width: 25px;
+    height: 25px;
+  }
+  
+  .github-link-icon {
+    background: url(../img/social/github.svg) center no-repeat;
+    background-size: contain;
+    display:inline-block;
+    width: 25px;
+    height: 25px;
+    /* padding-bottom: 42px; */
+  }
+  
+  
+  .project-description p {
+    font-size: 1.1rem;
+    padding: .5rem 2rem;
+  }
+  //////////////////////////////////////////////////////////////
+  // MEDIA QUERIES //////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////
+  
+  @media (hover:hover){
+
+    .portfolio-item:hover .project-name {
+      font-family: var(--main-solid-font);
+    }
+    
+    .portfolio-item:hover .project-img  {
+      opacity: 1;
+      height: 300px;
+      filter: brightness(90%);
+      // mask-image: url('../img/cube.svg');
+      // mask-position: top;
+      // mask-size: 1px 3px;
+      transition: all .5s;
+      -webkit-transition: all .5s;
+      -moz-transition: all .5s;
+      -ms-transition: all .5s;
+      -o-transition: all .5s;
+      /* animation: project-static 1s ease infinite alternate-reverse; */
+    }
+
+    .portfolio-item[data-opentwcard='true'] > .project-img,
+    .portfolio-item[data-openwhcard='true'] > .project-img,
+    .portfolio-item[data-openawcard='true'] > .project-img {
+    mask: none;
+    filter: brightness(100%);
+    opacity: 1;
+    padding: .5rem .2rem;
+    height: 300px;
+    // object-fit: contain;
+  }
+  }
+
+  @media screen and ( min-width: 500px ) {
+
+    .portfolio-list {
+      display: grid;
+      align-items: stretch;
+      -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-align: stretch;
+      -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+      align-items: stretch;
+      grid-auto-columns: 1fr;
+      grid-column-gap: 2rem;
+      grid-row-gap: 1rem;
+      -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+      -ms-grid-rows: auto auto;
+      grid-template-rows: auto auto;
+    }
+
+    // .portfolio-item[data-opentwcard='true'],
+    // .portfolio-item[data-openwhcard='true'],
+    // .portfolio-item[data-openawcard='true'] {
+    //   align-items: center;
+    //   margin: 0 0;
+    //   width: 100%;
+    // }
+
+    
+
+    .portfolio-item[data-opentwcard='true'] > .project-description,
+    .portfolio-item[data-openwhcard='true'] > .project-description,
+    .portfolio-item[data-openawcard='true'] > .project-description {
+      // width: 60%;
+      // float: right;
+    }
+
+    .project-links {
+      padding-bottom: 0;
+    }
+  }  
+
+  @media screen and ( min-width: 700px ) {
+
+    .portfolio-item[data-opentwcard='true'],
+    .portfolio-item[data-openwhcard='true'],
+    .portfolio-item[data-openawcard='true'] {
+      display: inline;
+    }
+
+    .portfolio-item[data-opentwcard='true'] > .project-img,
+    .portfolio-item[data-openwhcard='true'] > .project-img,
+    .portfolio-item[data-openawcard='true'] > .project-img {
+      float: left;
+      width: 50%;
+      margin-left: .5rem;
+    }
+  }

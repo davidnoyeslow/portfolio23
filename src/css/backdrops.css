@@ -1,0 +1,86 @@
+/*********************************************************
+BACKDROP STYLES
+**********************************************************/
+.backdrop-2a,
+.backdrop-3a {
+  background: url("../img/grain.png") center repeat, url("../img/wallOverlay2.svg") top repeat;
+  background-size: 50%;
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  transform: rotateY(-40deg);
+  transform-style: preserve-3d;
+  z-index: -98;
+  overflow: visible;
+  -webkit-transform: rotateY(-40deg);
+  -moz-transform: rotateY(-40deg);
+  -ms-transform: rotateY(-40deg);
+  -o-transform: rotateY(-40deg);
+}
+
+.backdrop-2a {
+  animation: blinds 2s ease-in-out;
+  animation-iteration-count: 1;
+  -webkit-animation: blinds 2s ease-in-out;
+}
+
+.backdrop-3a {
+  animation: blinds2 2s ease-in-out;
+  -webkit-animation: blinds2 2s ease-in-out;
+  background-size: 10% 2%;
+  transform: rotateY(0) rotateX(-75deg) translateY(-50%);
+  -webkit-transform: rotateY(0) rotateX(-75deg) translateY(-50%);
+  -moz-transform: rotateY(0) rotateX(-75deg) translateY(-50%);
+  -ms-transform: rotateY(0) rotateX(-75deg) translateY(-50%);
+  -o-transform: rotateY(0) rotateX(-75deg) translateY(-50%);
+}
+
+.backdrop-2b,
+.backdrop-3b {
+  background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+  background-size: contain;
+  -webkit-mask-position: top;
+          mask-position: top;
+  -webkit-mask-repeat: repeat;
+          mask-repeat: repeat;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  /*transform-style: preserve-3d;
+  */
+  z-index: -97;
+}
+
+.backdrop-2b {
+  -webkit-mask-image: url("../img/wallOverlay.svg");
+          mask-image: url("../img/wallOverlay.svg");
+  animation: mask 4s ease-in-out forwards;
+  -webkit-animation: mask 4s ease-in-out forwards;
+}
+
+.backdrop-3b {
+  background-size: 200%;
+  transform: rotateY(0) rotateX(50deg);
+  -webkit-mask-image: url("../img/cube.svg");
+          mask-image: url("../img/cube.svg");
+  -webkit-mask-position: top;
+          mask-position: top;
+  -webkit-mask-size: 19px 9px;
+          mask-size: 19px 9px;
+  animation: mask2 2s ease-in forwards;
+  -webkit-animation: mask2 2s ease-in forwards;
+  -webkit-transform: rotateY(0) rotateX(50deg);
+  -moz-transform: rotateY(0) rotateX(50deg);
+  -ms-transform: rotateY(0) rotateX(50deg);
+  -o-transform: rotateY(0) rotateX(50deg);
+}
+
+.reverse-animation {
+  animation: blinds2 2s ease-in-out;
+  -webkit-animation: blinds2 2s ease-in-out;
+  animation-direction: reverse;
+}/*# sourceMappingURL=backdrops.css.map */

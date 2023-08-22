@@ -1,5 +1,5 @@
 import React, {useState, useRef} from "react";
-
+import '../css/navbar.scss';
 
 const Navbar = ({ clicked, setClicked, currentBackGrnd, setCurrentBackGrnd, lastBackGrnd, setLastBackGrnd, homeActive, setHomeActive, aboutActive, setAboutActive, portfolioActive, setPortfolioActive }) => {
   

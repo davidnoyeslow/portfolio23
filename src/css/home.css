@@ -1,0 +1,1601 @@
+/*********************************************************
+HOME STYLE
+**********************************************************/
+.home-container {
+  background-color: #d4d4d4;
+  position: relative;
+  height: 100vh;
+  z-index: -96;
+  perspective: 1200px;
+}
+
+.home-container[data-aboutActive=true] {
+  transform: translateX(-50%);
+}
+
+.home-container[data-aboutActive=true] > .body {
+  filter: blur(20px);
+}
+
+.body {
+  background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+  background-size: contain;
+  position: absolute;
+  -webkit-mask-image: url("../img/cube.svg");
+          mask-image: url("../img/cube.svg");
+  -webkit-mask-position: top;
+          mask-position: top;
+  -webkit-mask-size: 2px 2px;
+          mask-size: 2px 2px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /*height: 100%;
+  */
+  width: 100%;
+  max-height: 100vh;
+  z-index: -97;
+  animation: firstAnimate 1s ease-in forwards, noise-1 4s ease-in 2s alternate-reverse;
+  -webkit-animation: firstAnimate 1s ease-in forwards, noise-1 4s ease-in 2s alternate-reverse;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  align-items: baseline;
+  z-index: 2;
+  margin-top: 1rem;
+}
+
+.logo {
+  /* max-width: 105px;
+  max-height: 100px; */
+  margin: 0 auto;
+}
+
+.name {
+  width: 100%;
+  font-size: 74.6667px;
+  font-family: "Electronica Display Outline";
+  -inkscape-font-specification: "Electronica Display Outline";
+  opacity: 1;
+  stroke-opacity: 1;
+  stroke-width: 1px;
+  z-index: 2;
+}
+
+.noyes {
+  opacity: 0;
+  animation: logoShift 0.5s ease-in;
+  -webkit-animation: logoShift 0.5s ease-in;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+  animation-delay: 2.3s;
+  -webkit-animation-delay: 2.3s;
+}
+
+.dd {
+  font-family: var(--main-solid-font);
+}
+
+.grain {
+  background: url("../img/grain2.png") repeat;
+  background-size: 200%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.overlay2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../img/pattern2.png") repeat top left;
+  background-size: 3px;
+  opacity: 0.9;
+  z-index: 0;
+}
+
+.home-container[data-aboutActive=true] > .name {
+  opacity: 0 !important;
+}
+
+.sillouette {
+  background: url("../img/sillouette2.png") bottom no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-height: 100vh;
+  z-index: -97;
+  -webkit-mask-image: url("../img/cube.svg");
+          mask-image: url("../img/cube.svg");
+  -webkit-mask-position: top;
+          mask-position: top;
+  -webkit-mask-size: 2px 4px;
+          mask-size: 2px 4px;
+  animation: firstAnimate 1s ease-in forwards, shadow 1s ease-in 2s alternate-reverse 4;
+  -webkit-animation: firstAnimate 1s ease-in forwards, shadow 1s ease-in 2s alternate-reverse 4;
+}
+
+@keyframes logoShift {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes shadow {
+  5% {
+    transform: skewX(90deg);
+  }
+  6% {
+    transform: skewY(0);
+  }
+  30% {
+    transform: skewX(-90deg);
+  }
+  31% {
+    transform: skewX(0);
+  }
+}
+@keyframes firstAnimate {
+  0% {
+    filter: blur(500px);
+  }
+  100% {
+    filter: blur(0);
+  }
+}
+@keyframes noise-1 {
+  1% {
+    -webkit-clip-path: inset(613px 0 70px 0);
+            clip-path: inset(613px 0 70px 0);
+  }
+  8% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+  }
+  10% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 8px 8px;
+            mask-size: 8px 8px;
+    z-index: 1;
+  }
+  15% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  2% {
+    -webkit-clip-path: inset(501px 0 21px 0);
+            clip-path: inset(501px 0 21px 0);
+  }
+  16% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 2px 2px;
+            mask-size: 2px 2px;
+  }
+  20% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 18px 18px;
+            mask-size: 18px 18px;
+    z-index: 1;
+  }
+  30% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  3% {
+    -webkit-clip-path: inset(458px 0 99px 0);
+            clip-path: inset(458px 0 99px 0);
+  }
+  24% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 8px 8px;
+            mask-size: 8px 8px;
+  }
+  30% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 15px 15px;
+            mask-size: 15px 15px;
+    z-index: 1;
+  }
+  45% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  4% {
+    -webkit-clip-path: inset(237px 0 17px 0);
+            clip-path: inset(237px 0 17px 0);
+  }
+  32% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+  }
+  40% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 20px 20px;
+            mask-size: 20px 20px;
+    z-index: 1;
+  }
+  60% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  5% {
+    -webkit-clip-path: inset(110px 0 313px 0);
+            clip-path: inset(110px 0 313px 0);
+  }
+  40% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+  }
+  50% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 18px 18px;
+            mask-size: 18px 18px;
+    z-index: 1;
+  }
+  75% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  6% {
+    -webkit-clip-path: inset(119px 0 364px 0);
+            clip-path: inset(119px 0 364px 0);
+  }
+  48% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 6px 6px;
+            mask-size: 6px 6px;
+  }
+  60% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 9px 9px;
+            mask-size: 9px 9px;
+    z-index: 1;
+  }
+  90% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  7% {
+    -webkit-clip-path: inset(94px 0 133px 0);
+            clip-path: inset(94px 0 133px 0);
+  }
+  56% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 1px 1px;
+            mask-size: 1px 1px;
+  }
+  70% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+    z-index: 1;
+  }
+  105% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  8% {
+    -webkit-clip-path: inset(658px 0 6px 0);
+            clip-path: inset(658px 0 6px 0);
+  }
+  64% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 7px 7px;
+            mask-size: 7px 7px;
+  }
+  80% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 10px;
+            mask-size: 10px 10px;
+    z-index: 1;
+  }
+  120% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  9% {
+    -webkit-clip-path: inset(388px 0 79px 0);
+            clip-path: inset(388px 0 79px 0);
+  }
+  72% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 7px 7px;
+            mask-size: 7px 7px;
+  }
+  90% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 1px 1px;
+            mask-size: 1px 1px;
+    z-index: 1;
+  }
+  135% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  10% {
+    -webkit-clip-path: inset(246px 0 211px 0);
+            clip-path: inset(246px 0 211px 0);
+  }
+  80% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 10px 10px;
+            mask-size: 10px 10px;
+  }
+  100% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 4px 4px;
+            mask-size: 4px 4px;
+    z-index: 1;
+  }
+  150% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  11% {
+    -webkit-clip-path: inset(49px 0 441px 0);
+            clip-path: inset(49px 0 441px 0);
+  }
+  88% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 7px 7px;
+            mask-size: 7px 7px;
+  }
+  110% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 12px 12px;
+            mask-size: 12px 12px;
+    z-index: 1;
+  }
+  165% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  12% {
+    -webkit-clip-path: inset(351px 0 9px 0);
+            clip-path: inset(351px 0 9px 0);
+  }
+  96% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+  }
+  120% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 15px 15px;
+            mask-size: 15px 15px;
+    z-index: 1;
+  }
+  180% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  13% {
+    -webkit-clip-path: inset(663px 0 26px 0);
+            clip-path: inset(663px 0 26px 0);
+  }
+  104% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 6px 6px;
+            mask-size: 6px 6px;
+  }
+  130% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 18px 18px;
+            mask-size: 18px 18px;
+    z-index: 1;
+  }
+  195% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  14% {
+    -webkit-clip-path: inset(378px 0 154px 0);
+            clip-path: inset(378px 0 154px 0);
+  }
+  112% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 10px 10px;
+            mask-size: 10px 10px;
+  }
+  140% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 19px 19px;
+            mask-size: 19px 19px;
+    z-index: 1;
+  }
+  210% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  15% {
+    -webkit-clip-path: inset(110px 0 477px 0);
+            clip-path: inset(110px 0 477px 0);
+  }
+  120% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 10px 10px;
+            mask-size: 10px 10px;
+  }
+  150% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 20px 20px;
+            mask-size: 20px 20px;
+    z-index: 1;
+  }
+  225% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  16% {
+    -webkit-clip-path: inset(269px 0 68px 0);
+            clip-path: inset(269px 0 68px 0);
+  }
+  128% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 9px 9px;
+            mask-size: 9px 9px;
+  }
+  160% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+    z-index: 1;
+  }
+  240% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  17% {
+    -webkit-clip-path: inset(678px 0 13px 0);
+            clip-path: inset(678px 0 13px 0);
+  }
+  136% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 2px 2px;
+            mask-size: 2px 2px;
+  }
+  170% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 13px 13px;
+            mask-size: 13px 13px;
+    z-index: 1;
+  }
+  255% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  18% {
+    -webkit-clip-path: inset(199px 0 135px 0);
+            clip-path: inset(199px 0 135px 0);
+  }
+  144% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 5px 5px;
+            mask-size: 5px 5px;
+  }
+  180% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 11px 11px;
+            mask-size: 11px 11px;
+    z-index: 1;
+  }
+  270% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  19% {
+    -webkit-clip-path: inset(466px 0 13px 0);
+            clip-path: inset(466px 0 13px 0);
+  }
+  152% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 4px 4px;
+            mask-size: 4px 4px;
+  }
+  190% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 10px;
+            mask-size: 10px 10px;
+    z-index: 1;
+  }
+  285% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  20% {
+    -webkit-clip-path: inset(24px 0 425px 0);
+            clip-path: inset(24px 0 425px 0);
+  }
+  160% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 5px 5px;
+            mask-size: 5px 5px;
+  }
+  200% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 15px 15px;
+            mask-size: 15px 15px;
+    z-index: 1;
+  }
+  300% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  21% {
+    -webkit-clip-path: inset(255px 0 105px 0);
+            clip-path: inset(255px 0 105px 0);
+  }
+  168% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 2px 2px;
+            mask-size: 2px 2px;
+  }
+  210% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 1px 1px;
+            mask-size: 1px 1px;
+    z-index: 1;
+  }
+  315% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  22% {
+    -webkit-clip-path: inset(32px 0 394px 0);
+            clip-path: inset(32px 0 394px 0);
+  }
+  176% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 1px 1px;
+            mask-size: 1px 1px;
+  }
+  220% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 5px 5px;
+            mask-size: 5px 5px;
+    z-index: 1;
+  }
+  330% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  23% {
+    -webkit-clip-path: inset(463px 0 93px 0);
+            clip-path: inset(463px 0 93px 0);
+  }
+  184% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 5px 5px;
+            mask-size: 5px 5px;
+  }
+  230% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 9px 9px;
+            mask-size: 9px 9px;
+    z-index: 1;
+  }
+  345% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  24% {
+    -webkit-clip-path: inset(500px 0 88px 0);
+            clip-path: inset(500px 0 88px 0);
+  }
+  192% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 1px 1px;
+            mask-size: 1px 1px;
+  }
+  240% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 11px 11px;
+            mask-size: 11px 11px;
+    z-index: 1;
+  }
+  360% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  25% {
+    -webkit-clip-path: inset(276px 0 260px 0);
+            clip-path: inset(276px 0 260px 0);
+  }
+  200% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 1px 1px;
+            mask-size: 1px 1px;
+  }
+  250% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 19px 19px;
+            mask-size: 19px 19px;
+    z-index: 1;
+  }
+  375% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  26% {
+    -webkit-clip-path: inset(93px 0 333px 0);
+            clip-path: inset(93px 0 333px 0);
+  }
+  208% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 6px 6px;
+            mask-size: 6px 6px;
+  }
+  260% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 15px 15px;
+            mask-size: 15px 15px;
+    z-index: 1;
+  }
+  390% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  27% {
+    -webkit-clip-path: inset(205px 0 173px 0);
+            clip-path: inset(205px 0 173px 0);
+  }
+  216% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+  }
+  270% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 5px 5px;
+            mask-size: 5px 5px;
+    z-index: 1;
+  }
+  405% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  28% {
+    -webkit-clip-path: inset(557px 0 14px 0);
+            clip-path: inset(557px 0 14px 0);
+  }
+  224% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 5px 5px;
+            mask-size: 5px 5px;
+  }
+  280% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 4px 4px;
+            mask-size: 4px 4px;
+    z-index: 1;
+  }
+  420% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  29% {
+    -webkit-clip-path: inset(10px 0 657px 0);
+            clip-path: inset(10px 0 657px 0);
+  }
+  232% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 5px 5px;
+            mask-size: 5px 5px;
+  }
+  290% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 1px 1px;
+            mask-size: 1px 1px;
+    z-index: 1;
+  }
+  435% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  30% {
+    -webkit-clip-path: inset(56px 0 607px 0);
+            clip-path: inset(56px 0 607px 0);
+  }
+  240% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 9px 9px;
+            mask-size: 9px 9px;
+  }
+  300% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+    z-index: 1;
+  }
+  450% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  31% {
+    -webkit-clip-path: inset(83px 0 405px 0);
+            clip-path: inset(83px 0 405px 0);
+  }
+  248% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+  }
+  310% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 15px 15px;
+            mask-size: 15px 15px;
+    z-index: 1;
+  }
+  465% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  32% {
+    -webkit-clip-path: inset(357px 0 226px 0);
+            clip-path: inset(357px 0 226px 0);
+  }
+  256% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 10px 10px;
+            mask-size: 10px 10px;
+  }
+  320% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 18px 18px;
+            mask-size: 18px 18px;
+    z-index: 1;
+  }
+  480% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  33% {
+    -webkit-clip-path: inset(344px 0 298px 0);
+            clip-path: inset(344px 0 298px 0);
+  }
+  264% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 1px 1px;
+            mask-size: 1px 1px;
+  }
+  330% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 1px 1px;
+            mask-size: 1px 1px;
+    z-index: 1;
+  }
+  495% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  34% {
+    -webkit-clip-path: inset(554px 0 52px 0);
+            clip-path: inset(554px 0 52px 0);
+  }
+  272% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 8px 8px;
+            mask-size: 8px 8px;
+  }
+  340% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 2px 2px;
+            mask-size: 2px 2px;
+    z-index: 1;
+  }
+  510% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  35% {
+    -webkit-clip-path: inset(457px 0 37px 0);
+            clip-path: inset(457px 0 37px 0);
+  }
+  280% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 6px 6px;
+            mask-size: 6px 6px;
+  }
+  350% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 7px 7px;
+            mask-size: 7px 7px;
+    z-index: 1;
+  }
+  525% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  36% {
+    -webkit-clip-path: inset(28px 0 405px 0);
+            clip-path: inset(28px 0 405px 0);
+  }
+  288% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 1px 1px;
+            mask-size: 1px 1px;
+  }
+  360% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 18px 18px;
+            mask-size: 18px 18px;
+    z-index: 1;
+  }
+  540% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  37% {
+    -webkit-clip-path: inset(354px 0 28px 0);
+            clip-path: inset(354px 0 28px 0);
+  }
+  296% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 10px 10px;
+            mask-size: 10px 10px;
+  }
+  370% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 7px 7px;
+            mask-size: 7px 7px;
+    z-index: 1;
+  }
+  555% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  38% {
+    -webkit-clip-path: inset(265px 0 49px 0);
+            clip-path: inset(265px 0 49px 0);
+  }
+  304% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 10px 10px;
+            mask-size: 10px 10px;
+  }
+  380% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 1px 1px;
+            mask-size: 1px 1px;
+    z-index: 1;
+  }
+  570% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  39% {
+    -webkit-clip-path: inset(166px 0 469px 0);
+            clip-path: inset(166px 0 469px 0);
+  }
+  312% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 10px 10px;
+            mask-size: 10px 10px;
+  }
+  390% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 12px 12px;
+            mask-size: 12px 12px;
+    z-index: 1;
+  }
+  585% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  40% {
+    -webkit-clip-path: inset(139px 0 402px 0);
+            clip-path: inset(139px 0 402px 0);
+  }
+  320% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+  }
+  400% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 18px 18px;
+            mask-size: 18px 18px;
+    z-index: 1;
+  }
+  600% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  41% {
+    -webkit-clip-path: inset(645px 0 3px 0);
+            clip-path: inset(645px 0 3px 0);
+  }
+  328% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 10px 10px;
+            mask-size: 10px 10px;
+  }
+  410% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 6px 6px;
+            mask-size: 6px 6px;
+    z-index: 1;
+  }
+  615% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  42% {
+    -webkit-clip-path: inset(418px 0 41px 0);
+            clip-path: inset(418px 0 41px 0);
+  }
+  336% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 5px 5px;
+            mask-size: 5px 5px;
+  }
+  420% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 10px;
+            mask-size: 10px 10px;
+    z-index: 1;
+  }
+  630% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  43% {
+    -webkit-clip-path: inset(396px 0 151px 0);
+            clip-path: inset(396px 0 151px 0);
+  }
+  344% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 7px 7px;
+            mask-size: 7px 7px;
+  }
+  430% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 16px 16px;
+            mask-size: 16px 16px;
+    z-index: 1;
+  }
+  645% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  44% {
+    -webkit-clip-path: inset(151px 0 427px 0);
+            clip-path: inset(151px 0 427px 0);
+  }
+  352% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 7px 7px;
+            mask-size: 7px 7px;
+  }
+  440% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 19px 19px;
+            mask-size: 19px 19px;
+    z-index: 1;
+  }
+  660% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  45% {
+    -webkit-clip-path: inset(541px 0 23px 0);
+            clip-path: inset(541px 0 23px 0);
+  }
+  360% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 10px 10px;
+            mask-size: 10px 10px;
+  }
+  450% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 4px 4px;
+            mask-size: 4px 4px;
+    z-index: 1;
+  }
+  675% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  46% {
+    -webkit-clip-path: inset(65px 0 530px 0);
+            clip-path: inset(65px 0 530px 0);
+  }
+  368% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 6px 6px;
+            mask-size: 6px 6px;
+  }
+  460% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 4px 4px;
+            mask-size: 4px 4px;
+    z-index: 1;
+  }
+  690% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  47% {
+    -webkit-clip-path: inset(288px 0 51px 0);
+            clip-path: inset(288px 0 51px 0);
+  }
+  376% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 7px 7px;
+            mask-size: 7px 7px;
+  }
+  470% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 2px 2px;
+            mask-size: 2px 2px;
+    z-index: 1;
+  }
+  705% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  48% {
+    -webkit-clip-path: inset(504px 0 181px 0);
+            clip-path: inset(504px 0 181px 0);
+  }
+  384% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 9px 9px;
+            mask-size: 9px 9px;
+  }
+  480% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 20px 20px;
+            mask-size: 20px 20px;
+    z-index: 1;
+  }
+  720% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  49% {
+    -webkit-clip-path: inset(140px 0 75px 0);
+            clip-path: inset(140px 0 75px 0);
+  }
+  392% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 4px 4px;
+            mask-size: 4px 4px;
+  }
+  490% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 6px 6px;
+            mask-size: 6px 6px;
+    z-index: 1;
+  }
+  735% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  50% {
+    -webkit-clip-path: inset(130px 0 88px 0);
+            clip-path: inset(130px 0 88px 0);
+  }
+  400% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateX(0.2rem);
+    -webkit-mask-size: 4px 4px;
+            mask-size: 4px 4px;
+  }
+  500% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 13px 13px;
+            mask-size: 13px 13px;
+    z-index: 1;
+  }
+  750% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+}
+@keyframes project-mask {
+  0% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    transform: skew(0);
+    -webkit-mask-size: 2px 6px;
+            mask-size: 2px 6px;
+    -webkit-transform: skew(0);
+    -moz-transform: skew(0);
+    -ms-transform: skew(0);
+    -o-transform: skew(0);
+  }
+  1% {
+    background: linear-gradient(to left, rgba(18, 31, 207, 0.3) 0%, rgba(0, 255, 0, 0.3) 53%, rgba(207, 21, 18, 0.5) 97%), #d4d4d4;
+    transform: translateY(-2rem);
+    -webkit-transform: translateY(-2rem);
+    -moz-transform: translateY(-2rem);
+    -ms-transform: translateY(-2rem);
+    -o-transform: translateY(-2rem);
+  }
+  2% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateY(0) skew(-10deg, 0) rotateY(90deg);
+    -webkit-transform: translateY(0) skew(-10deg, 0) rotateY(90deg);
+    -moz-transform: translateY(0) skew(-10deg, 0) rotateY(90deg);
+    -ms-transform: translateY(0) skew(-10deg, 0) rotateY(90deg);
+    -o-transform: translateY(0) skew(-10deg, 0) rotateY(90deg);
+  }
+  3% {
+    transform: skew(0, 0) rotateY(0);
+    -webkit-transform: skew(0, 0) rotateY(0);
+    -moz-transform: skew(0, 0) rotateY(0);
+    -ms-transform: skew(0, 0) rotateY(0);
+    -o-transform: skew(0, 0) rotateY(0);
+  }
+  8% {
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+  }
+  9% {
+    background: linear-gradient(to left, rgba(18, 31, 207, 0.3) 0%, rgba(0, 255, 0, 0.3) 53%, rgba(207, 21, 18, 0.5) 97%), url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    transform: translate(-5rem, 1rem);
+    -webkit-transform: translate(-5rem, 1rem);
+    -moz-transform: translate(-5rem, 1rem);
+    -ms-transform: translate(-5rem, 1rem);
+    -o-transform: translate(-5rem, 1rem);
+  }
+  10% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+  }
+  11% {
+    transform: skew(0) translateY(0);
+    -webkit-transform: skew(0) translateY(0);
+    -moz-transform: skew(0) translateY(0);
+    -ms-transform: skew(0) translateY(0);
+    -o-transform: skew(0) translateY(0);
+  }
+  12% {
+    transform: translateY(0);
+    -webkit-mask-size: 1px 1px;
+            mask-size: 1px 1px;
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+  }
+  100% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 1px 1px;
+            mask-size: 1px 1px;
+    transform: skew(0);
+    -webkit-transform: skew(0);
+    -moz-transform: skew(0);
+    -ms-transform: skew(0);
+    -o-transform: skew(0);
+  }
+}
+@keyframes shadow {
+  0% {
+    transform: translateX(-70%);
+    -webkit-transform: translateX(-70%);
+    -moz-transform: translateX(-70%);
+    -ms-transform: translateX(-70%);
+    -o-transform: translateX(-70%);
+  }
+  2% {
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+  }
+  9% {
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+  }
+  10% {
+    transform: translateX(80%);
+    -webkit-transform: translateX(80%);
+    -moz-transform: translateX(80%);
+    -ms-transform: translateX(80%);
+    -o-transform: translateX(80%);
+  }
+  11% {
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+  }
+  12% {
+    transform: translateX(-0.5rem);
+  }
+  13% {
+    transform: translateX(0.2rem);
+  }
+  14% {
+    transform: translateX(-0.1rem);
+  }
+  15% {
+    transform: translateX(0.1rem);
+  }
+  16% {
+    transform: translateX(0);
+  }
+}/*# sourceMappingURL=home.css.map */

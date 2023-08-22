@@ -1,5 +1,8 @@
 import React, {useState} from "react";
 import {motion} from "framer-motion";
+import Div100vh from "react-div-100vh";
+import '../css/portfolio.scss';
+import '../css/backdrops.scss';
 
 const Portfolio = ({ lastBackGrnd }) => {
     const [hideElement, setHideElement ] = useState(false);
@@ -46,7 +49,7 @@ const Portfolio = ({ lastBackGrnd }) => {
 
     return (
 
-        <div>
+        <Div100vh>
             <div className="portfolio-wrapper">
                 {renderBackDrop(lastBackGrnd)}
                 <div className="overlay2" style={{backgroundSize:"6px", opacity: 0.9}}></div>
@@ -63,7 +66,7 @@ const Portfolio = ({ lastBackGrnd }) => {
                         <span className="project-name">TREEWOMAN</span>    
                         <img className="project-img" src={require('../img/treewoman.jpg')} alt="treewoman-thumbnail" />
                         <div className="project-description">
-                            <h1>TREEWOMAN</h1>
+                        <h1>TREEWOMAN</h1>
                             <div className="project-links">
                                 <a>
                                     <i className="web-link-icon"></i>
@@ -140,7 +143,7 @@ const Portfolio = ({ lastBackGrnd }) => {
                 
             </div>
             
-        </div>
+        </Div100vh>
     );
 }
 

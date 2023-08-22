@@ -81,6 +81,10 @@ HOME STYLE
   
 }
 
+.dd {
+  font-family: var(--main-solid-font);
+}
+
 .coil {
   background-color: #ffffff;
   mask-image: url('../img/coil_logo.svg');
@@ -200,82 +204,14 @@ HOME STYLE
   opacity: 0 !important;
 }
 
-/*********************************************************
-NAVBAR STYLE
-**********************************************************/
 
 
-.navSection {
-  background: rgb(212, 212, 212, 0.5);
-  backdrop-filter: blur(10px);
-	z-index: 3;
-	background-size: 100% 3px, 6px 100%;
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  top: 0;
-  right: -100%;
-  height: 100%;
-  max-height: 100vh;
-  width: 0;
-  margin: 0;
-  transition: all 1s cubic-bezier(0.83, 0, 0.17, 1); 
-}
 
-.menu-show {
-  right: 0;
-  width: 100%;
-}
 
-.nav-link1,
-.nav-link2,
-.nav-link3 {
-  font-family: var(--main-outline-font);
-  font-weight: bolder;
-  text-align: center;
-  text-shadow: 3px 2px 2px black;
-  /* opacity: 0; */
-  color: black;
-  padding: 1rem 0;
-}
 
-.nav-link1::before,
-.nav-link2::before,
-.nav-link3::before {
- content: attr(data-label);
- position: absolute;
- transform: translateY(-2px);
- color: white;
- /*padding: 2rem;
- */width: 2rem;
- -webkit-transform: translateY(-2px);
- -moz-transform: translateY(-2px);
- -ms-transform: translateY(-2px);
- -o-transform: translateY(-2px);
-}
 
-.nav-link1:hover,
-.nav-link2:hover,
-.nav-link3:hover {
-  transform: scale(1.1);
-  font-family: var(--main-solid-font);
-  transition: all.5s ease;
-  /* animation: distort 1s infinite alternate-reverse; */
-  cursor: pointer;
-}
 
-.item-show {
-  opacity: 1;
-}
 
-.overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  max-height: 100vh;
-  z-index: -99;
-}
 
 
 /*********************************************************
@@ -1230,26 +1166,3 @@ FOOTER STYLE
 
 }
 
-@media screen and ( min-width: 625px ) {
-
-  .portfolio-list {
-    display: grid;
-    align-items: stretch;
-    display: -ms-grid;
-    display: grid;
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-box-align: stretch;
-    -webkit-align-items: stretch;
-    -ms-flex-align: stretch;
-    align-items: stretch;
-    grid-auto-columns: 1fr;
-    grid-column-gap: 2rem;
-    grid-row-gap: 80px;
-    -ms-grid-columns: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
-    -ms-grid-rows: auto auto;
-    grid-template-rows: auto auto;
-  }
-}

@@ -9,7 +9,7 @@ function Node_SVG() {
         
         outline.start({
           pathLength: [0, 1],
-          stroke: "#ffffff",
+          stroke: "rgba(255, 255, 255, 1)",
           transition: {
            duration: 4,
            delay: 3.5

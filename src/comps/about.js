@@ -1,7 +1,9 @@
 import React, {useState} from "react";
 import { motion } from "framer-motion";
+import Div100vh from "react-div-100vh";
 import Node_SVG from './node-svg';
-
+import '../css/about.scss';
+import '../css/backdrops.scss';
 
 const About = ({ lastBackGrnd, currentBackGrnd }) => {
     const [state, setState] = useState({
@@ -15,15 +17,15 @@ const About = ({ lastBackGrnd, currentBackGrnd }) => {
           opacity: 0,
           pathLength: 0,
           fillOpacity: 0,
-          fill: "rgb(255,255,255, 0)",
+          fill: "rgba(255,0,0,0)",
           stroke: "rgba(255, 255, 255, 0)"
         },
         visible: {
           opacity: 1,
           pathLength: 1,
           fillOpacity: 1,
-          fill: "rgb(255,255,255)",
-          stroke: "rgb(255,255,255, 1)"
+          fill: "rgba(255,255,255, 1)",
+          stroke: "rgba(255,255,255, 1)"
           
         }
       };
@@ -43,8 +45,8 @@ const About = ({ lastBackGrnd, currentBackGrnd }) => {
           pathOpacity: 0,
           fillOpacity: 0,
           rotate: 360,
-          fill: "rgb(255,255,255)",
-          stroke: "rgb(255,255,255, 1)"
+          fill: "rgba(255,255,255, 1)",
+          stroke: "rgba(255,255,255, 1)"
           
         }
       };
@@ -99,87 +101,14 @@ const About = ({ lastBackGrnd, currentBackGrnd }) => {
         }
     }
 
-    
-console.log(lastBackGrnd);
     return (
         <>
-        <motion.div className="section-wrapper" >
-           { renderBackDrop(lastBackGrnd, currentBackGrnd)}
-            
-            <div className="overlay2" style={{backgroundSize:"6px", opacity: 0.9}}></div>
+        <Div100vh>
+            <motion.div className="section-wrapper" >
+                { renderBackDrop(lastBackGrnd, currentBackGrnd)}
+                <div className="overlay2" style={{backgroundSize:"6px", opacity: 0.9}}></div>
                 <motion.ul className="card-wrapper" initial='offscreen' variants={variants} animate='onscreen'>
-                    <motion.li className="about-card" 
-                        variants={card}
-                        data-openwebcard={state.openWebCard} 
-                        onClick={() => setState({...state, openWebCard: state.openWebCard ? false : true, openUXCard: false, openBackCard: false})}>
-                        <div className="headline-wrapper">
-                            <motion.svg
-    width="10px"
-    height="10px"
-    viewBox="-5 -5 1034 1034"
-    version="1.1"
-    id="svg4"
-    className="dev-icon js"
-    sodipodidocname="javascript.svg"
-    inkscapeversion="1.2 (dc2aeda, 2022-05-15)"
-    xmlnsinkscape="http://www.inkscape.org/namespaces/inkscape"
-    xmlnssodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-    xmlns="http://www.w3.org/2000/svg"
-    xmlnssvg="http://www.w3.org/2000/svg"
-    initial="hidden"
-    variants={jsIcon}
-                animate="visible"
-                transition={{
-                    fillOpacity: { delay: 2, duration: 5},
-                    fill: { delay: 2, duration: 2, ease: [1, 0, 0.8, 1] },
-                    pathLength: { delay:2, duration: 2, repeat: Infinity, ease: "easeIn"}}}>
-    <defs
-        id="defs8" />
-    <sodipodinamedview
-        id="namedview6"
-        pagecolor="#505050"
-        bordercolor="#ffffff"
-        borderopacity="1"
-        inkscapeshowpageshadow="0"
-        inkscapepageopacity="0"
-        inkscapepagecheckerboard="1"
-        inkscapedeskcolor="#505050"
-        showgrid="false"
-        inkscapezoom="0.295"
-        inkscapecx="138.98305"
-        inkscapecy="410.16949"
-        inkscapewindow-width="1320"
-        inkscapewindow-height="642"
-        inkscapewindow-x="180"
-        inkscapewindow-y="245"
-        inkscapewindow-maximized="0"
-        inkscapecurrent-layer="svg4" />
-    <motion.path
-        fill="#ffffff"
-        d="M 75,98.135593 V 948.13559 H 925 V 98.135593 Z M 722,483.13559 q 39,0 66.5,15 27.5,15 46.5,49 l -62,40 q -10,-18 -22,-26 -12,-8 -29,-8 -17,0 -27.5,9.5 -10.5,9.5 -10.5,24.5 0,17 11,28 10,9 38,21 l 20,8 q 55,24 78,49 28,30 28,77 0,52 -38,82 -36,29 -95,29 -53,0 -91,-23 -35,-22 -54,-59 l 65,-37 q 14,23 31,35 20,13 48,13 24,0 39,-11 15,-11 15,-29 0,-18 -15,-30 -11,-8 -43,-22 l -20,-9 q -48,-20 -70,-45 -26,-29 -26,-75 0,-46 32,-76 32,-30 85,-30 z m -264,5 h 80 v 273 q 0,60 -34,91 -31,29 -86,29 -45,0 -77,-21 -27,-19 -43,-52 l 66,-39 q 11,21 20,29 12,12 31,12 21,0 31,-10 12,-12 12,-40 z"
-        id="path2"
-        className="dev-icon"
-        variants={jsIcon}
-                initial="hidden"
-                animate="visible"
-                transition={{
-                    top: { delay: 2, duration: 3, ease: "easeIn"},
-                    fill: { delay: 2, duration: 2, ease: [1, 0, 0.8, 1] },
-                    pathLength: {  delay: 2, duration: 2, ease: "easeIn"}}}
-        
-        />
-                            </motion.svg>
-                            <h2 className="headline">Web App<br></br>Dev</h2>
-                        </div>
-                        <div className="details-wrapper">
-                            <p className="details">I am certified as a Full Stack Web Developer with over 5 
-                                    years of experience creating applications. Familiar with
-                                    both functional and object oriented programming in Javascript,
-                                    and an ever expanding vocabulary of languages and frameworks.
-                            </p>
-                        </div>
-                    </motion.li>
-                    <motion.li className="about-card"  
+                <motion.li className="about-card"  
                         variants={card}
                         data-openuxcard={state.openUXCard}
                         onClick={() => setState({...state, openWebCard: false, openUXCard: state.openUXCard ? false : true, openBackCard: false})}>
@@ -323,6 +252,77 @@ console.log(lastBackGrnd);
                     </motion.li>
                     <motion.li className="about-card" 
                         variants={card}
+                        data-openwebcard={state.openWebCard} 
+                        onClick={() => setState({...state, openWebCard: state.openWebCard ? false : true, openUXCard: false, openBackCard: false})}>
+                        <div className="headline-wrapper">
+                            <motion.svg
+    width="10px"
+    height="10px"
+    viewBox="-5 -5 1034 1034"
+    version="1.1"
+    id="svg4"
+    className="dev-icon js"
+    sodipodidocname="javascript.svg"
+    inkscapeversion="1.2 (dc2aeda, 2022-05-15)"
+    xmlnsinkscape="http://www.inkscape.org/namespaces/inkscape"
+    xmlnssodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlnssvg="http://www.w3.org/2000/svg"
+    initial="hidden"
+    variants={jsIcon}
+                animate="visible"
+                transition={{
+                    fillOpacity: { delay: 2, duration: 5},
+                    fill: { delay: 2, duration: 2, ease: [1, 0, 0.8, 1] },
+                    pathLength: { delay:2, duration: 2, repeat: Infinity, ease: "easeIn"}}}>
+    <defs
+        id="defs8" />
+    <sodipodinamedview
+        id="namedview6"
+        pagecolor="#505050"
+        bordercolor="#ffffff"
+        borderopacity="1"
+        inkscapeshowpageshadow="0"
+        inkscapepageopacity="0"
+        inkscapepagecheckerboard="1"
+        inkscapedeskcolor="#505050"
+        showgrid="false"
+        inkscapezoom="0.295"
+        inkscapecx="138.98305"
+        inkscapecy="410.16949"
+        inkscapewindow-width="1320"
+        inkscapewindow-height="642"
+        inkscapewindow-x="180"
+        inkscapewindow-y="245"
+        inkscapewindow-maximized="0"
+        inkscapecurrent-layer="svg4" />
+    <motion.path
+        fill="#ffffff"
+        d="M 75,98.135593 V 948.13559 H 925 V 98.135593 Z M 722,483.13559 q 39,0 66.5,15 27.5,15 46.5,49 l -62,40 q -10,-18 -22,-26 -12,-8 -29,-8 -17,0 -27.5,9.5 -10.5,9.5 -10.5,24.5 0,17 11,28 10,9 38,21 l 20,8 q 55,24 78,49 28,30 28,77 0,52 -38,82 -36,29 -95,29 -53,0 -91,-23 -35,-22 -54,-59 l 65,-37 q 14,23 31,35 20,13 48,13 24,0 39,-11 15,-11 15,-29 0,-18 -15,-30 -11,-8 -43,-22 l -20,-9 q -48,-20 -70,-45 -26,-29 -26,-75 0,-46 32,-76 32,-30 85,-30 z m -264,5 h 80 v 273 q 0,60 -34,91 -31,29 -86,29 -45,0 -77,-21 -27,-19 -43,-52 l 66,-39 q 11,21 20,29 12,12 31,12 21,0 31,-10 12,-12 12,-40 z"
+        id="path2"
+        className="dev-icon"
+        variants={jsIcon}
+                initial="hidden"
+                animate="visible"
+                transition={{
+                    top: { delay: 2, duration: 3, ease: "easeIn"},
+                    fill: { delay: 2, duration: 2, ease: [1, 0, 0.8, 1] },
+                    pathLength: {  delay: 2, duration: 2, ease: "easeIn"}}}
+        
+        />
+                            </motion.svg>
+                            <h2 className="headline">Web App<br></br>Dev</h2>
+                        </div>
+                        <div className="details-wrapper">
+                            <p className="details">I am certified as a Full Stack Web Developer with over 5 
+                                    years of experience creating applications. Familiar with
+                                    both functional and object oriented programming in Javascript,
+                                    and an ever expanding vocabulary of languages and frameworks.
+                            </p>
+                        </div>
+                    </motion.li>
+                    <motion.li className="about-card" 
+                        variants={card}
                         data-openbackcard={state.openBackCard} 
                         onClick={() => setState({...state, openWebCard: false, openUXCard: false, openBackCard: state.openBackCard ? false : true})}>
                         <div className="headline-wrapper">
@@ -337,7 +337,8 @@ console.log(lastBackGrnd);
                         </div>
                     </motion.li>
                 </motion.ul>
-        </motion.div>
+            </motion.div>
+        </Div100vh>
         </>
     )
 }

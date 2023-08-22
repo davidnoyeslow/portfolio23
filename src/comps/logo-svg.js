@@ -183,9 +183,7 @@ function Logo() {
             fillOpacity="1"
             strokeDasharray="none"
             strokeWidth="0.311"
-            fontFamily="Electronica Display Solid"
-          >
-            development/design
+            >
           </tspan>
         </text>
         <g
