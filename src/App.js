@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { AnimatePresence } from 'framer-motion';
 import Home from './comps/home';
 import MenuButton from './comps/menuButton';
 import Navbar from './comps/navbar';
@@ -23,12 +24,12 @@ function App() {
     
       { homeActive &&  <Home /> }
       <MenuButton clicked={clicked} setClicked={setClicked}/>  
-      <Navbar clicked={clicked} setClicked={setClicked}
-      currentBackGrnd={currentBackGrnd} setCurrentBackGrnd={setCurrentBackGrnd}
-      lastBackGrnd={lastBackGrnd} setLastBackGrnd={setLastBackGrnd} 
-      homeActive={homeActive} setHomeActive={setHomeActive} 
-      aboutActive={aboutActive} setAboutActive={setAboutActive}
-      portfolioActive={portfolioActive} setPortfolioActive={setPortfolioActive}/>
+        <Navbar key="nav" clicked={clicked} setClicked={setClicked}
+          currentBackGrnd={currentBackGrnd} setCurrentBackGrnd={setCurrentBackGrnd}
+          lastBackGrnd={lastBackGrnd} setLastBackGrnd={setLastBackGrnd} 
+          homeActive={homeActive} setHomeActive={setHomeActive} 
+          aboutActive={aboutActive} setAboutActive={setAboutActive}
+          portfolioActive={portfolioActive} setPortfolioActive={setPortfolioActive}/>
       { aboutActive && <About lastBackGrnd={lastBackGrnd} currentBackGrnd={currentBackGrnd}/> }
       { portfolioActive && <Portfolio lastBackGrnd={lastBackGrnd}/> }
     </div>

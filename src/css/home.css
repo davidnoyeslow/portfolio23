@@ -101,6 +101,7 @@ HOME STYLE
   background-size: 3px;
   opacity: 0.9;
   z-index: 0;
+  -webkit-transform: translateZ(-10px);
 }
 
 .home-container[data-aboutActive=true] > .name {

@@ -8,6 +8,8 @@ HOME STYLE
     height: inherit;
     z-index: -96;
     // perspective: 1200px;
+    animation: turn-on 1s ease;
+    -webkit-animation: turn-on 1s ease;
     
   }
   
@@ -33,8 +35,8 @@ HOME STYLE
     width: 100%;
     z-index: -97;
     opacity: 0;
-    animation: firstAnimate 4s ease-in .9s forwards, noise-1 4s ease-in 1s alternate-reverse;
-    -webkit-animation: firstAnimate 4s ease-in .9s forwards, noise-1 4s ease-in 1s alternate-reverse;
+    animation: turn-on 1s ease, firstAnimate 4s ease-in .9s forwards, noise-1 2s ease-in 1s alternate-reverse;
+    -webkit-animation: turn-on 1s ease, firstAnimate 4s ease-in .9s forwards, noise-1 2s ease-in 1s alternate-reverse;
   } 
 
   .sillouette {
@@ -49,8 +51,8 @@ HOME STYLE
     mask-image: url('../img/cube.svg');
     mask-position: top;
     mask-size: 2px 4px;
-    animation: shadow 1s ease-in 2s alternate-reverse 4;
-    -webkit-animation: shadow 1s ease-in 2s alternate-reverse 4;
+    animation: noise-2 2s ease-in 1s alternate-reverse, shadow 1s ease-in 2s alternate-reverse 4;
+    -webkit-animation: noise-2 2s ease-in 1s alternate-reverse, shadow 1s ease-in 2s alternate-reverse 4;
   }
 
   
@@ -165,7 +167,7 @@ HOME STYLE
   
   @keyframes noise-1 {
       $steps: 100;
-      @for $i from 1 through 50 {
+      @for $i from 1 through 100 {
         #{percentage($i* calc(1/$steps))} {
           $top: random(700);
           $bottom: random(701 - $top);
@@ -177,9 +179,9 @@ HOME STYLE
           $size: random(10);
           background: url("../img/IMG_1840.jpg") bottom no-repeat,#d4d4d4;
           background-size: contain;
-          transform: translateX(.2rem);
           mask-size: #{$size}px #{$size}px;
         }
+        
         #{percentage($i* calc(10/$steps))} {
           $size: random(20);
           background: url('../img/sillouette_red.png') bottom no-repeat,#d4d4d4;
@@ -196,6 +198,32 @@ HOME STYLE
         }
         
       }
+    }
+
+    @keyframes noise-2 {
+      $steps: 100;
+      @for $i from 1 through 100 {
+        #{percentage($i* calc(2/$steps))} {
+          $size: random(1000);
+          transform: translateY(-#{$size}rem) skewX(#{$size}deg);
+      }
+        #{percentage($i* calc(6/$steps))} {
+          $size: random(1000);
+          transform: translateY(#{$size}rem) skewY(#{$size}deg);
+      }
+      #{percentage($i* calc(1/$steps))} {
+        background: url('../img/wallOverlay2.svg') bottom repeat;
+        background-size: cover;
+        
+      }
+      #{percentage($i* calc(8/$steps))} {
+        $size: random(500);
+        background: url("../img/wallOverlay.svg") center repeat;
+        background-size: cover;
+        // mask-image: url("../img/coil_logo.svg");
+        mask-size: #{$size}px #{$size}px;
+      }
+    }
     }
     
     @keyframes project-mask {
@@ -357,6 +385,46 @@ HOME STYLE
     }
   }
 
+  @keyframes turn-on{
+    0%{
+      transform:scale(1,0.8) translate3d(0,0,0);
+      -webkit-filter:brightness(30);
+      filter:brightness(30);
+      opacity:1;
+    }
+    3.5%{
+      transform:scale(1,0.8) translate3d(0,100%,0);
+    }
+    
+    3.6%{
+      transform:scale(1,0.8) translate3d(0,-100%,0);
+      opacity:1;
+    } 
+    
+    9%{
+      transform:scale(1.3,0.6) translate3d(0,100%,0);
+      -webkit-filter:brightness(30);
+      filter:brightness(30);
+      opacity:0;
+    }
+    
+    
+    
+    11%{
+      transform:scale(1,1) translate3d(0,0,0);
+      -webkit-filter:contrast(0) brightness(0) ;
+      filter:contrast(0) brightness(0);
+      opacity:0;
+    }
+    
+    100%{
+      transform:scale(1,1) translate3d(0,0,0);
+      -webkit-filter:contrast(1) brightness(1.2) saturate(1.3);
+      filter:contrast(1) brightness(1.2) saturate(1.3);
+      opacity:1;
+    }
+  }
+
   @media only screen and (max-device-width: 320px) {
     .logo-container {
       width: 60%;
@@ -365,24 +433,7 @@ HOME STYLE
     
   }
 
-  @media only screen and (min-device-width: 768px) {
-    .sillouette {
-      background: url('../img/sillouette2.png') bottom no-repeat, url('../img/sillouette_blue.png') bottom left no-repeat, url('../img/sillouette_red.png') bottom right no-repeat;
-      background-size: contain;
-      mask-image: url('../img/cube.svg');
-      mask-position: top;
-      mask-size: 2px 4px;
-      animation: shadow 1s ease-in 2s alternate-reverse 4, shadow2 .2s ease-in 5s both;
-    -webkit-animation: shadow 1s ease-in 2s alternate-reverse 4, shadow2 .2s ease-in 5s both;
-    }
-  }
-
-  // @media only screen and (max-width: 768px ) {
-  //   .sillouette {
-  //     background: url('../img/sillouette2.png') bottom no-repeat;
-  //     background-size: contain;
-  //   }
-  // } 
+ 
 
   @media only screen and (max-device-width: 768px ) and (orientation: landscape) {
     .logo-container {

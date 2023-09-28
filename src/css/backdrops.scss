@@ -2,20 +2,20 @@
 BACKDROP STYLES
 **********************************************************/
 
-.backdrop-2a,
-.backdrop-3a {
-  background: url('../img/grain.png') center repeat, url('../img/wallOverlay2.svg') top repeat;
-  background-size: 50%;
-  position: absolute;
-  height: inherit;
-  width: 100%;
-  overflow: visible;
-  transform:rotateY(-40deg);
-  -webkit-transform:rotateY(-40deg);
-  -moz-transform:rotateY(-40deg);
-  -ms-transform:rotateY(-40deg);
-  -o-transform:rotateY(-40deg);
-}
+// .backdrop-2a,
+// .backdrop-3a {
+//   background: url('../img/grain.png') center repeat, url('../img/wallOverlay2.svg') top repeat;
+//   background-size: 50%;
+//   position: absolute;
+//   height: inherit;
+//   width: 100%;
+//   overflow: visible;
+//   transform:rotateY(-40deg);
+//   -webkit-transform:rotateY(-40deg);
+//   -moz-transform:rotateY(-40deg);
+//   -ms-transform:rotateY(-40deg);
+//   -o-transform:rotateY(-40deg);
+// }
 
 .backdrop-2a {
   animation: blinds 2s ease-in-out;
@@ -30,7 +30,7 @@ BACKDROP STYLES
   -webkit-animation: blinds2 2s ease-in-out;
   background-size: 10% 2%;
   transform: rotateY(0) rotateX(-75deg) translateY(-50%);
-  -webkit-transform: rotateY(0) rotateX(-75deg) translateY(-50%) translateZ(-100px);
+  -webkit-transform: rotateY(0) rotateX(-75deg) translateY(-50%) translateZ(-200px);
   -moz-transform: rotateY(0) rotateX(-75deg) translateY(-50%);
   -ms-transform: rotateY(0) rotateX(-75deg) translateY(-50%);
   -o-transform: rotateY(0) rotateX(-75deg) translateY(-50%);
@@ -64,7 +64,7 @@ BACKDROP STYLES
   transform: rotateY(0) rotateX(50deg);
   mask-image: url('../img/cube.svg');
   mask-position: top;
-  mask-size: 19px 9px;
+  mask-size: 25px 4px;
   animation: mask2 2s ease-in forwards;
   -webkit-animation: mask2 2s ease-in forwards;
   -webkit-transform: rotateY(0) rotateX(50deg);
@@ -72,6 +72,7 @@ BACKDROP STYLES
   -ms-transform: rotateY(0) rotateX(50deg);
   -o-transform: rotateY(0) rotateX(50deg);
   z-index: -98;
+  filter: invert(100%);
 }
 
 .reverse-animation {
@@ -105,15 +106,3 @@ BACKDROP STYLES
   
 }
 
-// @media only screen and (min-device-width: 768px) {
-//   .backdrop-2b,
-//   .backdrop-3b {
-//     background: url('../img/sillouette2.png') bottom no-repeat, 
-//     url('../img/sillouette_blue.png') center no-repeat, 
-//     url('../img/sillouette_red.png') center no-repeat,
-//     #d4d4d4;
-//     background-size: contain;
-//     animation: mask 4s ease-in forwards;
-
-//   }
-// }

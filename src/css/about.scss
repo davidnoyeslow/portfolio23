@@ -41,9 +41,9 @@ ABOUT STYLE
   }
   
   .react {
-    fill-opacity:1;
     stroke-width:0.3;
     stroke-opacity:1;
+    
   }
   
   .node {
@@ -85,18 +85,11 @@ ABOUT STYLE
     z-index: 98;
     transform-style: preserve-3d;
   }
+
   
-  .about-card:hover {
-    transform: rotate(0);
-    transition: all .4s;
-    -webkit-transition: all .4s;
-    -moz-transition: all .4s;
-    -ms-transition: all .4s;
-    -o-transition: all .4s;
-    -webkit-transform: rotate(0);
-    -moz-transform: rotate(0);
-    -ms-transform: rotate(0);
-    -o-transform: rotate(0);
+  .about-card svg path {
+    stroke: #81919e;
+    fill: #81919e;
   }
   
   .headline-wrapper {
@@ -219,6 +212,15 @@ ABOUT STYLE
   MEDIA QUERIES
 *******************************************/
 
+@media (hover:hover)  {
+  .about-card:hover svg path,
+  .about-card:hover {
+    stroke: #ffffff;
+    fill: #ffffff;
+    fill-opacity: 1;
+  }
+}
+
 @media screen and ( min-width: 500px ) {
   .about-card[data-openWebCard="true"][style],
   .about-card[data-openUXCard="true"][style],
@@ -251,29 +253,6 @@ ABOUT STYLE
   
 }
 
-// @media screen and ( min-width: 625px ) {
 
-  
-//     .about-card {
-//       width: auto;
-//       /* margin-right: 2rem; */
-//       height: auto;
-//       padding: 1rem 1rem;
-//     }
-  
-//     .headline-wrapper {
-//       justify-content: right;
-//     }
-  
-//     .about-card[data-openWebCard="true"][style],
-//     .about-card[data-openUXCard="true"][style],
-//     .about-card[data-openBackCard="true"][style] {
-//       max-width: 500px;
-//       font-size: 1.7rem;
-//       height: fit-content;
-//     }
-  
-  
-//   }
 
   

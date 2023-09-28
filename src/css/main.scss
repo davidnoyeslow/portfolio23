@@ -34,11 +34,13 @@
   *{
     overflow: hidden;
     margin: 0;
+    -webkit-font-smooth: always;
   }
   
   h1, h2, h3, h6 {
     font-family: var(--main-outline-font);
-      color: black;
+    color: black;
+    
   }
   
   p {
@@ -160,9 +162,9 @@
     //   -o-transform: rotateY(40deg);
     }
     100%{
-      transform: rotateY(90deg);
-      mask-size: 30px 1px;
-      
+      transform: rotateY(10deg);
+      mask-size: 20px 20px;
+      filter: invert(100%);
     }
   }
   
@@ -171,18 +173,18 @@
       
       mask-image: url('../img/wallOverlay.svg');
       mask-size: 70px 1px;
-      transform: rotateY(40deg) translateX(0) scale(1);
-      -webkit-transform: rotateY(40deg) translateX(0) scale(1);
-      -moz-transform: rotateY(40deg) translateX(0) scale(1);
-      -ms-transform: rotateY(40deg) translateX(0) scale(1);
-      -o-transform: rotateY(40deg) translateX(0) scale(1);
+      transform: rotateY(10deg) translateX(0) scale(1);
+      -webkit-transform: rotateY(10deg) translateX(0) scale(1);
+      -moz-transform: rotateY(10deg) translateX(0) scale(1);
+      -ms-transform: rotateY(10deg) translateX(0) scale(1);
+      -o-transform: rotateY(10deg) translateX(0) scale(1);
   }
   50% {
     mask-image: url('../img/cube.svg');
   }
   100% {
     background-size: 100%;
-    mask-size: 25px 4px;
+    mask-size: 10px 1px;
     transform-origin: bottom;
     transform: rotateY(0) rotateX(90deg) scale(2);
     -webkit-transform: rotateY(0) rotateX(90deg) scale(2);
@@ -289,63 +291,8 @@
       opacity: 1;
     }
   }
-  
-  @keyframes feedback {
-    0%, 4%, 9% {
-      mask-size: 1px 1px;
-      background: url('../img/sillouette_blue.png') bottom no-repeat,#d4d4d4;
-      transform: translateX(-2rem);
-      background-size: contain;
-    }
-    1% ,5%, 8%{
-      
-      /* transform: skew(-2deg, 0) translateX(1rem); */
-      
-    }
-    2%, 6% {
-      /* transform: skew(2deg, 1deg) translateX(-1rem); */
-    }
-    3%, 7%, 12% {
-      mask-size: 1px 1px;
-      background: url('../img/sillouette_red.png') bottom no-repeat,#d4d4d4;
-      transform: translateX(2rem);
-      background-size: contain;
-    }
-    5%,10% {
-      mask-size: 10px 13px;
-    }
-   
-    13% {
-      mask-size: 1px 1px;
-      transform: skew(0);
-      background: url("../img/IMG_1840.jpg") bottom no-repeat,#d4d4d4;
-    background-size: contain;
-    }
-  }
-  
-  @keyframes project-static {
-    0% {
-      mask-size: 2px 1px;
-    }
-    100% {
-      mask-size: 1px 0;
-    }
-    
-  }
-  
-  @keyframes hinge {
-    0% {
-      backdrop-filter: blur(0);
-      background: rgba(0, 0, 0, 0);
-  }
-    100% {
-      left:10%;
-      right: 10%;
-      backdrop-filter: blur(9px);
-      background: rgba(0, 0, 0, 0.5);
-    }
-    
-  }
+
+
   .crt::after {
       content: " ";
       display: block;

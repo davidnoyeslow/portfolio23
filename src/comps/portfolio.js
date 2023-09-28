@@ -47,12 +47,19 @@ const Portfolio = ({ lastBackGrnd }) => {
         }
     }
 
+    // const handleClick = (e) => {
+    //     if(e.target.classList.contains('portfolio-wrapper') ||
+    //     e.target.classList.contains('container')) {
+    //         setSelectedImg(null);
+    //         }
+    //     }
+
     return (
 
         <Div100vh>
             <div className="portfolio-wrapper">
                 {renderBackDrop(lastBackGrnd)}
-                <div className="overlay2" style={{backgroundSize:"6px", opacity: 0.9}}></div>
+                {/* <div className="overlay2" style={{backgroundSize:"6px", opacity: 0.9}}></div> */}
                 <div className="portfolio-list">
                     <motion.div className="portfolio-item"
                         initial={{opacity: 0}}
@@ -68,10 +75,10 @@ const Portfolio = ({ lastBackGrnd }) => {
                         <div className="project-description">
                         <h1>TREEWOMAN</h1>
                             <div className="project-links">
-                                <a>
+                                <a href="https://www.treewoman.net" rel="noreferrer" target="_blank">
                                     <i className="web-link-icon"></i>
                                 </a>
-                                <a>
+                                <a href="https://github.com/lowcities/treewoman" rel="noreferrer" target="_blank">
                                     <i className="github-link-icon"></i>
                                 </a>
                             </div>
@@ -98,10 +105,10 @@ const Portfolio = ({ lastBackGrnd }) => {
                         <div className="project-description">
                             <h1>HERZOG QUOTES</h1>
                             <div className="project-links">
-                                <a>
+                                <a href="https://github.com/lowcities/herzog_quote_generator" rel="noreferrer" target="_blank">
                                     <i className="web-link-icon"></i>
                                 </a>
-                                <a>
+                                <a href="https://github.com/lowcities/herzog_quote_generator" rel="noreferrer" target="_blank">
                                     <i className="github-link-icon"></i>
                                 </a>
                             </div>    
@@ -125,10 +132,10 @@ const Portfolio = ({ lastBackGrnd }) => {
                         <div className="project-description">
                             <h1>ALAN WATTS: A BRIEF TRIBUTE</h1>
                             <div className="project-links">
-                                <a>
+                                <a href="https://github.com/lowcities/alan-watts-tribute" rel="noreferrer" target="_blank">
                                     <i className="web-link-icon"></i>
                                 </a>
-                                <a>
+                                <a href="https://github.com/lowcities/alan-watts-tribute" rel="noreferrer" target="_blank">
                                     <i className="github-link-icon"></i>
                                 </a>
                             </div>
