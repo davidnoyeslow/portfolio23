@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { motion } from "framer-motion";
 
 const MenuButton = ({ clicked, setClicked }) => {
     
@@ -6,12 +7,12 @@ const MenuButton = ({ clicked, setClicked }) => {
 
    
     return (
-        <div className={ clicked ? "nav-button open" : "nav-button"} onClick={() => clicked ? setClicked(false) : setClicked(true)}>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-          </div>
+        <motion.div className={ clicked ? "nav-button open" : "nav-button"} onClick={() => clicked ? setClicked(false) : setClicked(true)}>
+                    <motion.span></motion.span>
+                    <motion.span></motion.span>
+                    <motion.span></motion.span>
+                    <motion.span></motion.span>
+        </motion.div>
     );
 }
 

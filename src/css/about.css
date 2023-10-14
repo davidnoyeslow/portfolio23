@@ -1,0 +1,230 @@
+/*********************************************************
+ABOUT STYLE
+**********************************************************/
+.section-wrapper {
+  background-color: #ffffff;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  height: inherit;
+  perspective: 100px;
+  -webkit-perspective: 100px;
+  padding: 0 0.1rem;
+  overflow: hidden;
+  -webkit-transform: translateZ(-100vw);
+}
+
+.grid {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background: url("../img/grid.svg") top repeat;
+  background-size: contain;
+  z-index: -91;
+  transform: translateZ(-10px);
+}
+
+.from-home h1 {
+  position: absolute;
+  top: 0;
+  left: 2%;
+  color: #595454;
+  font-size: 2em;
+  text-align: center;
+}
+
+.card-wrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: inherit;
+  width: 100%;
+  padding: 0;
+  z-index: 10;
+  transition: all 1s ease-in-out;
+}
+
+.js {
+  fill-opacity: 0.11640212;
+  stroke-width: 7.20439;
+  stroke-dasharray: none;
+  stroke-opacity: 1;
+  opacity: 1;
+}
+
+.react {
+  stroke-width: 0.3;
+  stroke-opacity: 1;
+}
+
+.node {
+  padding: 0 4px;
+  fill-opacity: 0;
+  stroke-width: 0.3;
+}
+
+.node2 {
+  stroke-width: 0.2;
+}
+
+.dev-icon {
+  width: 10rem;
+  height: 10rem;
+  order: 2;
+}
+
+.about-card {
+  font-size: 1.4rem;
+  position: relative;
+  margin: 0 auto;
+  cursor: pointer;
+  z-index: 98;
+}
+
+.about-card svg path {
+  stroke: #81919e;
+  fill: #81919e;
+}
+
+.headline-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  /* padding: 0 60px; */
+  overflow: hidden;
+}
+
+.headline-wrapper h2 {
+  font-family: var(--main-outline-font);
+  font-size: 1.6em;
+  order: 1;
+  color: white;
+  text-align: center;
+  width: 0;
+}
+
+.details-wrapper {
+  max-height: 1px;
+  max-width: 1px;
+  opacity: 0;
+}
+
+.about-card[data-openWebCard=true][style],
+.about-card[data-openUXCard=true][style],
+.about-card[data-openBackCard=true][style] {
+  -webkit-backdrop-filter: blur(9px);
+          backdrop-filter: blur(9px);
+  background: rgb(0, 0, 0);
+  background: -webkit-gradient(left bottom, right top, color-stop(0%, rgb(0, 0, 0)), color-stop(45%, rgb(0, 0, 0)), color-stop(46%, rgb(71, 71, 71)), color-stop(81%, rgb(17, 17, 17)), color-stop(82%, rgb(43, 43, 43)), color-stop(89%, rgb(28, 28, 28)), color-stop(89%, rgb(102, 102, 102)), color-stop(100%, rgb(19, 19, 19)));
+  background: linear-gradient(45deg, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 45%, rgb(71, 71, 71) 46%, rgb(17, 17, 17) 81%, rgb(43, 43, 43) 82%, rgb(28, 28, 28) 89%, rgb(102, 102, 102) 89%, rgb(19, 19, 19) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#000000", endColorstr="#131313", GradientType=1 );
+  box-shadow: inset 2px -2px 0px 0px rgb(255, 255, 255);
+  height: -moz-fit-content;
+  height: fit-content;
+  max-width: 600px;
+  margin: 1rem;
+  transition: all 1s ease-in;
+  -webkit-transition: all 1s ease-in;
+  -moz-transition: all 1s ease-in;
+  -ms-transition: all 1s ease-in;
+  -o-transition: all 1s ease-in;
+  z-index: 99;
+}
+
+.about-card[data-openwebcard=true] > .headline-wrapper,
+.about-card[data-openuxcard=true] > .headline-wrapper,
+.about-card[data-openbackcard=true] > .headline-wrapper {
+  justify-content: space-evenly;
+}
+
+.about-card[data-openwebcard=true] > .headline-wrapper h2,
+.about-card[data-openuxcard=true] > .headline-wrapper h2,
+.about-card[data-openbackcard=true] > .headline-wrapper h2 {
+  margin: 0;
+  opacity: 1;
+  animation: headlineGrow 1s ease-in 1s forwards;
+  -webkit-animation: headlineGrow 1s ease-in 1s forwards;
+}
+
+.about-card[data-openwebcard=true] > .headline-wrapper svg,
+.about-card[data-openuxcard=true] > .headline-wrapper svg,
+.about-card[data-openbackcard=true] > .headline-wrapper svg {
+  width: 6rem;
+  height: 6rem;
+  /* padding: 1rem; */
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+}
+
+.about-card[data-openWebCard=true] svg path,
+.about-card[data-openUXCard=true] svg path,
+.about-card[data-openBackCard=true] svg path {
+  stroke: #ffffff;
+  fill: #ffffff;
+}
+
+.about-card[data-openwebcard=true] > .details-wrapper,
+.about-card[data-openuxcard=true] > .details-wrapper,
+.about-card[data-openbackcard=true] > .details-wrapper {
+  color: white;
+  margin: 0 auto;
+  padding: 0 0.5rem 1rem 0.5rem;
+  opacity: 1;
+  animation: showDetails 1s ease-in-out 1s 1 normal forwards;
+  -webkit-animation: showDetails 1s ease-in-out 1s 1 normal forwards;
+}
+
+@keyframes showDetails {
+  0% {
+    opacity: 0;
+    max-width: 0;
+    max-height: 0;
+  }
+  50% {
+    opacity: 0;
+    max-width: 500px;
+    max-height: 700px;
+    padding: 1rem;
+  }
+  100% {
+    max-width: 500px;
+    max-height: 700px;
+    padding: 1rem;
+    opacity: 1;
+  }
+}
+.details {
+  margin: 0;
+  padding: 0 0.5rem;
+}
+
+/*******************************************
+  MEDIA QUERIES
+*******************************************/
+@media (hover: hover) {
+  .about-card:hover svg path,
+  .about-card:hover {
+    stroke: #ffffff;
+    fill: #ffffff;
+    fill-opacity: 1;
+  }
+}
+@media screen and (min-width: 500px) and (orientation: landscape) {
+  .card-wrapper {
+    flex-direction: row;
+    align-items: center;
+  }
+  .about-card {
+    position: relative;
+    left: 0;
+    top: 0;
+  }
+}/*# sourceMappingURL=about.css.map */

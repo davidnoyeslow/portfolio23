@@ -27,11 +27,11 @@ NAV BUTTON STYLE
     position: absolute;
     height: 4px;
     width: 40px;
-    background: white;
-    /* border-radius: 9px; */
-    opacity: 1;
+    /*border-radius: 9px;
+    */opacity: 1;
     left: 10px;
-    
+    animation: blink 1s ease-in-out infinite ;
+    -webkit-animation: blink 1s ease-in-out infinite ;
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
     -o-transform: rotate(0deg);
@@ -40,8 +40,18 @@ NAV BUTTON STYLE
     -moz-transition: .25s ease-in-out;
     -o-transition: .25s ease-in-out;
     transition: .25s ease-in-out;
-  }
+}
   
+  @keyframes blink {
+
+    0% {
+      background-color: black;
+    }
+    100% {
+      background-color: white;
+    }
+  }
+
   .nav-button span:nth-child(1) {
     top: 15px;
   }
@@ -102,12 +112,6 @@ NAVBAR STYLE
   padding: 0;
   top: 0;
 }
-
-// .menu-show {
-//   // right: 0;
-//   transform: translateY(0);
-//   // width: 100%;
-// }
 
 .blur {
   position: absolute;

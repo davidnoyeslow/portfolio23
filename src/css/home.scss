@@ -51,10 +51,11 @@ HOME STYLE
     mask-image: url('../img/cube.svg');
     mask-position: top;
     mask-size: 2px 4px;
-    animation: noise-2 2s ease-in 1s alternate-reverse, shadow 1s ease-in 2s alternate-reverse 4;
-    -webkit-animation: noise-2 2s ease-in 1s alternate-reverse, shadow 1s ease-in 2s alternate-reverse 4;
+    animation: noise-2 3s ease-in alternate-reverse , shadow 1s ease-in 2s forwards alternate-reverse 4;
+    -webkit-animation: noise-2 3s ease-in alternate-reverse , shadow 1s ease-in 2s forwards alternate-reverse 4;
   }
 
+  
   
   .logo-container {
     display: flex;
@@ -133,7 +134,6 @@ HOME STYLE
   @keyframes shadow {
     
     5% {
-      
       transform: skewX(90deg);
     }
     6% {
@@ -153,7 +153,7 @@ HOME STYLE
       opacity: 0;
       
     }
-    1%{
+    5%{
       opacity: 1;
     }
     99% {
@@ -166,7 +166,7 @@ HOME STYLE
   }
   
   @keyframes noise-1 {
-      $steps: 100;
+      $steps: 50;
       @for $i from 1 through 100 {
         #{percentage($i* calc(1/$steps))} {
           $top: random(700);
@@ -175,21 +175,22 @@ HOME STYLE
           $right: random(101 - $left);
           clip-path: inset(#{$top}px 0 #{$bottom}px 0);
         }
-        #{percentage($i* calc(8/$steps))} {
-          $size: random(10);
+        #{percentage($i* calc(5/$steps))} {
+          $size: random(5);
           background: url("../img/IMG_1840.jpg") bottom no-repeat,#d4d4d4;
           background-size: contain;
           mask-size: #{$size}px #{$size}px;
+          transform: translateY(-#{$size}rem) skewX(#{$size}deg);
         }
         
-        #{percentage($i* calc(10/$steps))} {
-          $size: random(20);
+        #{percentage($i* calc(8/$steps))} {
+          $size: random(200);
           background: url('../img/sillouette_red.png') bottom no-repeat,#d4d4d4;
           background-size: contain;
           mask-size: #{$size}px #{$size}px;
           z-index: 1;
         }
-        #{percentage($i* calc(15/$steps))} {
+        #{percentage($i* calc(5/$steps))} {
           background: url('../img/sillouette_blue.png') bottom no-repeat,#d4d4d4;
           background-size: contain;
           mask-size: 10px 3px;
@@ -202,9 +203,9 @@ HOME STYLE
 
     @keyframes noise-2 {
       $steps: 100;
-      @for $i from 1 through 100 {
+      @for $i from 20 through 100 {
         #{percentage($i* calc(2/$steps))} {
-          $size: random(1000);
+          $size: random(100);
           transform: translateY(-#{$size}rem) skewX(#{$size}deg);
       }
         #{percentage($i* calc(6/$steps))} {
@@ -217,12 +218,12 @@ HOME STYLE
         
       }
       #{percentage($i* calc(8/$steps))} {
-        $size: random(500);
+        $size: random(100);
         background: url("../img/wallOverlay.svg") center repeat;
         background-size: cover;
-        // mask-image: url("../img/coil_logo.svg");
         mask-size: #{$size}px #{$size}px;
       }
+      
     }
     }
     

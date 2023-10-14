@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { motion } from "framer-motion";
 import Div100vh from "react-div-100vh";
 import Node_SVG from './node-svg';
@@ -6,11 +6,20 @@ import '../css/about.scss';
 import '../css/backdrops.scss';
 
 const About = ({ lastBackGrnd, currentBackGrnd }) => {
-    const [state, setState] = useState({
-        openWebCard: false,
-        openUXCard: false,
-        openBackCard: false
-    });
+    const [ openWebCard, setOpenWebCard ] = useState(false);
+    const [ openUXCard, setOpenUXCard ] = useState(false);
+    const [ openBackCard, setOpenBackCard ] = useState(false);
+
+    useEffect(() => {
+        const timeout1 = setTimeout(() => {
+            setOpenWebCard(true);
+            setOpenUXCard(true);
+            setOpenBackCard(true);
+        }, 5000);
+
+        return () => clearTimeout(timeout1);
+    }, []);
+
 
     const jsIcon = {
         hidden: {
@@ -101,17 +110,23 @@ const About = ({ lastBackGrnd, currentBackGrnd }) => {
         }
     }
 
+    
     return (
         <>
         <Div100vh>
-            <motion.div className="section-wrapper" >
+            <motion.div className="section-wrapper" 
+                initial={{backgroundColor: "rgba(0,0,0,1)"}}
+                animate={{backgroundColor: "rgba(255,255,255,1)"}}
+                transition={{
+                    duration: 1,
+                    delay: 5
+                }} >
                 { renderBackDrop(lastBackGrnd, currentBackGrnd)}
                 {/* <div className="overlay2" style={{backgroundSize:"6px", opacity: 0.9}}></div> */}
                 <motion.ul className="card-wrapper" initial='offscreen' variants={variants} animate='onscreen'>
                 <motion.li className="about-card"  
                         variants={card}
-                        data-openuxcard={state.openUXCard}
-                        onClick={() => setState({...state, openWebCard: false, openUXCard: state.openUXCard ? false : true, openBackCard: false})}>
+                        data-openuxcard={openUXCard}>
                         <div className="headline-wrapper">
                         <motion.svg
     
@@ -252,8 +267,7 @@ const About = ({ lastBackGrnd, currentBackGrnd }) => {
                     </motion.li>
                     <motion.li className="about-card" 
                         variants={card}
-                        data-openwebcard={state.openWebCard} 
-                        onClick={() => setState({...state, openWebCard: state.openWebCard ? false : true, openUXCard: false, openBackCard: false})}>
+                        data-openwebcard={openWebCard}>
                         <div className="headline-wrapper">
                             <motion.svg
     width="10px"
@@ -323,8 +337,7 @@ const About = ({ lastBackGrnd, currentBackGrnd }) => {
                     </motion.li>
                     <motion.li className="about-card" 
                         variants={card}
-                        data-openbackcard={state.openBackCard} 
-                        onClick={() => setState({...state, openWebCard: false, openUXCard: false, openBackCard: state.openBackCard ? false : true})}>
+                        data-openbackcard={openBackCard}>
                         <div className="headline-wrapper">
                             <Node_SVG />
                             <h2 className="headline">Back End<br></br>Dev</h2>

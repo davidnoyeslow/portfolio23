@@ -3,7 +3,8 @@ PORTFOLIO STYLE
 **********************************************************/  
 
 .portfolio-wrapper {
-    background-color: #000000;
+    background: url('../img/grid-white.svg') top center, #000000;
+    background-size: 30%;
     position: relative;
     top: 0;
     bottom: 0;
@@ -12,8 +13,12 @@ PORTFOLIO STYLE
     -webkit-perspective: 100px;
     padding: 0 .1rem;
     overflow: scroll;
+    transform: translateZ(-100vh);
     -webkit-transform: translateZ(-100vh);
-  }
+    -moz-transform: translateZ(-100vh);
+    -ms-transform: translateZ(-100vh);
+    -o-transform: translateZ(-100vh);
+}
   
   .portfolio-list {
     // position: absolute;
@@ -26,7 +31,8 @@ PORTFOLIO STYLE
   
   .portfolio-item {
     position: relative;
-    background-color: #000000;
+    background: rgb(130,132,133);
+    background: linear-gradient(223deg, rgba(130,132,133,1) 24%, rgba(85,85,85,1) 48%, rgba(13,13,14,1) 49%);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -64,9 +70,6 @@ PORTFOLIO STYLE
     height: 300px;
     opacity: 1;
     object-fit: cover;
-    mask-image: url('../img/cube.svg');
-    mask-position: top;
-    mask-size: 5px 1px;
     opacity: .8;
     z-index: 0;
   }

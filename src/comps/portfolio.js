@@ -47,13 +47,6 @@ const Portfolio = ({ lastBackGrnd }) => {
         }
     }
 
-    // const handleClick = (e) => {
-    //     if(e.target.classList.contains('portfolio-wrapper') ||
-    //     e.target.classList.contains('container')) {
-    //         setSelectedImg(null);
-    //         }
-    //     }
-
     return (
 
         <Div100vh>

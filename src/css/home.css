@@ -4,9 +4,10 @@ HOME STYLE
 .home-container {
   background-color: #d4d4d4;
   position: relative;
-  height: 100vh;
+  height: inherit;
   z-index: -96;
-  perspective: 1200px;
+  animation: turn-on 1s ease;
+  -webkit-animation: turn-on 1s ease;
 }
 
 .home-container[data-aboutActive=true] {
@@ -31,13 +32,30 @@ HOME STYLE
   bottom: 0;
   left: 0;
   right: 0;
-  /*height: 100%;
-  */
   width: 100%;
-  max-height: 100vh;
   z-index: -97;
-  animation: firstAnimate 1s ease-in forwards, noise-1 4s ease-in 2s alternate-reverse;
-  -webkit-animation: firstAnimate 1s ease-in forwards, noise-1 4s ease-in 2s alternate-reverse;
+  opacity: 0;
+  animation: turn-on 1s ease, firstAnimate 4s ease-in 0.9s forwards, noise-1 2s ease-in 1s alternate-reverse;
+  -webkit-animation: turn-on 1s ease, firstAnimate 4s ease-in 0.9s forwards, noise-1 2s ease-in 1s alternate-reverse;
+}
+
+.sillouette {
+  background: url("../img/sillouette2.png") no-repeat;
+  background-size: contain;
+  background-position: bottom;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -97;
+  -webkit-mask-image: url("../img/cube.svg");
+          mask-image: url("../img/cube.svg");
+  -webkit-mask-position: top;
+          mask-position: top;
+  -webkit-mask-size: 2px 4px;
+          mask-size: 2px 4px;
+  animation: noise-2 3s ease-in alternate-reverse, shadow 1s ease-in 2s forwards alternate-reverse 4;
+  -webkit-animation: noise-2 3s ease-in alternate-reverse, shadow 1s ease-in 2s forwards alternate-reverse 4;
 }
 
 .logo-container {
@@ -91,42 +109,8 @@ HOME STYLE
   right: 0;
 }
 
-.overlay2 {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url("../img/pattern2.png") repeat top left;
-  background-size: 3px;
-  opacity: 0.9;
-  z-index: 0;
-  -webkit-transform: translateZ(-10px);
-}
-
 .home-container[data-aboutActive=true] > .name {
   opacity: 0 !important;
-}
-
-.sillouette {
-  background: url("../img/sillouette2.png") bottom no-repeat;
-  background-size: contain;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  max-height: 100vh;
-  z-index: -97;
-  -webkit-mask-image: url("../img/cube.svg");
-          mask-image: url("../img/cube.svg");
-  -webkit-mask-position: top;
-          mask-position: top;
-  -webkit-mask-size: 2px 4px;
-          mask-size: 2px 4px;
-  animation: firstAnimate 1s ease-in forwards, shadow 1s ease-in 2s alternate-reverse 4;
-  -webkit-animation: firstAnimate 1s ease-in forwards, shadow 1s ease-in 2s alternate-reverse 4;
 }
 
 @keyframes logoShift {
@@ -153,84 +137,38 @@ HOME STYLE
 }
 @keyframes firstAnimate {
   0% {
-    filter: blur(500px);
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 1;
   }
   100% {
-    filter: blur(0);
+    opacity: 0;
   }
 }
 @keyframes noise-1 {
-  1% {
-    -webkit-clip-path: inset(613px 0 70px 0);
-            clip-path: inset(613px 0 70px 0);
-  }
-  8% {
-    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
-    background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 3px 3px;
-            mask-size: 3px 3px;
+  2% {
+    -webkit-clip-path: inset(394px 0 158px 0);
+            clip-path: inset(394px 0 158px 0);
   }
   10% {
-    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 8px 8px;
-            mask-size: 8px 8px;
-    z-index: 1;
-  }
-  15% {
-    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
-    background-size: contain;
-    -webkit-mask-size: 10px 3px;
-            mask-size: 10px 3px;
-    transform: translateX(-0.2rem);
-    z-index: -98;
-  }
-  2% {
-    -webkit-clip-path: inset(501px 0 21px 0);
-            clip-path: inset(501px 0 21px 0);
+    -webkit-mask-size: 5px 5px;
+            mask-size: 5px 5px;
+    transform: translateY(-5rem) skewX(5deg);
   }
   16% {
-    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
-    background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 2px 2px;
-            mask-size: 2px 2px;
-  }
-  20% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 18px 18px;
-            mask-size: 18px 18px;
+    -webkit-mask-size: 52px 52px;
+            mask-size: 52px 52px;
     z-index: 1;
   }
-  30% {
-    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
-    background-size: contain;
-    -webkit-mask-size: 10px 3px;
-            mask-size: 10px 3px;
-    transform: translateX(-0.2rem);
-    z-index: -98;
-  }
-  3% {
-    -webkit-clip-path: inset(458px 0 99px 0);
-            clip-path: inset(458px 0 99px 0);
-  }
-  24% {
-    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
-    background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 8px 8px;
-            mask-size: 8px 8px;
-  }
-  30% {
-    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
-    background-size: contain;
-    -webkit-mask-size: 15px 15px;
-            mask-size: 15px 15px;
-    z-index: 1;
-  }
-  45% {
+  10% {
     background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
     -webkit-mask-size: 10px 3px;
@@ -239,50 +177,24 @@ HOME STYLE
     z-index: -98;
   }
   4% {
-    -webkit-clip-path: inset(237px 0 17px 0);
-            clip-path: inset(237px 0 17px 0);
+    -webkit-clip-path: inset(245px 0 207px 0);
+            clip-path: inset(245px 0 207px 0);
+  }
+  20% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+    transform: translateY(-3rem) skewX(3deg);
   }
   32% {
-    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
-    background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 3px 3px;
-            mask-size: 3px 3px;
-  }
-  40% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 20px 20px;
-            mask-size: 20px 20px;
+    -webkit-mask-size: 28px 28px;
+            mask-size: 28px 28px;
     z-index: 1;
   }
-  60% {
-    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
-    background-size: contain;
-    -webkit-mask-size: 10px 3px;
-            mask-size: 10px 3px;
-    transform: translateX(-0.2rem);
-    z-index: -98;
-  }
-  5% {
-    -webkit-clip-path: inset(110px 0 313px 0);
-            clip-path: inset(110px 0 313px 0);
-  }
-  40% {
-    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
-    background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 3px 3px;
-            mask-size: 3px 3px;
-  }
-  50% {
-    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
-    background-size: contain;
-    -webkit-mask-size: 18px 18px;
-            mask-size: 18px 18px;
-    z-index: 1;
-  }
-  75% {
+  20% {
     background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
     -webkit-mask-size: 10px 3px;
@@ -291,21 +203,177 @@ HOME STYLE
     z-index: -98;
   }
   6% {
-    -webkit-clip-path: inset(119px 0 364px 0);
-            clip-path: inset(119px 0 364px 0);
+    -webkit-clip-path: inset(619px 0 10px 0);
+            clip-path: inset(619px 0 10px 0);
   }
-  48% {
+  30% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 6px 6px;
-            mask-size: 6px 6px;
+    -webkit-mask-size: 1px 1px;
+            mask-size: 1px 1px;
+    transform: translateY(-1rem) skewX(1deg);
   }
-  60% {
+  48% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 9px 9px;
-            mask-size: 9px 9px;
+    -webkit-mask-size: 12px 12px;
+            mask-size: 12px 12px;
+    z-index: 1;
+  }
+  30% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  8% {
+    -webkit-clip-path: inset(421px 0 61px 0);
+            clip-path: inset(421px 0 61px 0);
+  }
+  40% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+    transform: translateY(-3rem) skewX(3deg);
+  }
+  64% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 10px;
+            mask-size: 10px 10px;
+    z-index: 1;
+  }
+  40% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  10% {
+    -webkit-clip-path: inset(558px 0 9px 0);
+            clip-path: inset(558px 0 9px 0);
+  }
+  50% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 4px 4px;
+            mask-size: 4px 4px;
+    transform: translateY(-4rem) skewX(4deg);
+  }
+  80% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 71px 71px;
+            mask-size: 71px 71px;
+    z-index: 1;
+  }
+  50% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  12% {
+    -webkit-clip-path: inset(439px 0 249px 0);
+            clip-path: inset(439px 0 249px 0);
+  }
+  60% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 5px 5px;
+            mask-size: 5px 5px;
+    transform: translateY(-5rem) skewX(5deg);
+  }
+  96% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 88px 88px;
+            mask-size: 88px 88px;
+    z-index: 1;
+  }
+  60% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  14% {
+    -webkit-clip-path: inset(202px 0 203px 0);
+            clip-path: inset(202px 0 203px 0);
+  }
+  70% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 4px 4px;
+            mask-size: 4px 4px;
+    transform: translateY(-4rem) skewX(4deg);
+  }
+  112% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 108px 108px;
+            mask-size: 108px 108px;
+    z-index: 1;
+  }
+  70% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  16% {
+    -webkit-clip-path: inset(35px 0 629px 0);
+            clip-path: inset(35px 0 629px 0);
+  }
+  80% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 4px 4px;
+            mask-size: 4px 4px;
+    transform: translateY(-4rem) skewX(4deg);
+  }
+  128% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 141px 141px;
+            mask-size: 141px 141px;
+    z-index: 1;
+  }
+  80% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  18% {
+    -webkit-clip-path: inset(75px 0 129px 0);
+            clip-path: inset(75px 0 129px 0);
+  }
+  90% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 2px 2px;
+            mask-size: 2px 2px;
+    transform: translateY(-2rem) skewX(2deg);
+  }
+  144% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 120px 120px;
+            mask-size: 120px 120px;
     z-index: 1;
   }
   90% {
@@ -316,25 +384,25 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  7% {
-    -webkit-clip-path: inset(94px 0 133px 0);
-            clip-path: inset(94px 0 133px 0);
+  20% {
+    -webkit-clip-path: inset(567px 0 44px 0);
+            clip-path: inset(567px 0 44px 0);
   }
-  56% {
+  100% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 1px 1px;
-            mask-size: 1px 1px;
+    -webkit-mask-size: 2px 2px;
+            mask-size: 2px 2px;
+    transform: translateY(-2rem) skewX(2deg);
   }
-  70% {
+  160% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 3px 3px;
-            mask-size: 3px 3px;
+    -webkit-mask-size: 169px 169px;
+            mask-size: 169px 169px;
     z-index: 1;
   }
-  105% {
+  100% {
     background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
     -webkit-mask-size: 10px 3px;
@@ -342,22 +410,48 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  8% {
-    -webkit-clip-path: inset(658px 0 6px 0);
-            clip-path: inset(658px 0 6px 0);
+  22% {
+    -webkit-clip-path: inset(231px 0 295px 0);
+            clip-path: inset(231px 0 295px 0);
   }
-  64% {
+  110% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 7px 7px;
-            mask-size: 7px 7px;
+    -webkit-mask-size: 5px 5px;
+            mask-size: 5px 5px;
+    transform: translateY(-5rem) skewX(5deg);
   }
-  80% {
+  176% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 10px 10px;
-            mask-size: 10px 10px;
+    -webkit-mask-size: 102px 102px;
+            mask-size: 102px 102px;
+    z-index: 1;
+  }
+  110% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  24% {
+    -webkit-clip-path: inset(213px 0 293px 0);
+            clip-path: inset(213px 0 293px 0);
+  }
+  120% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 2px 2px;
+            mask-size: 2px 2px;
+    transform: translateY(-2rem) skewX(2deg);
+  }
+  192% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 27px 27px;
+            mask-size: 27px 27px;
     z-index: 1;
   }
   120% {
@@ -368,25 +462,25 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  9% {
-    -webkit-clip-path: inset(388px 0 79px 0);
-            clip-path: inset(388px 0 79px 0);
+  26% {
+    -webkit-clip-path: inset(132px 0 497px 0);
+            clip-path: inset(132px 0 497px 0);
   }
-  72% {
+  130% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 7px 7px;
-            mask-size: 7px 7px;
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+    transform: translateY(-3rem) skewX(3deg);
   }
-  90% {
+  208% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 1px 1px;
-            mask-size: 1px 1px;
+    -webkit-mask-size: 13px 13px;
+            mask-size: 13px 13px;
     z-index: 1;
   }
-  135% {
+  130% {
     background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
     -webkit-mask-size: 10px 3px;
@@ -394,22 +488,48 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  10% {
-    -webkit-clip-path: inset(246px 0 211px 0);
-            clip-path: inset(246px 0 211px 0);
+  28% {
+    -webkit-clip-path: inset(179px 0 92px 0);
+            clip-path: inset(179px 0 92px 0);
   }
-  80% {
+  140% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 10px 10px;
-            mask-size: 10px 10px;
+    -webkit-mask-size: 1px 1px;
+            mask-size: 1px 1px;
+    transform: translateY(-1rem) skewX(1deg);
   }
-  100% {
+  224% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 4px 4px;
-            mask-size: 4px 4px;
+    -webkit-mask-size: 121px 121px;
+            mask-size: 121px 121px;
+    z-index: 1;
+  }
+  140% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  30% {
+    -webkit-clip-path: inset(6px 0 216px 0);
+            clip-path: inset(6px 0 216px 0);
+  }
+  150% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 1px 1px;
+            mask-size: 1px 1px;
+    transform: translateY(-1rem) skewX(1deg);
+  }
+  240% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 2px 2px;
+            mask-size: 2px 2px;
     z-index: 1;
   }
   150% {
@@ -420,25 +540,25 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  11% {
-    -webkit-clip-path: inset(49px 0 441px 0);
-            clip-path: inset(49px 0 441px 0);
+  32% {
+    -webkit-clip-path: inset(384px 0 16px 0);
+            clip-path: inset(384px 0 16px 0);
   }
-  88% {
+  160% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 7px 7px;
-            mask-size: 7px 7px;
+    -webkit-mask-size: 4px 4px;
+            mask-size: 4px 4px;
+    transform: translateY(-4rem) skewX(4deg);
   }
-  110% {
+  256% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 12px 12px;
-            mask-size: 12px 12px;
+    -webkit-mask-size: 94px 94px;
+            mask-size: 94px 94px;
     z-index: 1;
   }
-  165% {
+  160% {
     background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
     -webkit-mask-size: 10px 3px;
@@ -446,22 +566,48 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  12% {
-    -webkit-clip-path: inset(351px 0 9px 0);
-            clip-path: inset(351px 0 9px 0);
+  34% {
+    -webkit-clip-path: inset(36px 0 155px 0);
+            clip-path: inset(36px 0 155px 0);
   }
-  96% {
+  170% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
     -webkit-mask-size: 3px 3px;
             mask-size: 3px 3px;
+    transform: translateY(-3rem) skewX(3deg);
   }
-  120% {
+  272% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 15px 15px;
-            mask-size: 15px 15px;
+    -webkit-mask-size: 198px 198px;
+            mask-size: 198px 198px;
+    z-index: 1;
+  }
+  170% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  36% {
+    -webkit-clip-path: inset(690px 0 10px 0);
+            clip-path: inset(690px 0 10px 0);
+  }
+  180% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 5px 5px;
+            mask-size: 5px 5px;
+    transform: translateY(-5rem) skewX(5deg);
+  }
+  288% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 140px 140px;
+            mask-size: 140px 140px;
     z-index: 1;
   }
   180% {
@@ -472,25 +618,25 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  13% {
-    -webkit-clip-path: inset(663px 0 26px 0);
-            clip-path: inset(663px 0 26px 0);
+  38% {
+    -webkit-clip-path: inset(212px 0 329px 0);
+            clip-path: inset(212px 0 329px 0);
   }
-  104% {
+  190% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 6px 6px;
-            mask-size: 6px 6px;
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+    transform: translateY(-3rem) skewX(3deg);
   }
-  130% {
+  304% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 18px 18px;
-            mask-size: 18px 18px;
+    -webkit-mask-size: 195px 195px;
+            mask-size: 195px 195px;
     z-index: 1;
   }
-  195% {
+  190% {
     background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
     -webkit-mask-size: 10px 3px;
@@ -498,22 +644,48 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  14% {
-    -webkit-clip-path: inset(378px 0 154px 0);
-            clip-path: inset(378px 0 154px 0);
+  40% {
+    -webkit-clip-path: inset(315px 0 326px 0);
+            clip-path: inset(315px 0 326px 0);
   }
-  112% {
+  200% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 10px 10px;
-            mask-size: 10px 10px;
+    -webkit-mask-size: 1px 1px;
+            mask-size: 1px 1px;
+    transform: translateY(-1rem) skewX(1deg);
   }
-  140% {
+  320% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 19px 19px;
-            mask-size: 19px 19px;
+    -webkit-mask-size: 106px 106px;
+            mask-size: 106px 106px;
+    z-index: 1;
+  }
+  200% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  42% {
+    -webkit-clip-path: inset(471px 0 155px 0);
+            clip-path: inset(471px 0 155px 0);
+  }
+  210% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 2px 2px;
+            mask-size: 2px 2px;
+    transform: translateY(-2rem) skewX(2deg);
+  }
+  336% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 153px 153px;
+            mask-size: 153px 153px;
     z-index: 1;
   }
   210% {
@@ -524,25 +696,25 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  15% {
-    -webkit-clip-path: inset(110px 0 477px 0);
-            clip-path: inset(110px 0 477px 0);
+  44% {
+    -webkit-clip-path: inset(513px 0 21px 0);
+            clip-path: inset(513px 0 21px 0);
   }
-  120% {
+  220% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 10px 10px;
-            mask-size: 10px 10px;
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+    transform: translateY(-3rem) skewX(3deg);
   }
-  150% {
+  352% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 20px 20px;
-            mask-size: 20px 20px;
+    -webkit-mask-size: 95px 95px;
+            mask-size: 95px 95px;
     z-index: 1;
   }
-  225% {
+  220% {
     background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
     -webkit-mask-size: 10px 3px;
@@ -550,22 +722,48 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  16% {
-    -webkit-clip-path: inset(269px 0 68px 0);
-            clip-path: inset(269px 0 68px 0);
+  46% {
+    -webkit-clip-path: inset(187px 0 493px 0);
+            clip-path: inset(187px 0 493px 0);
   }
-  128% {
+  230% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 9px 9px;
-            mask-size: 9px 9px;
+    -webkit-mask-size: 1px 1px;
+            mask-size: 1px 1px;
+    transform: translateY(-1rem) skewX(1deg);
   }
-  160% {
+  368% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 3px 3px;
-            mask-size: 3px 3px;
+    -webkit-mask-size: 137px 137px;
+            mask-size: 137px 137px;
+    z-index: 1;
+  }
+  230% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  48% {
+    -webkit-clip-path: inset(196px 0 296px 0);
+            clip-path: inset(196px 0 296px 0);
+  }
+  240% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 2px 2px;
+            mask-size: 2px 2px;
+    transform: translateY(-2rem) skewX(2deg);
+  }
+  384% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 32px 32px;
+            mask-size: 32px 32px;
     z-index: 1;
   }
   240% {
@@ -576,25 +774,25 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  17% {
-    -webkit-clip-path: inset(678px 0 13px 0);
-            clip-path: inset(678px 0 13px 0);
+  50% {
+    -webkit-clip-path: inset(377px 0 87px 0);
+            clip-path: inset(377px 0 87px 0);
   }
-  136% {
+  250% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
     -webkit-mask-size: 2px 2px;
             mask-size: 2px 2px;
+    transform: translateY(-2rem) skewX(2deg);
   }
-  170% {
+  400% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 13px 13px;
-            mask-size: 13px 13px;
+    -webkit-mask-size: 4px 4px;
+            mask-size: 4px 4px;
     z-index: 1;
   }
-  255% {
+  250% {
     background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
     -webkit-mask-size: 10px 3px;
@@ -602,22 +800,48 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  18% {
-    -webkit-clip-path: inset(199px 0 135px 0);
-            clip-path: inset(199px 0 135px 0);
+  52% {
+    -webkit-clip-path: inset(44px 0 610px 0);
+            clip-path: inset(44px 0 610px 0);
   }
-  144% {
+  260% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
     -webkit-mask-size: 5px 5px;
             mask-size: 5px 5px;
+    transform: translateY(-5rem) skewX(5deg);
   }
-  180% {
+  416% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 11px 11px;
-            mask-size: 11px 11px;
+    -webkit-mask-size: 78px 78px;
+            mask-size: 78px 78px;
+    z-index: 1;
+  }
+  260% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  54% {
+    -webkit-clip-path: inset(380px 0 123px 0);
+            clip-path: inset(380px 0 123px 0);
+  }
+  270% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 1px 1px;
+            mask-size: 1px 1px;
+    transform: translateY(-1rem) skewX(1deg);
+  }
+  432% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 190px 190px;
+            mask-size: 190px 190px;
     z-index: 1;
   }
   270% {
@@ -628,25 +852,25 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  19% {
-    -webkit-clip-path: inset(466px 0 13px 0);
-            clip-path: inset(466px 0 13px 0);
+  56% {
+    -webkit-clip-path: inset(441px 0 183px 0);
+            clip-path: inset(441px 0 183px 0);
   }
-  152% {
+  280% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 4px 4px;
-            mask-size: 4px 4px;
+    -webkit-mask-size: 5px 5px;
+            mask-size: 5px 5px;
+    transform: translateY(-5rem) skewX(5deg);
   }
-  190% {
+  448% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 10px 10px;
-            mask-size: 10px 10px;
+    -webkit-mask-size: 138px 138px;
+            mask-size: 138px 138px;
     z-index: 1;
   }
-  285% {
+  280% {
     background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
     -webkit-mask-size: 10px 3px;
@@ -654,22 +878,48 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  20% {
-    -webkit-clip-path: inset(24px 0 425px 0);
-            clip-path: inset(24px 0 425px 0);
+  58% {
+    -webkit-clip-path: inset(444px 0 84px 0);
+            clip-path: inset(444px 0 84px 0);
   }
-  160% {
+  290% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 5px 5px;
-            mask-size: 5px 5px;
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+    transform: translateY(-3rem) skewX(3deg);
   }
-  200% {
+  464% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 15px 15px;
-            mask-size: 15px 15px;
+    -webkit-mask-size: 47px 47px;
+            mask-size: 47px 47px;
+    z-index: 1;
+  }
+  290% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  60% {
+    -webkit-clip-path: inset(122px 0 34px 0);
+            clip-path: inset(122px 0 34px 0);
+  }
+  300% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 4px 4px;
+            mask-size: 4px 4px;
+    transform: translateY(-4rem) skewX(4deg);
+  }
+  480% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 86px 86px;
+            mask-size: 86px 86px;
     z-index: 1;
   }
   300% {
@@ -680,25 +930,25 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  21% {
-    -webkit-clip-path: inset(255px 0 105px 0);
-            clip-path: inset(255px 0 105px 0);
+  62% {
+    -webkit-clip-path: inset(110px 0 330px 0);
+            clip-path: inset(110px 0 330px 0);
   }
-  168% {
+  310% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
-    background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 2px 2px;
-            mask-size: 2px 2px;
-  }
-  210% {
-    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
     -webkit-mask-size: 1px 1px;
             mask-size: 1px 1px;
+    transform: translateY(-1rem) skewX(1deg);
+  }
+  496% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 11px 11px;
+            mask-size: 11px 11px;
     z-index: 1;
   }
-  315% {
+  310% {
     background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
     -webkit-mask-size: 10px 3px;
@@ -706,22 +956,48 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  22% {
-    -webkit-clip-path: inset(32px 0 394px 0);
-            clip-path: inset(32px 0 394px 0);
+  64% {
+    -webkit-clip-path: inset(311px 0 352px 0);
+            clip-path: inset(311px 0 352px 0);
   }
-  176% {
+  320% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
     -webkit-mask-size: 1px 1px;
             mask-size: 1px 1px;
+    transform: translateY(-1rem) skewX(1deg);
   }
-  220% {
+  512% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 5px 5px;
-            mask-size: 5px 5px;
+    -webkit-mask-size: 29px 29px;
+            mask-size: 29px 29px;
+    z-index: 1;
+  }
+  320% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  66% {
+    -webkit-clip-path: inset(419px 0 149px 0);
+            clip-path: inset(419px 0 149px 0);
+  }
+  330% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 4px 4px;
+            mask-size: 4px 4px;
+    transform: translateY(-4rem) skewX(4deg);
+  }
+  528% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 108px 108px;
+            mask-size: 108px 108px;
     z-index: 1;
   }
   330% {
@@ -732,25 +1008,25 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  23% {
-    -webkit-clip-path: inset(463px 0 93px 0);
-            clip-path: inset(463px 0 93px 0);
+  68% {
+    -webkit-clip-path: inset(243px 0 233px 0);
+            clip-path: inset(243px 0 233px 0);
   }
-  184% {
+  340% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 5px 5px;
-            mask-size: 5px 5px;
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+    transform: translateY(-3rem) skewX(3deg);
   }
-  230% {
+  544% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 9px 9px;
-            mask-size: 9px 9px;
+    -webkit-mask-size: 191px 191px;
+            mask-size: 191px 191px;
     z-index: 1;
   }
-  345% {
+  340% {
     background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
     -webkit-mask-size: 10px 3px;
@@ -758,22 +1034,48 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  24% {
-    -webkit-clip-path: inset(500px 0 88px 0);
-            clip-path: inset(500px 0 88px 0);
+  70% {
+    -webkit-clip-path: inset(367px 0 322px 0);
+            clip-path: inset(367px 0 322px 0);
   }
-  192% {
+  350% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 1px 1px;
-            mask-size: 1px 1px;
+    -webkit-mask-size: 4px 4px;
+            mask-size: 4px 4px;
+    transform: translateY(-4rem) skewX(4deg);
   }
-  240% {
+  560% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 11px 11px;
-            mask-size: 11px 11px;
+    -webkit-mask-size: 198px 198px;
+            mask-size: 198px 198px;
+    z-index: 1;
+  }
+  350% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  72% {
+    -webkit-clip-path: inset(370px 0 101px 0);
+            clip-path: inset(370px 0 101px 0);
+  }
+  360% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 4px 4px;
+            mask-size: 4px 4px;
+    transform: translateY(-4rem) skewX(4deg);
+  }
+  576% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 22px 22px;
+            mask-size: 22px 22px;
     z-index: 1;
   }
   360% {
@@ -784,25 +1086,25 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  25% {
-    -webkit-clip-path: inset(276px 0 260px 0);
-            clip-path: inset(276px 0 260px 0);
+  74% {
+    -webkit-clip-path: inset(323px 0 115px 0);
+            clip-path: inset(323px 0 115px 0);
   }
-  200% {
+  370% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 1px 1px;
-            mask-size: 1px 1px;
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+    transform: translateY(-3rem) skewX(3deg);
   }
-  250% {
+  592% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 19px 19px;
-            mask-size: 19px 19px;
+    -webkit-mask-size: 64px 64px;
+            mask-size: 64px 64px;
     z-index: 1;
   }
-  375% {
+  370% {
     background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
     -webkit-mask-size: 10px 3px;
@@ -810,22 +1112,48 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  26% {
-    -webkit-clip-path: inset(93px 0 333px 0);
-            clip-path: inset(93px 0 333px 0);
+  76% {
+    -webkit-clip-path: inset(50px 0 41px 0);
+            clip-path: inset(50px 0 41px 0);
   }
-  208% {
+  380% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 6px 6px;
-            mask-size: 6px 6px;
+    -webkit-mask-size: 4px 4px;
+            mask-size: 4px 4px;
+    transform: translateY(-4rem) skewX(4deg);
   }
-  260% {
+  608% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 15px 15px;
-            mask-size: 15px 15px;
+    -webkit-mask-size: 130px 130px;
+            mask-size: 130px 130px;
+    z-index: 1;
+  }
+  380% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  78% {
+    -webkit-clip-path: inset(121px 0 138px 0);
+            clip-path: inset(121px 0 138px 0);
+  }
+  390% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 1px 1px;
+            mask-size: 1px 1px;
+    transform: translateY(-1rem) skewX(1deg);
+  }
+  624% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 10px;
+            mask-size: 10px 10px;
     z-index: 1;
   }
   390% {
@@ -836,25 +1164,25 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  27% {
-    -webkit-clip-path: inset(205px 0 173px 0);
-            clip-path: inset(205px 0 173px 0);
+  80% {
+    -webkit-clip-path: inset(549px 0 38px 0);
+            clip-path: inset(549px 0 38px 0);
   }
-  216% {
+  400% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 3px 3px;
-            mask-size: 3px 3px;
+    -webkit-mask-size: 1px 1px;
+            mask-size: 1px 1px;
+    transform: translateY(-1rem) skewX(1deg);
   }
-  270% {
+  640% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 5px 5px;
-            mask-size: 5px 5px;
+    -webkit-mask-size: 183px 183px;
+            mask-size: 183px 183px;
     z-index: 1;
   }
-  405% {
+  400% {
     background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
     -webkit-mask-size: 10px 3px;
@@ -862,22 +1190,48 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  28% {
-    -webkit-clip-path: inset(557px 0 14px 0);
-            clip-path: inset(557px 0 14px 0);
+  82% {
+    -webkit-clip-path: inset(312px 0 227px 0);
+            clip-path: inset(312px 0 227px 0);
   }
-  224% {
+  410% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 5px 5px;
-            mask-size: 5px 5px;
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+    transform: translateY(-3rem) skewX(3deg);
   }
-  280% {
+  656% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 4px 4px;
-            mask-size: 4px 4px;
+    -webkit-mask-size: 8px 8px;
+            mask-size: 8px 8px;
+    z-index: 1;
+  }
+  410% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  84% {
+    -webkit-clip-path: inset(632px 0 57px 0);
+            clip-path: inset(632px 0 57px 0);
+  }
+  420% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 1px 1px;
+            mask-size: 1px 1px;
+    transform: translateY(-1rem) skewX(1deg);
+  }
+  672% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 118px 118px;
+            mask-size: 118px 118px;
     z-index: 1;
   }
   420% {
@@ -888,25 +1242,25 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  29% {
-    -webkit-clip-path: inset(10px 0 657px 0);
-            clip-path: inset(10px 0 657px 0);
+  86% {
+    -webkit-clip-path: inset(217px 0 29px 0);
+            clip-path: inset(217px 0 29px 0);
   }
-  232% {
+  430% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 5px 5px;
-            mask-size: 5px 5px;
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+    transform: translateY(-3rem) skewX(3deg);
   }
-  290% {
+  688% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 1px 1px;
-            mask-size: 1px 1px;
+    -webkit-mask-size: 31px 31px;
+            mask-size: 31px 31px;
     z-index: 1;
   }
-  435% {
+  430% {
     background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
     -webkit-mask-size: 10px 3px;
@@ -914,22 +1268,48 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  30% {
-    -webkit-clip-path: inset(56px 0 607px 0);
-            clip-path: inset(56px 0 607px 0);
+  88% {
+    -webkit-clip-path: inset(191px 0 151px 0);
+            clip-path: inset(191px 0 151px 0);
   }
-  240% {
+  440% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 9px 9px;
-            mask-size: 9px 9px;
+    -webkit-mask-size: 4px 4px;
+            mask-size: 4px 4px;
+    transform: translateY(-4rem) skewX(4deg);
   }
-  300% {
+  704% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 3px 3px;
-            mask-size: 3px 3px;
+    -webkit-mask-size: 122px 122px;
+            mask-size: 122px 122px;
+    z-index: 1;
+  }
+  440% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  90% {
+    -webkit-clip-path: inset(293px 0 320px 0);
+            clip-path: inset(293px 0 320px 0);
+  }
+  450% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 4px 4px;
+            mask-size: 4px 4px;
+    transform: translateY(-4rem) skewX(4deg);
+  }
+  720% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 195px 195px;
+            mask-size: 195px 195px;
     z-index: 1;
   }
   450% {
@@ -940,25 +1320,25 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  31% {
-    -webkit-clip-path: inset(83px 0 405px 0);
-            clip-path: inset(83px 0 405px 0);
+  92% {
+    -webkit-clip-path: inset(617px 0 13px 0);
+            clip-path: inset(617px 0 13px 0);
   }
-  248% {
+  460% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 3px 3px;
-            mask-size: 3px 3px;
+    -webkit-mask-size: 1px 1px;
+            mask-size: 1px 1px;
+    transform: translateY(-1rem) skewX(1deg);
   }
-  310% {
+  736% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 15px 15px;
-            mask-size: 15px 15px;
+    -webkit-mask-size: 140px 140px;
+            mask-size: 140px 140px;
     z-index: 1;
   }
-  465% {
+  460% {
     background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
     -webkit-mask-size: 10px 3px;
@@ -966,22 +1346,48 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  32% {
-    -webkit-clip-path: inset(357px 0 226px 0);
-            clip-path: inset(357px 0 226px 0);
+  94% {
+    -webkit-clip-path: inset(609px 0 54px 0);
+            clip-path: inset(609px 0 54px 0);
   }
-  256% {
+  470% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 10px 10px;
-            mask-size: 10px 10px;
+    -webkit-mask-size: 4px 4px;
+            mask-size: 4px 4px;
+    transform: translateY(-4rem) skewX(4deg);
   }
-  320% {
+  752% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 18px 18px;
-            mask-size: 18px 18px;
+    -webkit-mask-size: 161px 161px;
+            mask-size: 161px 161px;
+    z-index: 1;
+  }
+  470% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  96% {
+    -webkit-clip-path: inset(652px 0 20px 0);
+            clip-path: inset(652px 0 20px 0);
+  }
+  480% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 5px 5px;
+            mask-size: 5px 5px;
+    transform: translateY(-5rem) skewX(5deg);
+  }
+  768% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 150px 150px;
+            mask-size: 150px 150px;
     z-index: 1;
   }
   480% {
@@ -992,25 +1398,25 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  33% {
-    -webkit-clip-path: inset(344px 0 298px 0);
-            clip-path: inset(344px 0 298px 0);
+  98% {
+    -webkit-clip-path: inset(366px 0 333px 0);
+            clip-path: inset(366px 0 333px 0);
   }
-  264% {
+  490% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 1px 1px;
-            mask-size: 1px 1px;
+    -webkit-mask-size: 5px 5px;
+            mask-size: 5px 5px;
+    transform: translateY(-5rem) skewX(5deg);
   }
-  330% {
+  784% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 1px 1px;
-            mask-size: 1px 1px;
+    -webkit-mask-size: 34px 34px;
+            mask-size: 34px 34px;
     z-index: 1;
   }
-  495% {
+  490% {
     background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
     -webkit-mask-size: 10px 3px;
@@ -1018,22 +1424,48 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  34% {
-    -webkit-clip-path: inset(554px 0 52px 0);
-            clip-path: inset(554px 0 52px 0);
+  100% {
+    -webkit-clip-path: inset(400px 0 198px 0);
+            clip-path: inset(400px 0 198px 0);
   }
-  272% {
+  500% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 8px 8px;
-            mask-size: 8px 8px;
+    -webkit-mask-size: 4px 4px;
+            mask-size: 4px 4px;
+    transform: translateY(-4rem) skewX(4deg);
   }
-  340% {
+  800% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 2px 2px;
-            mask-size: 2px 2px;
+    -webkit-mask-size: 127px 127px;
+            mask-size: 127px 127px;
+    z-index: 1;
+  }
+  500% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  102% {
+    -webkit-clip-path: inset(596px 0 20px 0);
+            clip-path: inset(596px 0 20px 0);
+  }
+  510% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 1px 1px;
+            mask-size: 1px 1px;
+    transform: translateY(-1rem) skewX(1deg);
+  }
+  816% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 106px 106px;
+            mask-size: 106px 106px;
     z-index: 1;
   }
   510% {
@@ -1044,25 +1476,25 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  35% {
-    -webkit-clip-path: inset(457px 0 37px 0);
-            clip-path: inset(457px 0 37px 0);
+  104% {
+    -webkit-clip-path: inset(85px 0 105px 0);
+            clip-path: inset(85px 0 105px 0);
   }
-  280% {
+  520% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 6px 6px;
-            mask-size: 6px 6px;
+    -webkit-mask-size: 5px 5px;
+            mask-size: 5px 5px;
+    transform: translateY(-5rem) skewX(5deg);
   }
-  350% {
+  832% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 7px 7px;
-            mask-size: 7px 7px;
+    -webkit-mask-size: 166px 166px;
+            mask-size: 166px 166px;
     z-index: 1;
   }
-  525% {
+  520% {
     background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
     -webkit-mask-size: 10px 3px;
@@ -1070,22 +1502,48 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  36% {
-    -webkit-clip-path: inset(28px 0 405px 0);
-            clip-path: inset(28px 0 405px 0);
+  106% {
+    -webkit-clip-path: inset(614px 0 54px 0);
+            clip-path: inset(614px 0 54px 0);
   }
-  288% {
+  530% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 1px 1px;
-            mask-size: 1px 1px;
+    -webkit-mask-size: 2px 2px;
+            mask-size: 2px 2px;
+    transform: translateY(-2rem) skewX(2deg);
   }
-  360% {
+  848% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 18px 18px;
-            mask-size: 18px 18px;
+    -webkit-mask-size: 48px 48px;
+            mask-size: 48px 48px;
+    z-index: 1;
+  }
+  530% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  108% {
+    -webkit-clip-path: inset(125px 0 11px 0);
+            clip-path: inset(125px 0 11px 0);
+  }
+  540% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+    transform: translateY(-3rem) skewX(3deg);
+  }
+  864% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 150px 150px;
+            mask-size: 150px 150px;
     z-index: 1;
   }
   540% {
@@ -1096,25 +1554,25 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  37% {
-    -webkit-clip-path: inset(354px 0 28px 0);
-            clip-path: inset(354px 0 28px 0);
+  110% {
+    -webkit-clip-path: inset(523px 0 157px 0);
+            clip-path: inset(523px 0 157px 0);
   }
-  296% {
+  550% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 10px 10px;
-            mask-size: 10px 10px;
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+    transform: translateY(-3rem) skewX(3deg);
   }
-  370% {
+  880% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 7px 7px;
-            mask-size: 7px 7px;
+    -webkit-mask-size: 154px 154px;
+            mask-size: 154px 154px;
     z-index: 1;
   }
-  555% {
+  550% {
     background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
     -webkit-mask-size: 10px 3px;
@@ -1122,22 +1580,48 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  38% {
-    -webkit-clip-path: inset(265px 0 49px 0);
-            clip-path: inset(265px 0 49px 0);
+  112% {
+    -webkit-clip-path: inset(68px 0 621px 0);
+            clip-path: inset(68px 0 621px 0);
   }
-  304% {
+  560% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 10px 10px;
-            mask-size: 10px 10px;
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+    transform: translateY(-3rem) skewX(3deg);
   }
-  380% {
+  896% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 1px 1px;
-            mask-size: 1px 1px;
+    -webkit-mask-size: 125px 125px;
+            mask-size: 125px 125px;
+    z-index: 1;
+  }
+  560% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  114% {
+    -webkit-clip-path: inset(279px 0 262px 0);
+            clip-path: inset(279px 0 262px 0);
+  }
+  570% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 5px 5px;
+            mask-size: 5px 5px;
+    transform: translateY(-5rem) skewX(5deg);
+  }
+  912% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 185px 185px;
+            mask-size: 185px 185px;
     z-index: 1;
   }
   570% {
@@ -1148,25 +1632,25 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  39% {
-    -webkit-clip-path: inset(166px 0 469px 0);
-            clip-path: inset(166px 0 469px 0);
+  116% {
+    -webkit-clip-path: inset(266px 0 143px 0);
+            clip-path: inset(266px 0 143px 0);
   }
-  312% {
+  580% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 10px 10px;
-            mask-size: 10px 10px;
+    -webkit-mask-size: 4px 4px;
+            mask-size: 4px 4px;
+    transform: translateY(-4rem) skewX(4deg);
   }
-  390% {
+  928% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 12px 12px;
-            mask-size: 12px 12px;
+    -webkit-mask-size: 125px 125px;
+            mask-size: 125px 125px;
     z-index: 1;
   }
-  585% {
+  580% {
     background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
     -webkit-mask-size: 10px 3px;
@@ -1174,22 +1658,48 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  40% {
-    -webkit-clip-path: inset(139px 0 402px 0);
-            clip-path: inset(139px 0 402px 0);
+  118% {
+    -webkit-clip-path: inset(480px 0 69px 0);
+            clip-path: inset(480px 0 69px 0);
   }
-  320% {
+  590% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
     -webkit-mask-size: 3px 3px;
             mask-size: 3px 3px;
+    transform: translateY(-3rem) skewX(3deg);
   }
-  400% {
+  944% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 18px 18px;
-            mask-size: 18px 18px;
+    -webkit-mask-size: 175px 175px;
+            mask-size: 175px 175px;
+    z-index: 1;
+  }
+  590% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  120% {
+    -webkit-clip-path: inset(22px 0 414px 0);
+            clip-path: inset(22px 0 414px 0);
+  }
+  600% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 2px 2px;
+            mask-size: 2px 2px;
+    transform: translateY(-2rem) skewX(2deg);
+  }
+  960% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 123px 123px;
+            mask-size: 123px 123px;
     z-index: 1;
   }
   600% {
@@ -1200,25 +1710,25 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  41% {
-    -webkit-clip-path: inset(645px 0 3px 0);
-            clip-path: inset(645px 0 3px 0);
+  122% {
+    -webkit-clip-path: inset(578px 0 30px 0);
+            clip-path: inset(578px 0 30px 0);
   }
-  328% {
+  610% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 10px 10px;
-            mask-size: 10px 10px;
+    -webkit-mask-size: 4px 4px;
+            mask-size: 4px 4px;
+    transform: translateY(-4rem) skewX(4deg);
   }
-  410% {
+  976% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 6px 6px;
-            mask-size: 6px 6px;
+    -webkit-mask-size: 1px 1px;
+            mask-size: 1px 1px;
     z-index: 1;
   }
-  615% {
+  610% {
     background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
     -webkit-mask-size: 10px 3px;
@@ -1226,22 +1736,48 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  42% {
-    -webkit-clip-path: inset(418px 0 41px 0);
-            clip-path: inset(418px 0 41px 0);
+  124% {
+    -webkit-clip-path: inset(309px 0 333px 0);
+            clip-path: inset(309px 0 333px 0);
   }
-  336% {
+  620% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 5px 5px;
-            mask-size: 5px 5px;
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+    transform: translateY(-3rem) skewX(3deg);
   }
-  420% {
+  992% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 10px 10px;
-            mask-size: 10px 10px;
+    -webkit-mask-size: 37px 37px;
+            mask-size: 37px 37px;
+    z-index: 1;
+  }
+  620% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  126% {
+    -webkit-clip-path: inset(270px 0 397px 0);
+            clip-path: inset(270px 0 397px 0);
+  }
+  630% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 1px 1px;
+            mask-size: 1px 1px;
+    transform: translateY(-1rem) skewX(1deg);
+  }
+  1008% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 96px 96px;
+            mask-size: 96px 96px;
     z-index: 1;
   }
   630% {
@@ -1252,25 +1788,25 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  43% {
-    -webkit-clip-path: inset(396px 0 151px 0);
-            clip-path: inset(396px 0 151px 0);
+  128% {
+    -webkit-clip-path: inset(518px 0 120px 0);
+            clip-path: inset(518px 0 120px 0);
   }
-  344% {
+  640% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 7px 7px;
-            mask-size: 7px 7px;
+    -webkit-mask-size: 1px 1px;
+            mask-size: 1px 1px;
+    transform: translateY(-1rem) skewX(1deg);
   }
-  430% {
+  1024% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 16px 16px;
-            mask-size: 16px 16px;
+    -webkit-mask-size: 130px 130px;
+            mask-size: 130px 130px;
     z-index: 1;
   }
-  645% {
+  640% {
     background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
     -webkit-mask-size: 10px 3px;
@@ -1278,22 +1814,48 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  44% {
-    -webkit-clip-path: inset(151px 0 427px 0);
-            clip-path: inset(151px 0 427px 0);
+  130% {
+    -webkit-clip-path: inset(615px 0 27px 0);
+            clip-path: inset(615px 0 27px 0);
   }
-  352% {
+  650% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 7px 7px;
-            mask-size: 7px 7px;
+    -webkit-mask-size: 5px 5px;
+            mask-size: 5px 5px;
+    transform: translateY(-5rem) skewX(5deg);
   }
-  440% {
+  1040% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 19px 19px;
-            mask-size: 19px 19px;
+    -webkit-mask-size: 33px 33px;
+            mask-size: 33px 33px;
+    z-index: 1;
+  }
+  650% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  132% {
+    -webkit-clip-path: inset(518px 0 97px 0);
+            clip-path: inset(518px 0 97px 0);
+  }
+  660% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 2px 2px;
+            mask-size: 2px 2px;
+    transform: translateY(-2rem) skewX(2deg);
+  }
+  1056% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 146px 146px;
+            mask-size: 146px 146px;
     z-index: 1;
   }
   660% {
@@ -1304,25 +1866,25 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  45% {
-    -webkit-clip-path: inset(541px 0 23px 0);
-            clip-path: inset(541px 0 23px 0);
+  134% {
+    -webkit-clip-path: inset(511px 0 177px 0);
+            clip-path: inset(511px 0 177px 0);
   }
-  360% {
+  670% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 10px 10px;
-            mask-size: 10px 10px;
+    -webkit-mask-size: 1px 1px;
+            mask-size: 1px 1px;
+    transform: translateY(-1rem) skewX(1deg);
   }
-  450% {
+  1072% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 4px 4px;
-            mask-size: 4px 4px;
+    -webkit-mask-size: 86px 86px;
+            mask-size: 86px 86px;
     z-index: 1;
   }
-  675% {
+  670% {
     background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
     -webkit-mask-size: 10px 3px;
@@ -1330,22 +1892,48 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  46% {
-    -webkit-clip-path: inset(65px 0 530px 0);
-            clip-path: inset(65px 0 530px 0);
+  136% {
+    -webkit-clip-path: inset(353px 0 27px 0);
+            clip-path: inset(353px 0 27px 0);
   }
-  368% {
+  680% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 6px 6px;
-            mask-size: 6px 6px;
+    -webkit-mask-size: 1px 1px;
+            mask-size: 1px 1px;
+    transform: translateY(-1rem) skewX(1deg);
   }
-  460% {
+  1088% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 4px 4px;
-            mask-size: 4px 4px;
+    -webkit-mask-size: 103px 103px;
+            mask-size: 103px 103px;
+    z-index: 1;
+  }
+  680% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  138% {
+    -webkit-clip-path: inset(203px 0 227px 0);
+            clip-path: inset(203px 0 227px 0);
+  }
+  690% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+    transform: translateY(-3rem) skewX(3deg);
+  }
+  1104% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 83px 83px;
+            mask-size: 83px 83px;
     z-index: 1;
   }
   690% {
@@ -1356,25 +1944,25 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  47% {
-    -webkit-clip-path: inset(288px 0 51px 0);
-            clip-path: inset(288px 0 51px 0);
+  140% {
+    -webkit-clip-path: inset(199px 0 328px 0);
+            clip-path: inset(199px 0 328px 0);
   }
-  376% {
+  700% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 7px 7px;
-            mask-size: 7px 7px;
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+    transform: translateY(-3rem) skewX(3deg);
   }
-  470% {
+  1120% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 2px 2px;
-            mask-size: 2px 2px;
+    -webkit-mask-size: 88px 88px;
+            mask-size: 88px 88px;
     z-index: 1;
   }
-  705% {
+  700% {
     background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
     -webkit-mask-size: 10px 3px;
@@ -1382,22 +1970,48 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  48% {
-    -webkit-clip-path: inset(504px 0 181px 0);
-            clip-path: inset(504px 0 181px 0);
+  142% {
+    -webkit-clip-path: inset(239px 0 435px 0);
+            clip-path: inset(239px 0 435px 0);
   }
-  384% {
+  710% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 9px 9px;
-            mask-size: 9px 9px;
+    -webkit-mask-size: 5px 5px;
+            mask-size: 5px 5px;
+    transform: translateY(-5rem) skewX(5deg);
   }
-  480% {
+  1136% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 20px 20px;
-            mask-size: 20px 20px;
+    -webkit-mask-size: 173px 173px;
+            mask-size: 173px 173px;
+    z-index: 1;
+  }
+  710% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  144% {
+    -webkit-clip-path: inset(43px 0 145px 0);
+            clip-path: inset(43px 0 145px 0);
+  }
+  720% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+    transform: translateY(-3rem) skewX(3deg);
+  }
+  1152% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 165px 165px;
+            mask-size: 165px 165px;
     z-index: 1;
   }
   720% {
@@ -1408,25 +2022,25 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  49% {
-    -webkit-clip-path: inset(140px 0 75px 0);
-            clip-path: inset(140px 0 75px 0);
+  146% {
+    -webkit-clip-path: inset(127px 0 373px 0);
+            clip-path: inset(127px 0 373px 0);
   }
-  392% {
+  730% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 4px 4px;
-            mask-size: 4px 4px;
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+    transform: translateY(-3rem) skewX(3deg);
   }
-  490% {
+  1168% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 6px 6px;
-            mask-size: 6px 6px;
+    -webkit-mask-size: 169px 169px;
+            mask-size: 169px 169px;
     z-index: 1;
   }
-  735% {
+  730% {
     background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
     -webkit-mask-size: 10px 3px;
@@ -1434,22 +2048,48 @@ HOME STYLE
     transform: translateX(-0.2rem);
     z-index: -98;
   }
-  50% {
-    -webkit-clip-path: inset(130px 0 88px 0);
-            clip-path: inset(130px 0 88px 0);
+  148% {
+    -webkit-clip-path: inset(337px 0 212px 0);
+            clip-path: inset(337px 0 212px 0);
   }
-  400% {
+  740% {
     background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    transform: translateX(0.2rem);
-    -webkit-mask-size: 4px 4px;
-            mask-size: 4px 4px;
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+    transform: translateY(-3rem) skewX(3deg);
   }
-  500% {
+  1184% {
     background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
     background-size: contain;
-    -webkit-mask-size: 13px 13px;
-            mask-size: 13px 13px;
+    -webkit-mask-size: 114px 114px;
+            mask-size: 114px 114px;
+    z-index: 1;
+  }
+  740% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  150% {
+    -webkit-clip-path: inset(610px 0 81px 0);
+            clip-path: inset(610px 0 81px 0);
+  }
+  750% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 4px 4px;
+            mask-size: 4px 4px;
+    transform: translateY(-4rem) skewX(4deg);
+  }
+  1200% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 130px 130px;
+            mask-size: 130px 130px;
     z-index: 1;
   }
   750% {
@@ -1459,6 +2099,1954 @@ HOME STYLE
             mask-size: 10px 3px;
     transform: translateX(-0.2rem);
     z-index: -98;
+  }
+  152% {
+    -webkit-clip-path: inset(343px 0 199px 0);
+            clip-path: inset(343px 0 199px 0);
+  }
+  760% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 5px 5px;
+            mask-size: 5px 5px;
+    transform: translateY(-5rem) skewX(5deg);
+  }
+  1216% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 117px 117px;
+            mask-size: 117px 117px;
+    z-index: 1;
+  }
+  760% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  154% {
+    -webkit-clip-path: inset(181px 0 224px 0);
+            clip-path: inset(181px 0 224px 0);
+  }
+  770% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 5px 5px;
+            mask-size: 5px 5px;
+    transform: translateY(-5rem) skewX(5deg);
+  }
+  1232% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 106px 106px;
+            mask-size: 106px 106px;
+    z-index: 1;
+  }
+  770% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  156% {
+    -webkit-clip-path: inset(384px 0 155px 0);
+            clip-path: inset(384px 0 155px 0);
+  }
+  780% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+    transform: translateY(-3rem) skewX(3deg);
+  }
+  1248% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 54px 54px;
+            mask-size: 54px 54px;
+    z-index: 1;
+  }
+  780% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  158% {
+    -webkit-clip-path: inset(34px 0 464px 0);
+            clip-path: inset(34px 0 464px 0);
+  }
+  790% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 5px 5px;
+            mask-size: 5px 5px;
+    transform: translateY(-5rem) skewX(5deg);
+  }
+  1264% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 120px 120px;
+            mask-size: 120px 120px;
+    z-index: 1;
+  }
+  790% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  160% {
+    -webkit-clip-path: inset(305px 0 284px 0);
+            clip-path: inset(305px 0 284px 0);
+  }
+  800% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 1px 1px;
+            mask-size: 1px 1px;
+    transform: translateY(-1rem) skewX(1deg);
+  }
+  1280% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 156px 156px;
+            mask-size: 156px 156px;
+    z-index: 1;
+  }
+  800% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  162% {
+    -webkit-clip-path: inset(695px 0 3px 0);
+            clip-path: inset(695px 0 3px 0);
+  }
+  810% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 4px 4px;
+            mask-size: 4px 4px;
+    transform: translateY(-4rem) skewX(4deg);
+  }
+  1296% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 132px 132px;
+            mask-size: 132px 132px;
+    z-index: 1;
+  }
+  810% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  164% {
+    -webkit-clip-path: inset(111px 0 423px 0);
+            clip-path: inset(111px 0 423px 0);
+  }
+  820% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 5px 5px;
+            mask-size: 5px 5px;
+    transform: translateY(-5rem) skewX(5deg);
+  }
+  1312% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 139px 139px;
+            mask-size: 139px 139px;
+    z-index: 1;
+  }
+  820% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  166% {
+    -webkit-clip-path: inset(457px 0 175px 0);
+            clip-path: inset(457px 0 175px 0);
+  }
+  830% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 2px 2px;
+            mask-size: 2px 2px;
+    transform: translateY(-2rem) skewX(2deg);
+  }
+  1328% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 171px 171px;
+            mask-size: 171px 171px;
+    z-index: 1;
+  }
+  830% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  168% {
+    -webkit-clip-path: inset(3px 0 420px 0);
+            clip-path: inset(3px 0 420px 0);
+  }
+  840% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 2px 2px;
+            mask-size: 2px 2px;
+    transform: translateY(-2rem) skewX(2deg);
+  }
+  1344% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 156px 156px;
+            mask-size: 156px 156px;
+    z-index: 1;
+  }
+  840% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  170% {
+    -webkit-clip-path: inset(190px 0 480px 0);
+            clip-path: inset(190px 0 480px 0);
+  }
+  850% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+    transform: translateY(-3rem) skewX(3deg);
+  }
+  1360% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 19px 19px;
+            mask-size: 19px 19px;
+    z-index: 1;
+  }
+  850% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  172% {
+    -webkit-clip-path: inset(670px 0 21px 0);
+            clip-path: inset(670px 0 21px 0);
+  }
+  860% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+    transform: translateY(-3rem) skewX(3deg);
+  }
+  1376% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 38px 38px;
+            mask-size: 38px 38px;
+    z-index: 1;
+  }
+  860% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  174% {
+    -webkit-clip-path: inset(274px 0 205px 0);
+            clip-path: inset(274px 0 205px 0);
+  }
+  870% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+    transform: translateY(-3rem) skewX(3deg);
+  }
+  1392% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 118px 118px;
+            mask-size: 118px 118px;
+    z-index: 1;
+  }
+  870% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  176% {
+    -webkit-clip-path: inset(258px 0 331px 0);
+            clip-path: inset(258px 0 331px 0);
+  }
+  880% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+    transform: translateY(-3rem) skewX(3deg);
+  }
+  1408% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 77px 77px;
+            mask-size: 77px 77px;
+    z-index: 1;
+  }
+  880% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  178% {
+    -webkit-clip-path: inset(334px 0 70px 0);
+            clip-path: inset(334px 0 70px 0);
+  }
+  890% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 4px 4px;
+            mask-size: 4px 4px;
+    transform: translateY(-4rem) skewX(4deg);
+  }
+  1424% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 107px 107px;
+            mask-size: 107px 107px;
+    z-index: 1;
+  }
+  890% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  180% {
+    -webkit-clip-path: inset(582px 0 78px 0);
+            clip-path: inset(582px 0 78px 0);
+  }
+  900% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 4px 4px;
+            mask-size: 4px 4px;
+    transform: translateY(-4rem) skewX(4deg);
+  }
+  1440% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 29px 29px;
+            mask-size: 29px 29px;
+    z-index: 1;
+  }
+  900% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  182% {
+    -webkit-clip-path: inset(529px 0 94px 0);
+            clip-path: inset(529px 0 94px 0);
+  }
+  910% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 4px 4px;
+            mask-size: 4px 4px;
+    transform: translateY(-4rem) skewX(4deg);
+  }
+  1456% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 113px 113px;
+            mask-size: 113px 113px;
+    z-index: 1;
+  }
+  910% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  184% {
+    -webkit-clip-path: inset(607px 0 15px 0);
+            clip-path: inset(607px 0 15px 0);
+  }
+  920% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 2px 2px;
+            mask-size: 2px 2px;
+    transform: translateY(-2rem) skewX(2deg);
+  }
+  1472% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 63px 63px;
+            mask-size: 63px 63px;
+    z-index: 1;
+  }
+  920% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  186% {
+    -webkit-clip-path: inset(234px 0 305px 0);
+            clip-path: inset(234px 0 305px 0);
+  }
+  930% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+    transform: translateY(-3rem) skewX(3deg);
+  }
+  1488% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 29px 29px;
+            mask-size: 29px 29px;
+    z-index: 1;
+  }
+  930% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  188% {
+    -webkit-clip-path: inset(516px 0 173px 0);
+            clip-path: inset(516px 0 173px 0);
+  }
+  940% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 2px 2px;
+            mask-size: 2px 2px;
+    transform: translateY(-2rem) skewX(2deg);
+  }
+  1504% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 157px 157px;
+            mask-size: 157px 157px;
+    z-index: 1;
+  }
+  940% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  190% {
+    -webkit-clip-path: inset(197px 0 275px 0);
+            clip-path: inset(197px 0 275px 0);
+  }
+  950% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 1px 1px;
+            mask-size: 1px 1px;
+    transform: translateY(-1rem) skewX(1deg);
+  }
+  1520% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 40px 40px;
+            mask-size: 40px 40px;
+    z-index: 1;
+  }
+  950% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  192% {
+    -webkit-clip-path: inset(206px 0 400px 0);
+            clip-path: inset(206px 0 400px 0);
+  }
+  960% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 1px 1px;
+            mask-size: 1px 1px;
+    transform: translateY(-1rem) skewX(1deg);
+  }
+  1536% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 126px 126px;
+            mask-size: 126px 126px;
+    z-index: 1;
+  }
+  960% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  194% {
+    -webkit-clip-path: inset(31px 0 111px 0);
+            clip-path: inset(31px 0 111px 0);
+  }
+  970% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+    transform: translateY(-3rem) skewX(3deg);
+  }
+  1552% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 106px 106px;
+            mask-size: 106px 106px;
+    z-index: 1;
+  }
+  970% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  196% {
+    -webkit-clip-path: inset(83px 0 603px 0);
+            clip-path: inset(83px 0 603px 0);
+  }
+  980% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+    transform: translateY(-3rem) skewX(3deg);
+  }
+  1568% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 166px 166px;
+            mask-size: 166px 166px;
+    z-index: 1;
+  }
+  980% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  198% {
+    -webkit-clip-path: inset(679px 0 15px 0);
+            clip-path: inset(679px 0 15px 0);
+  }
+  990% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 1px 1px;
+            mask-size: 1px 1px;
+    transform: translateY(-1rem) skewX(1deg);
+  }
+  1584% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 14px 14px;
+            mask-size: 14px 14px;
+    z-index: 1;
+  }
+  990% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+  200% {
+    -webkit-clip-path: inset(107px 0 248px 0);
+            clip-path: inset(107px 0 248px 0);
+  }
+  1000% {
+    background: url("../img/IMG_1840.jpg") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 5px 5px;
+            mask-size: 5px 5px;
+    transform: translateY(-5rem) skewX(5deg);
+  }
+  1600% {
+    background: url("../img/sillouette_red.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 93px 93px;
+            mask-size: 93px 93px;
+    z-index: 1;
+  }
+  1000% {
+    background: url("../img/sillouette_blue.png") bottom no-repeat, #d4d4d4;
+    background-size: contain;
+    -webkit-mask-size: 10px 3px;
+            mask-size: 10px 3px;
+    transform: translateX(-0.2rem);
+    z-index: -98;
+  }
+}
+@keyframes noise-2 {
+  40% {
+    transform: translateY(-23rem) skewX(23deg);
+  }
+  120% {
+    transform: translateY(917rem) skewY(917deg);
+  }
+  20% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  160% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 23px 23px;
+            mask-size: 23px 23px;
+  }
+  42% {
+    transform: translateY(-59rem) skewX(59deg);
+  }
+  126% {
+    transform: translateY(623rem) skewY(623deg);
+  }
+  21% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  168% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 80px 80px;
+            mask-size: 80px 80px;
+  }
+  44% {
+    transform: translateY(-31rem) skewX(31deg);
+  }
+  132% {
+    transform: translateY(331rem) skewY(331deg);
+  }
+  22% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  176% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 89px 89px;
+            mask-size: 89px 89px;
+  }
+  46% {
+    transform: translateY(-77rem) skewX(77deg);
+  }
+  138% {
+    transform: translateY(911rem) skewY(911deg);
+  }
+  23% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  184% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 89px 89px;
+            mask-size: 89px 89px;
+  }
+  48% {
+    transform: translateY(-48rem) skewX(48deg);
+  }
+  144% {
+    transform: translateY(207rem) skewY(207deg);
+  }
+  24% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  192% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 34px 34px;
+            mask-size: 34px 34px;
+  }
+  50% {
+    transform: translateY(-76rem) skewX(76deg);
+  }
+  150% {
+    transform: translateY(382rem) skewY(382deg);
+  }
+  25% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  200% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 21px 21px;
+            mask-size: 21px 21px;
+  }
+  52% {
+    transform: translateY(-86rem) skewX(86deg);
+  }
+  156% {
+    transform: translateY(541rem) skewY(541deg);
+  }
+  26% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  208% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 21px 21px;
+            mask-size: 21px 21px;
+  }
+  54% {
+    transform: translateY(-62rem) skewX(62deg);
+  }
+  162% {
+    transform: translateY(582rem) skewY(582deg);
+  }
+  27% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  216% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 43px 43px;
+            mask-size: 43px 43px;
+  }
+  56% {
+    transform: translateY(-18rem) skewX(18deg);
+  }
+  168% {
+    transform: translateY(341rem) skewY(341deg);
+  }
+  28% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  224% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 87px 87px;
+            mask-size: 87px 87px;
+  }
+  58% {
+    transform: translateY(-8rem) skewX(8deg);
+  }
+  174% {
+    transform: translateY(397rem) skewY(397deg);
+  }
+  29% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  232% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 94px 94px;
+            mask-size: 94px 94px;
+  }
+  60% {
+    transform: translateY(-74rem) skewX(74deg);
+  }
+  180% {
+    transform: translateY(486rem) skewY(486deg);
+  }
+  30% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  240% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 59px 59px;
+            mask-size: 59px 59px;
+  }
+  62% {
+    transform: translateY(-52rem) skewX(52deg);
+  }
+  186% {
+    transform: translateY(905rem) skewY(905deg);
+  }
+  31% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  248% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 96px 96px;
+            mask-size: 96px 96px;
+  }
+  64% {
+    transform: translateY(-40rem) skewX(40deg);
+  }
+  192% {
+    transform: translateY(814rem) skewY(814deg);
+  }
+  32% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  256% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 89px 89px;
+            mask-size: 89px 89px;
+  }
+  66% {
+    transform: translateY(-57rem) skewX(57deg);
+  }
+  198% {
+    transform: translateY(459rem) skewY(459deg);
+  }
+  33% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  264% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 69px 69px;
+            mask-size: 69px 69px;
+  }
+  68% {
+    transform: translateY(-14rem) skewX(14deg);
+  }
+  204% {
+    transform: translateY(429rem) skewY(429deg);
+  }
+  34% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  272% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 25px 25px;
+            mask-size: 25px 25px;
+  }
+  70% {
+    transform: translateY(-20rem) skewX(20deg);
+  }
+  210% {
+    transform: translateY(698rem) skewY(698deg);
+  }
+  35% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  280% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 9px 9px;
+            mask-size: 9px 9px;
+  }
+  72% {
+    transform: translateY(-75rem) skewX(75deg);
+  }
+  216% {
+    transform: translateY(7rem) skewY(7deg);
+  }
+  36% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  288% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 83px 83px;
+            mask-size: 83px 83px;
+  }
+  74% {
+    transform: translateY(-83rem) skewX(83deg);
+  }
+  222% {
+    transform: translateY(427rem) skewY(427deg);
+  }
+  37% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  296% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 95px 95px;
+            mask-size: 95px 95px;
+  }
+  76% {
+    transform: translateY(-22rem) skewX(22deg);
+  }
+  228% {
+    transform: translateY(458rem) skewY(458deg);
+  }
+  38% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  304% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 29px 29px;
+            mask-size: 29px 29px;
+  }
+  78% {
+    transform: translateY(-35rem) skewX(35deg);
+  }
+  234% {
+    transform: translateY(501rem) skewY(501deg);
+  }
+  39% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  312% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 40px 40px;
+            mask-size: 40px 40px;
+  }
+  80% {
+    transform: translateY(-69rem) skewX(69deg);
+  }
+  240% {
+    transform: translateY(198rem) skewY(198deg);
+  }
+  40% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  320% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 72px 72px;
+            mask-size: 72px 72px;
+  }
+  82% {
+    transform: translateY(-31rem) skewX(31deg);
+  }
+  246% {
+    transform: translateY(558rem) skewY(558deg);
+  }
+  41% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  328% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 77px 77px;
+            mask-size: 77px 77px;
+  }
+  84% {
+    transform: translateY(-2rem) skewX(2deg);
+  }
+  252% {
+    transform: translateY(887rem) skewY(887deg);
+  }
+  42% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  336% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 2px 2px;
+            mask-size: 2px 2px;
+  }
+  86% {
+    transform: translateY(-9rem) skewX(9deg);
+  }
+  258% {
+    transform: translateY(368rem) skewY(368deg);
+  }
+  43% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  344% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 29px 29px;
+            mask-size: 29px 29px;
+  }
+  88% {
+    transform: translateY(-78rem) skewX(78deg);
+  }
+  264% {
+    transform: translateY(279rem) skewY(279deg);
+  }
+  44% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  352% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 98px 98px;
+            mask-size: 98px 98px;
+  }
+  90% {
+    transform: translateY(-39rem) skewX(39deg);
+  }
+  270% {
+    transform: translateY(295rem) skewY(295deg);
+  }
+  45% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  360% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 16px 16px;
+            mask-size: 16px 16px;
+  }
+  92% {
+    transform: translateY(-68rem) skewX(68deg);
+  }
+  276% {
+    transform: translateY(250rem) skewY(250deg);
+  }
+  46% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  368% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 76px 76px;
+            mask-size: 76px 76px;
+  }
+  94% {
+    transform: translateY(-38rem) skewX(38deg);
+  }
+  282% {
+    transform: translateY(805rem) skewY(805deg);
+  }
+  47% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  376% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 59px 59px;
+            mask-size: 59px 59px;
+  }
+  96% {
+    transform: translateY(-64rem) skewX(64deg);
+  }
+  288% {
+    transform: translateY(261rem) skewY(261deg);
+  }
+  48% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  384% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 6px 6px;
+            mask-size: 6px 6px;
+  }
+  98% {
+    transform: translateY(-24rem) skewX(24deg);
+  }
+  294% {
+    transform: translateY(485rem) skewY(485deg);
+  }
+  49% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  392% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 96px 96px;
+            mask-size: 96px 96px;
+  }
+  100% {
+    transform: translateY(-37rem) skewX(37deg);
+  }
+  300% {
+    transform: translateY(617rem) skewY(617deg);
+  }
+  50% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  400% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 97px 97px;
+            mask-size: 97px 97px;
+  }
+  102% {
+    transform: translateY(-8rem) skewX(8deg);
+  }
+  306% {
+    transform: translateY(230rem) skewY(230deg);
+  }
+  51% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  408% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 4px 4px;
+            mask-size: 4px 4px;
+  }
+  104% {
+    transform: translateY(-96rem) skewX(96deg);
+  }
+  312% {
+    transform: translateY(598rem) skewY(598deg);
+  }
+  52% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  416% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 24px 24px;
+            mask-size: 24px 24px;
+  }
+  106% {
+    transform: translateY(-23rem) skewX(23deg);
+  }
+  318% {
+    transform: translateY(143rem) skewY(143deg);
+  }
+  53% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  424% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 30px 30px;
+            mask-size: 30px 30px;
+  }
+  108% {
+    transform: translateY(-3rem) skewX(3deg);
+  }
+  324% {
+    transform: translateY(372rem) skewY(372deg);
+  }
+  54% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  432% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+  }
+  110% {
+    transform: translateY(-54rem) skewX(54deg);
+  }
+  330% {
+    transform: translateY(101rem) skewY(101deg);
+  }
+  55% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  440% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 73px 73px;
+            mask-size: 73px 73px;
+  }
+  112% {
+    transform: translateY(-81rem) skewX(81deg);
+  }
+  336% {
+    transform: translateY(975rem) skewY(975deg);
+  }
+  56% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  448% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 69px 69px;
+            mask-size: 69px 69px;
+  }
+  114% {
+    transform: translateY(-41rem) skewX(41deg);
+  }
+  342% {
+    transform: translateY(238rem) skewY(238deg);
+  }
+  57% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  456% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 64px 64px;
+            mask-size: 64px 64px;
+  }
+  116% {
+    transform: translateY(-48rem) skewX(48deg);
+  }
+  348% {
+    transform: translateY(863rem) skewY(863deg);
+  }
+  58% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  464% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 64px 64px;
+            mask-size: 64px 64px;
+  }
+  118% {
+    transform: translateY(-8rem) skewX(8deg);
+  }
+  354% {
+    transform: translateY(898rem) skewY(898deg);
+  }
+  59% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  472% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 49px 49px;
+            mask-size: 49px 49px;
+  }
+  120% {
+    transform: translateY(-17rem) skewX(17deg);
+  }
+  360% {
+    transform: translateY(728rem) skewY(728deg);
+  }
+  60% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  480% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 40px 40px;
+            mask-size: 40px 40px;
+  }
+  122% {
+    transform: translateY(-59rem) skewX(59deg);
+  }
+  366% {
+    transform: translateY(545rem) skewY(545deg);
+  }
+  61% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  488% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 98px 98px;
+            mask-size: 98px 98px;
+  }
+  124% {
+    transform: translateY(-27rem) skewX(27deg);
+  }
+  372% {
+    transform: translateY(18rem) skewY(18deg);
+  }
+  62% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  496% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 72px 72px;
+            mask-size: 72px 72px;
+  }
+  126% {
+    transform: translateY(-69rem) skewX(69deg);
+  }
+  378% {
+    transform: translateY(563rem) skewY(563deg);
+  }
+  63% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  504% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+  }
+  128% {
+    transform: translateY(-95rem) skewX(95deg);
+  }
+  384% {
+    transform: translateY(162rem) skewY(162deg);
+  }
+  64% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  512% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 18px 18px;
+            mask-size: 18px 18px;
+  }
+  130% {
+    transform: translateY(-74rem) skewX(74deg);
+  }
+  390% {
+    transform: translateY(913rem) skewY(913deg);
+  }
+  65% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  520% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 93px 93px;
+            mask-size: 93px 93px;
+  }
+  132% {
+    transform: translateY(-40rem) skewX(40deg);
+  }
+  396% {
+    transform: translateY(962rem) skewY(962deg);
+  }
+  66% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  528% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 51px 51px;
+            mask-size: 51px 51px;
+  }
+  134% {
+    transform: translateY(-3rem) skewX(3deg);
+  }
+  402% {
+    transform: translateY(863rem) skewY(863deg);
+  }
+  67% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  536% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 65px 65px;
+            mask-size: 65px 65px;
+  }
+  136% {
+    transform: translateY(-85rem) skewX(85deg);
+  }
+  408% {
+    transform: translateY(905rem) skewY(905deg);
+  }
+  68% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  544% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 46px 46px;
+            mask-size: 46px 46px;
+  }
+  138% {
+    transform: translateY(-24rem) skewX(24deg);
+  }
+  414% {
+    transform: translateY(671rem) skewY(671deg);
+  }
+  69% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  552% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 80px 80px;
+            mask-size: 80px 80px;
+  }
+  140% {
+    transform: translateY(-75rem) skewX(75deg);
+  }
+  420% {
+    transform: translateY(201rem) skewY(201deg);
+  }
+  70% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  560% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 86px 86px;
+            mask-size: 86px 86px;
+  }
+  142% {
+    transform: translateY(-98rem) skewX(98deg);
+  }
+  426% {
+    transform: translateY(540rem) skewY(540deg);
+  }
+  71% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  568% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 68px 68px;
+            mask-size: 68px 68px;
+  }
+  144% {
+    transform: translateY(-41rem) skewX(41deg);
+  }
+  432% {
+    transform: translateY(340rem) skewY(340deg);
+  }
+  72% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  576% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 22px 22px;
+            mask-size: 22px 22px;
+  }
+  146% {
+    transform: translateY(-53rem) skewX(53deg);
+  }
+  438% {
+    transform: translateY(113rem) skewY(113deg);
+  }
+  73% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  584% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 8px 8px;
+            mask-size: 8px 8px;
+  }
+  148% {
+    transform: translateY(-36rem) skewX(36deg);
+  }
+  444% {
+    transform: translateY(91rem) skewY(91deg);
+  }
+  74% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  592% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 65px 65px;
+            mask-size: 65px 65px;
+  }
+  150% {
+    transform: translateY(-11rem) skewX(11deg);
+  }
+  450% {
+    transform: translateY(723rem) skewY(723deg);
+  }
+  75% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  600% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 3px 3px;
+            mask-size: 3px 3px;
+  }
+  152% {
+    transform: translateY(-20rem) skewX(20deg);
+  }
+  456% {
+    transform: translateY(332rem) skewY(332deg);
+  }
+  76% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  608% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 79px 79px;
+            mask-size: 79px 79px;
+  }
+  154% {
+    transform: translateY(-80rem) skewX(80deg);
+  }
+  462% {
+    transform: translateY(120rem) skewY(120deg);
+  }
+  77% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  616% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 31px 31px;
+            mask-size: 31px 31px;
+  }
+  156% {
+    transform: translateY(-98rem) skewX(98deg);
+  }
+  468% {
+    transform: translateY(359rem) skewY(359deg);
+  }
+  78% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  624% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 18px 18px;
+            mask-size: 18px 18px;
+  }
+  158% {
+    transform: translateY(-45rem) skewX(45deg);
+  }
+  474% {
+    transform: translateY(150rem) skewY(150deg);
+  }
+  79% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  632% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 4px 4px;
+            mask-size: 4px 4px;
+  }
+  160% {
+    transform: translateY(-78rem) skewX(78deg);
+  }
+  480% {
+    transform: translateY(659rem) skewY(659deg);
+  }
+  80% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  640% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 10px 10px;
+            mask-size: 10px 10px;
+  }
+  162% {
+    transform: translateY(-86rem) skewX(86deg);
+  }
+  486% {
+    transform: translateY(808rem) skewY(808deg);
+  }
+  81% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  648% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 59px 59px;
+            mask-size: 59px 59px;
+  }
+  164% {
+    transform: translateY(-83rem) skewX(83deg);
+  }
+  492% {
+    transform: translateY(884rem) skewY(884deg);
+  }
+  82% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  656% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 74px 74px;
+            mask-size: 74px 74px;
+  }
+  166% {
+    transform: translateY(-14rem) skewX(14deg);
+  }
+  498% {
+    transform: translateY(131rem) skewY(131deg);
+  }
+  83% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  664% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 4px 4px;
+            mask-size: 4px 4px;
+  }
+  168% {
+    transform: translateY(-85rem) skewX(85deg);
+  }
+  504% {
+    transform: translateY(836rem) skewY(836deg);
+  }
+  84% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  672% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 89px 89px;
+            mask-size: 89px 89px;
+  }
+  170% {
+    transform: translateY(-35rem) skewX(35deg);
+  }
+  510% {
+    transform: translateY(653rem) skewY(653deg);
+  }
+  85% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  680% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 32px 32px;
+            mask-size: 32px 32px;
+  }
+  172% {
+    transform: translateY(-78rem) skewX(78deg);
+  }
+  516% {
+    transform: translateY(872rem) skewY(872deg);
+  }
+  86% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  688% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 21px 21px;
+            mask-size: 21px 21px;
+  }
+  174% {
+    transform: translateY(-14rem) skewX(14deg);
+  }
+  522% {
+    transform: translateY(100rem) skewY(100deg);
+  }
+  87% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  696% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 95px 95px;
+            mask-size: 95px 95px;
+  }
+  176% {
+    transform: translateY(-48rem) skewX(48deg);
+  }
+  528% {
+    transform: translateY(679rem) skewY(679deg);
+  }
+  88% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  704% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 13px 13px;
+            mask-size: 13px 13px;
+  }
+  178% {
+    transform: translateY(-61rem) skewX(61deg);
+  }
+  534% {
+    transform: translateY(209rem) skewY(209deg);
+  }
+  89% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  712% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 55px 55px;
+            mask-size: 55px 55px;
+  }
+  180% {
+    transform: translateY(-1rem) skewX(1deg);
+  }
+  540% {
+    transform: translateY(879rem) skewY(879deg);
+  }
+  90% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  720% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 81px 81px;
+            mask-size: 81px 81px;
+  }
+  182% {
+    transform: translateY(-79rem) skewX(79deg);
+  }
+  546% {
+    transform: translateY(857rem) skewY(857deg);
+  }
+  91% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  728% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 61px 61px;
+            mask-size: 61px 61px;
+  }
+  184% {
+    transform: translateY(-9rem) skewX(9deg);
+  }
+  552% {
+    transform: translateY(407rem) skewY(407deg);
+  }
+  92% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  736% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 13px 13px;
+            mask-size: 13px 13px;
+  }
+  186% {
+    transform: translateY(-50rem) skewX(50deg);
+  }
+  558% {
+    transform: translateY(775rem) skewY(775deg);
+  }
+  93% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  744% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 83px 83px;
+            mask-size: 83px 83px;
+  }
+  188% {
+    transform: translateY(-83rem) skewX(83deg);
+  }
+  564% {
+    transform: translateY(981rem) skewY(981deg);
+  }
+  94% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  752% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 44px 44px;
+            mask-size: 44px 44px;
+  }
+  190% {
+    transform: translateY(-12rem) skewX(12deg);
+  }
+  570% {
+    transform: translateY(206rem) skewY(206deg);
+  }
+  95% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  760% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 91px 91px;
+            mask-size: 91px 91px;
+  }
+  192% {
+    transform: translateY(-16rem) skewX(16deg);
+  }
+  576% {
+    transform: translateY(44rem) skewY(44deg);
+  }
+  96% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  768% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 47px 47px;
+            mask-size: 47px 47px;
+  }
+  194% {
+    transform: translateY(-90rem) skewX(90deg);
+  }
+  582% {
+    transform: translateY(202rem) skewY(202deg);
+  }
+  97% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  776% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 18px 18px;
+            mask-size: 18px 18px;
+  }
+  196% {
+    transform: translateY(-63rem) skewX(63deg);
+  }
+  588% {
+    transform: translateY(774rem) skewY(774deg);
+  }
+  98% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  784% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 47px 47px;
+            mask-size: 47px 47px;
+  }
+  198% {
+    transform: translateY(-1rem) skewX(1deg);
+  }
+  594% {
+    transform: translateY(322rem) skewY(322deg);
+  }
+  99% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  792% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 80px 80px;
+            mask-size: 80px 80px;
+  }
+  200% {
+    transform: translateY(-34rem) skewX(34deg);
+  }
+  600% {
+    transform: translateY(252rem) skewY(252deg);
+  }
+  100% {
+    background: url("../img/wallOverlay2.svg") bottom repeat;
+    background-size: cover;
+  }
+  800% {
+    background: url("../img/wallOverlay.svg") center repeat;
+    background-size: cover;
+    -webkit-mask-size: 55px 55px;
+            mask-size: 55px 55px;
   }
 }
 @keyframes project-mask {
@@ -1598,5 +4186,66 @@ HOME STYLE
   }
   16% {
     transform: translateX(0);
+  }
+}
+@keyframes shadow2 {
+  0% {
+    background: url("../img/sillouette2.png") bottom no-repeat, url("../img/sillouette_blue.png") bottom center no-repeat, url("../img/sillouette_red.png") bottom center no-repeat;
+    background-size: contain;
+  }
+  100% {
+    background: url("../img/sillouette2.png") bottom no-repeat, url("../img/sillouette_blue.png") bottom left no-repeat, url("../img/sillouette_red.png") bottom right no-repeat;
+    background-size: contain;
+  }
+}
+@keyframes turn-on {
+  0% {
+    transform: scale(1, 0.8) translate3d(0, 0, 0);
+    filter: brightness(30);
+    opacity: 1;
+  }
+  3.5% {
+    transform: scale(1, 0.8) translate3d(0, 100%, 0);
+  }
+  3.6% {
+    transform: scale(1, 0.8) translate3d(0, -100%, 0);
+    opacity: 1;
+  }
+  9% {
+    transform: scale(1.3, 0.6) translate3d(0, 100%, 0);
+    filter: brightness(30);
+    opacity: 0;
+  }
+  11% {
+    transform: scale(1, 1) translate3d(0, 0, 0);
+    filter: contrast(0) brightness(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1, 1) translate3d(0, 0, 0);
+    filter: contrast(1) brightness(1.2) saturate(1.3);
+    opacity: 1;
+  }
+}
+@media only screen and (max-device-width: 320px) {
+  .logo-container {
+    width: 60%;
+    margin: 0 auto;
+  }
+}
+@media only screen and (max-device-width: 768px) and (orientation: landscape) {
+  .logo-container {
+    width: 46%;
+    height: 100px;
+    margin-left: 0.5rem;
+  }
+}
+@media screen and (min-width: 769px) {
+  .name {
+    left: 1rem;
+    width: 50%;
+  }
+  .menu-show {
+    width: 50%;
   }
 }/*# sourceMappingURL=home.css.map */
