@@ -2,19 +2,12 @@
 ABOUT STYLE
 **********************************************************/  
 .section-wrapper {
-    background: url('../img/grid.svg') top center;
-    background-color: #d4d4d4;
-    background-size: 30%;
     position: relative;
-    top: 0;
-    bottom: 0;
-    height: inherit;
-    perspective: 100px;
-    -webkit-perspective: 100px;
+    height: 100%;
+    width: 100%;
     padding: 0 .1rem;
-    overflow: scroll;
-    -webkit-transform: translateZ(-100vw);
     transition: all 1s ease-in;
+    z-index: 90;
   }
   
   .from-home h1 {
@@ -27,7 +20,6 @@ ABOUT STYLE
   }
   
   .card-wrapper {
-    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -35,7 +27,6 @@ ABOUT STYLE
     height: inherit;
     width: 100%;
     padding: 0;
-    z-index: 10;
     transition: all 1s ease-in-out;
   }
   
@@ -223,14 +214,16 @@ ABOUT STYLE
   }
 }
 
+@media screen and ( min-width: 750px ) {
+
+  .section-wrapper {
+    width: 80%;
+  }
+}
 
 @media screen and ( min-width: 500px ) and (orientation: landscape) {
 
-  .card-wrapper {
-    flex-direction: row;
-    align-items: center;
-  }
-
+  
   .about-card {
     position: relative;
     left: 0;

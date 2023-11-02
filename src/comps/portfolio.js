@@ -49,8 +49,9 @@ const Portfolio = ({ lastBackGrnd }) => {
 
     return (
 
-        <Div100vh>
-            <div className="portfolio-wrapper">
+        
+            <div id="portfolio" className="portfolio-wrapper">
+                <h1 className="section-header">WORK</h1>
                 {renderBackDrop(lastBackGrnd)}
                 {/* <div className="overlay2" style={{backgroundSize:"6px", opacity: 0.9}}></div> */}
                 <div className="portfolio-list">
@@ -136,14 +137,12 @@ const Portfolio = ({ lastBackGrnd }) => {
                                 Herzog Quotes is Awesome!
                             </p>
                         </div>
-                        
-                        
                     </motion.div>
                 </div>
                 
             </div>
             
-        </Div100vh>
+        
     );
 }
 

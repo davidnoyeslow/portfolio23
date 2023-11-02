@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import { motion, useAnimationControls } from 'framer-motion';
 
-function Node_SVG() {
+function NodeSVG() {
 
     const outline = useAnimationControls();
 
@@ -46,4 +46,4 @@ function Node_SVG() {
     )
 }
 
-export default Node_SVG;
+export default NodeSVG;

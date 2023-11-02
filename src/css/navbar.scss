@@ -95,12 +95,9 @@ NAVBAR STYLE
 
 
 .navSection {
-  background: url('../img/grain2.png'), rgba(76, 72, 72, 0.523);
-  backdrop-filter: blur(10px);
-	z-index: 3;
-	background-size: 100% 3px, 6px 100%;
-  
-  position: absolute;
+  z-index: 4;
+  background-size: 100% 3px, 6px 100%;
+  position: fixed;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -111,7 +108,35 @@ NAVBAR STYLE
   margin: 0;
   padding: 0;
   top: 0;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  transform: translateY(100%);
+  -webkit-transform: translateY(100%);
+  -moz-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  -o-transform: translateY(100%);
+  transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
 }
+
+.mobileShow {
+  background: url('../img/grain2.png'), rgba(76, 72, 72, 0.523);
+  backdrop-filter: blur(10px);
+  transform: translateY(0);
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+}
+
 
 .blur {
   position: absolute;
@@ -125,24 +150,20 @@ NAVBAR STYLE
   // text-shadow: 3px 2px 2px black;
   /* opacity: 0; */
   color: white;
-  padding: 1rem 0;
+  // padding: 3rem 0;
+  pointer-events: all;
 }
 
-.nav-link1,
-.nav-link2,
-.nav-link3 {
- 
- color: white;
- 
- 
- 
+
+
+.navSection h1 {
+  
+  font-size: 1.2rem;
+  color: white;
 }
 
-.nav-link1:hover,
-.nav-link2:hover,
-.nav-link3:hover {
+.navSection h1:hover {
   transform: scale(1.1);
-  font-family: var(--main-solid-font);
   transition: all .5s ease;
   /* animation: distort 1s infinite alternate-reverse; */
   cursor: pointer;
@@ -159,4 +180,35 @@ NAVBAR STYLE
   width: 100%;
   max-height: 100vh;
   z-index: -99;
+}
+
+
+/*******************************************
+  MEDIA QUERIES
+*******************************************/
+
+@media screen and ( min-width: 760px ) {
+
+  .nav-button {
+    display: none;
+  }
+
+  .navSection {
+    border-left: 1px solid rgba(255,255,255,1);
+    width: 20%;
+    right: 0;
+    top: 27%;
+    height: 400px;
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transition: transform .4s ease-in-out;
+    -webkit-transition: transform .4s ease-in-out;
+    -moz-transition: transform .4s ease-in-out;
+    -ms-transition: transform .4s ease-in-out;
+    -o-transition: transform .4s ease-in-out;
+}
+
 }

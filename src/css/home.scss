@@ -5,9 +5,9 @@ HOME STYLE
 .home-container {
     background-color: #d4d4d4;
     position: relative;
-    height: inherit;
+    height: 100vh;
     z-index: -96;
-    // perspective: 1200px;
+    margin-bottom: 1rem;
     animation: turn-on 1s ease;
     -webkit-animation: turn-on 1s ease;
     
@@ -22,7 +22,8 @@ HOME STYLE
   }
   
   .body {
-    background: url("../img/IMG_1840.jpg") bottom no-repeat,#d4d4d4;
+    // background: url("../img/IMG_1840.jpg") bottom no-repeat,#d4d4d4;
+    
     background-size: contain;
     position: absolute;
     mask-image: url('../img/cube.svg');
@@ -34,7 +35,7 @@ HOME STYLE
     right: 0;
     width: 100%;
     z-index: -97;
-    opacity: 0;
+    opacity: 1;
     animation: turn-on 1s ease, firstAnimate 4s ease-in .9s forwards, noise-1 2s ease-in 1s alternate-reverse;
     -webkit-animation: turn-on 1s ease, firstAnimate 4s ease-in .9s forwards, noise-1 2s ease-in 1s alternate-reverse;
   } 
@@ -180,7 +181,7 @@ HOME STYLE
           background: url("../img/IMG_1840.jpg") bottom no-repeat,#d4d4d4;
           background-size: contain;
           mask-size: #{$size}px #{$size}px;
-          transform: translateY(-#{$size}rem) skewX(#{$size}deg);
+          // transform: translateY(-#{$size}rem) skewX(#{$size}deg);
         }
         
         #{percentage($i* calc(8/$steps))} {
@@ -190,7 +191,7 @@ HOME STYLE
           mask-size: #{$size}px #{$size}px;
           z-index: 1;
         }
-        #{percentage($i* calc(5/$steps))} {
+        #{percentage($i* calc(12/$steps))} {
           background: url('../img/sillouette_blue.png') bottom no-repeat,#d4d4d4;
           background-size: contain;
           mask-size: 10px 3px;
@@ -204,26 +205,16 @@ HOME STYLE
     @keyframes noise-2 {
       $steps: 100;
       @for $i from 20 through 100 {
-        #{percentage($i* calc(2/$steps))} {
-          $size: random(100);
-          transform: translateY(-#{$size}rem) skewX(#{$size}deg);
-      }
-        #{percentage($i* calc(6/$steps))} {
-          $size: random(1000);
-          transform: translateY(#{$size}rem) skewY(#{$size}deg);
+        #{percentage($i* calc(1/$steps))} {
+          $size: random(60);
+          transform: translateY(#{$size}rem) skewX(#{$size}deg);
       }
       #{percentage($i* calc(1/$steps))} {
-        background: url('../img/wallOverlay2.svg') bottom repeat;
-        background-size: cover;
-        
-      }
-      #{percentage($i* calc(8/$steps))} {
         $size: random(100);
         background: url("../img/wallOverlay.svg") center repeat;
         background-size: cover;
         mask-size: #{$size}px #{$size}px;
       }
-      
     }
     }
     
