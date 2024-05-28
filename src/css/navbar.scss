@@ -30,8 +30,8 @@ NAV BUTTON STYLE
     /*border-radius: 9px;
     */opacity: 1;
     left: 10px;
-    animation: blink 1s ease-in-out infinite ;
-    -webkit-animation: blink 1s ease-in-out infinite ;
+    animation: blink 1s linear alternate-reverse infinite ;
+    -webkit-animation: blink 1s linear alternate-reverse infinite ;
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
     -o-transform: rotate(0deg);
@@ -95,7 +95,8 @@ NAVBAR STYLE
 
 
 .navSection {
-  z-index: 4;
+  background: url('../img/grain2.png'), rgba(76, 72, 72, 0.523);
+  backdrop-filter: blur(10px);
   background-size: 100% 3px, 6px 100%;
   position: fixed;
   display: flex;
@@ -109,32 +110,24 @@ NAVBAR STYLE
   padding: 0;
   top: 0;
   pointer-events: none;
-  mix-blend-mode: difference;
-  transform: translateY(100%);
-  -webkit-transform: translateY(100%);
-  -moz-transform: translateY(100%);
-  -ms-transform: translateY(100%);
-  -o-transform: translateY(100%);
-  transition: all .4s ease-in-out;
-  -webkit-transition: all .4s ease-in-out;
-  -moz-transition: all .4s ease-in-out;
-  -ms-transition: all .4s ease-in-out;
-  -o-transition: all .4s ease-in-out;
+  z-index: 91;
 }
+  
+
 
 .mobileShow {
   background: url('../img/grain2.png'), rgba(76, 72, 72, 0.523);
   backdrop-filter: blur(10px);
-  transform: translateY(0);
-  -webkit-transform: translateY(0);
-  -moz-transform: translateY(0);
-  -ms-transform: translateY(0);
-  -o-transform: translateY(0);
-  transition: all .4s ease-in-out;
-  -webkit-transition: all .4s ease-in-out;
-  -moz-transition: all .4s ease-in-out;
-  -ms-transition: all .4s ease-in-out;
-  -o-transition: all .4s ease-in-out;
+  // transform: translateY(0);
+  // -webkit-transform: translateY(0);
+  // -moz-transform: translateY(0);
+  // -ms-transform: translateY(0);
+  // -o-transform: translateY(0);
+  // transition: all .4s ease-in-out;
+  // -webkit-transition: all .4s ease-in-out;
+  // -moz-transition: all .4s ease-in-out;
+  // -ms-transition: all .4s ease-in-out;
+  // -o-transition: all .4s ease-in-out;
 }
 
 
@@ -143,30 +136,20 @@ NAVBAR STYLE
 }
 
 .nav-link {
+  position: relative;
   font-family: var(--main-outline-font);
-  // font-weight: bolder;
   -webkit-text-size-adjust: 100%;
   text-align: center;
-  // text-shadow: 3px 2px 2px black;
-  /* opacity: 0; */
   color: white;
-  // padding: 3rem 0;
+  padding: 1rem 1rem;
   pointer-events: all;
 }
-
 
 
 .navSection h1 {
   
   font-size: 1.2rem;
   color: white;
-}
-
-.navSection h1:hover {
-  transform: scale(1.1);
-  transition: all .5s ease;
-  /* animation: distort 1s infinite alternate-reverse; */
-  cursor: pointer;
 }
 
 .item-show {
@@ -194,21 +177,57 @@ NAVBAR STYLE
   }
 
   .navSection {
+    background: none;
+    backdrop-filter: blur(0);
     border-left: 1px solid rgba(255,255,255,1);
-    width: 20%;
+    width: 15%;
     right: 0;
     top: 27%;
     height: 400px;
-    transform: translateY(0);
-    -webkit-transform: translateY(0);
-    -moz-transform: translateY(0);
-    -ms-transform: translateY(0);
-    -o-transform: translateY(0);
+    mix-blend-mode: difference;
     transition: transform .4s ease-in-out;
     -webkit-transition: transform .4s ease-in-out;
     -moz-transition: transform .4s ease-in-out;
     -ms-transition: transform .4s ease-in-out;
     -o-transition: transform .4s ease-in-out;
-}
+  }
+
+  .nav-link  {
+    
+    &::after{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    text-align: left;
+    height: 100%;
+    background: rgba(51, 152, 219, 0.3);
+    filter: url(#glitch);
+    // transform: scaleY(0);
+    mix-blend-mode: normal;
+    z-index: -98;
+    transition: .4s cubic-bezier(0.075, 0.82, 0.165, 1);
+    
+    }
+    &:hover,
+    &[data-homeActive="true"],
+    &[data-aboutActive="true"],
+    &[data-portfolioActive="true"]
+     {
+      &::after {
+        // transform: scaleY(1);
+        width: 100%;
+      }
+    }
+
+    
+  }
+
+  .nav-link[data-homeActive="true"] > a,
+  .nav-link[data-aboutActive="true"] > a,
+  .nav-link[data-portfolioActive="true"] > a {
+    filter: url(#linkFilter);
+  }
 
 }

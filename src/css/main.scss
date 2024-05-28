@@ -195,11 +195,11 @@
       
       mask-image: url('../img/wallOverlay.svg');
       mask-size: 70px 1px;
-      transform: rotateY(10deg) translateX(0) scale(1);
-      -webkit-transform: rotateY(10deg) translateX(0) scale(1);
-      -moz-transform: rotateY(10deg) translateX(0) scale(1);
-      -ms-transform: rotateY(10deg) translateX(0) scale(1);
-      -o-transform: rotateY(10deg) translateX(0) scale(1);
+      // transform: rotateY(10deg) translateX(0) scale(1);
+      // -webkit-transform: rotateY(10deg) translateX(0) scale(1);
+      // -moz-transform: rotateY(10deg) translateX(0) scale(1);
+      // -ms-transform: rotateY(10deg) translateX(0) scale(1);
+      // -o-transform: rotateY(10deg) translateX(0) scale(1);
   }
   50% {
     mask-image: url('../img/cube.svg');
@@ -208,11 +208,11 @@
     background-size: 100%;
     mask-size: 10px 1px;
     transform-origin: bottom;
-    transform: rotateY(0) rotateX(90deg) scale(2);
-    -webkit-transform: rotateY(0) rotateX(90deg) scale(2);
-    -moz-transform: rotateY(0) rotateX(90deg) scale(2);
-    -ms-transform: rotateY(0) rotateX(90deg) scale(2);
-    -o-transform: rotateY(0) rotateX(90deg) scale(2);
+    // transform: rotateY(0) rotateX(90deg) scale(2);
+    // -webkit-transform: rotateY(0) rotateX(90deg) scale(2);
+    // -moz-transform: rotateY(0) rotateX(90deg) scale(2);
+    // -ms-transform: rotateY(0) rotateX(90deg) scale(2);
+    // -o-transform: rotateY(0) rotateX(90deg) scale(2);
   }
   }
   

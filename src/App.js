@@ -5,6 +5,7 @@ import Navbar from './comps/navbar';
 import About from './comps/about';
 import Portfolio from './comps/portfolio';
 import GlitchFilter from './comps/glitch-filter';
+import LinkFilter from './comps/linkFilter';
 import './css/main.scss';
 
 
@@ -16,12 +17,10 @@ function App() {
   const [ aboutActive, setAboutActive ] = useState(false);
   const [ portfolioActive, setPortfolioActive ] = useState(false);
   const [ clicked, setClicked ] = useState(false);
-  const [ currentBackGrnd, setCurrentBackGrnd] = useState(1);
-  const [ lastBackGrnd, setLastBackGrnd ] = useState(null);
-  const aboutRef = useRef();
 
   
-    
+  
+
   return (
     <div className="App"> 
       <MenuButton clicked={clicked} setClicked={setClicked}/>  
@@ -29,10 +28,11 @@ function App() {
           homeActive={homeActive} setHomeActive={setHomeActive} 
           aboutActive={aboutActive} setAboutActive={setAboutActive}
           portfolioActive={portfolioActive} setPortfolioActive={setPortfolioActive}/>
-      <Home id="home" />
-      <About lastBackGrnd={lastBackGrnd} currentBackGrnd={currentBackGrnd}/>   
-      <Portfolio lastBackGrnd={lastBackGrnd}/> 
+      <Home />
+      <About />   
+      <Portfolio /> 
       <GlitchFilter />
+      <LinkFilter />
     </div>
   );
 }

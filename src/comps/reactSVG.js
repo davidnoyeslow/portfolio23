@@ -9,20 +9,20 @@ const ReactSVG = () => {
         outline.start({
             pathLength: [0, 1],
             rotate: [0, 360],
-            fillOpacity: [0, 1],
+            fillOpacity: [0, 0],
             opacity: [0, 1],
             fill: "rgb(255,255,255, 1)",
             stroke: "rgba(255, 255, 255, 1)",
             transition: {
-                fillOpacity: { delay: 3, duration: 5},
-                fill: { delay: 3, duration: 2, ease: [1, 0, 0.8, 1] },
-                pathLength: { delay:3, duration: 2, ease: "easeIn"},
-                rotate:  { delay:3, duration: 1, type: "spring", stiffness: 260, damping: 200}
+                fillOpacity: { delay: .3, duration: 5},
+                fill: { delay: .3, duration: 2, ease: [1, 0, 0.8, 1] },
+                pathLength: { delay:.3, duration: 2, ease: "easeIn"},
+                rotate:  { delay:.3, duration: 1, type: "spring", stiffness: 260, damping: 200}
             }
 
         })
 
-    },[])
+    })
 
     return (
         <motion.svg

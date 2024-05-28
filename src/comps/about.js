@@ -7,37 +7,21 @@ import '../css/about.scss';
 import '../css/backdrops.scss';
 
 const About = () => {
-    const [ openWebCard, setOpenWebCard ] = useState(false);
-    const [ openUXCard, setOpenUXCard ] = useState(false);
-    const [ openBackCard, setOpenBackCard ] = useState(false);
+
     const ref = useRef(null);
-    const isInView = useInView(ref);
+    const isInView = useInView(ref, {once: true});
     
 
-    useEffect(() => {
-        if(isInView.inView) {
-            setOpenWebCard(true);
-            setOpenUXCard(true);
-            setOpenBackCard(true);
-        } 
-        
-    }, [isInView.inView]);
-
-    useEffect(() => {
-        console.log("Element is in view: ", isInView)
-      }, [isInView])
-
-   
-
-      
     const variants = {
         offscreen: {
-            opacity: 0
+            opacity: 0,
         },
         onscreen: {
             opacity: 1,
+            
             transition: {
-                duration: 1,
+                duration: .7,
+                delay: .4,
                     staggerChildren: 1,
                     staggerDirection: -1
             }
@@ -53,8 +37,8 @@ const About = () => {
         onscreen: {
             opacity: 1,
             transition: {
-                duration:1,
-                delay: 2,
+                duration:.5,
+                delay: 0,
                 ease: "easeIn"
             }
         }
@@ -62,17 +46,15 @@ const About = () => {
 
     return (
         <>
-            <div ref={ref}>
-                {isInView ? (<motion.div id="about" className="section-wrapper" >
+            <div id="about"  ref={ref} style={{marginTop:"20px"}}>
+                {isInView ? (<motion.div className="section-wrapper" >
                 <h1 className="section-header">SKILLS</h1>
+                <div className="backdrop-2a"></div>
                 <motion.ul className="card-wrapper" initial='offscreen' variants={variants} animate='onscreen'>
-                <motion.li className="about-card"  
-                        variants={card}
-                        data-openuxcard={openUXCard}>
-                        <div className="headline-wrapper">
+                    
+                    <motion.li className="about-card"  
+                        variants={card}>
                         <ReactSVG />
-                        <h2 className="headline">Front End<br></br>UX/UI</h2>
-                        </div>
                         <div className="details-wrapper">
                             <p className="details">Passionate about creating an aesthetic and user friendly UI/UX
                                 that runs fast and efficient. Experienced in HTML, CSS, SASS, React and Next.js
@@ -80,13 +62,10 @@ const About = () => {
                         </div>
                     </motion.li>
                     <motion.li className="about-card" 
-                        variants={card}
-                        data-openwebcard={openWebCard}>
-                        <div className="headline-wrapper">
-                            <JsSVG />
-                            <h2 className="headline">Web App<br></br>Dev</h2>
-                        </div>
+                        variants={card}>
+                        <JsSVG />
                         <div className="details-wrapper">
+                        
                             <p className="details">I am certified as a Full Stack Web Developer with over 5 
                                     years of experience creating applications. Familiar with
                                     both functional and object oriented programming in Javascript,
@@ -95,14 +74,10 @@ const About = () => {
                         </div>
                     </motion.li>
                     <motion.li className="about-card" 
-                        variants={card}
-                        data-openbackcard={openBackCard}>
-                        <div className="headline-wrapper">
-                            <NodeSVG />
-                            <h2 className="headline">Back End<br></br>Dev</h2>
-                        </div>
-                        
+                        variants={card}>
+                        <NodeSVG />
                         <div className="details-wrapper">
+                        
                             <p className="details">Experienced with creating APIs and maintaining 
                                 application databases with Express, MongoDB and Firebase.
                             </p>

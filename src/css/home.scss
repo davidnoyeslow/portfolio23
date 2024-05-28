@@ -7,8 +7,9 @@ HOME STYLE
     position: relative;
     height: 100vh;
     z-index: -96;
-    margin-bottom: 1rem;
+    // margin-bottom: 1rem;
     animation: turn-on 1s ease;
+    // filter: url(#glitch);
     -webkit-animation: turn-on 1s ease;
     
   }
@@ -36,6 +37,7 @@ HOME STYLE
     width: 100%;
     z-index: -97;
     opacity: 1;
+    filter: hue-rotate(120deg);
     animation: turn-on 1s ease, firstAnimate 4s ease-in .9s forwards, noise-1 2s ease-in 1s alternate-reverse;
     -webkit-animation: turn-on 1s ease, firstAnimate 4s ease-in .9s forwards, noise-1 2s ease-in 1s alternate-reverse;
   } 

@@ -12,9 +12,9 @@ const JsSVG = () => {
           opacity: [0, 1],
           stroke: "rgba(255, 255, 255, 1)",
           transition: {
-            fillOpacity: { delay: 2, duration: 5},
-            fill: { delay: 2, duration: 2, ease: [1, 0, 0.8, 1] },
-            pathLength: { delay:2, duration: 2, repeat: Infinity, ease: "easeIn"}}
+            fillOpacity: { delay: .5, duration: 5},
+            fill: { delay: .5, duration: 2, ease: [1, 0, 0.8, 1] },
+            pathLength: { delay:.5, duration: 2, ease: "easeIn"}}
           })
       }, []);
 

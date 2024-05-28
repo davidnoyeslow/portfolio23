@@ -1,6 +1,11 @@
 /*********************************************************
 ABOUT STYLE
 **********************************************************/  
+
+:root {
+  --max-width: 300px;
+}
+
 .section-wrapper {
     position: relative;
     height: 100%;
@@ -10,14 +15,6 @@ ABOUT STYLE
     z-index: 90;
   }
   
-  .from-home h1 {
-    position: absolute;
-    top: 0;
-    left:2%;
-    color: #595454;
-    font-size: 2em;
-    text-align: center;
-  }
   
   .card-wrapper {
     display: flex;
@@ -52,26 +49,13 @@ ABOUT STYLE
   }
   
   .dev-icon {
-    width: 10rem;
-    height: 10rem;
-    order: 2;
-  
+    width: 7rem;
+    height: 7rem;
+    order: 1;
+    // flex-grow: 4;
+    
   }
   
-  .about-card {
-    // font-size: 1.4rem;
-    position: relative;
-    margin: 0 auto;
-    cursor: pointer;
-    z-index: 98;
-    overflow: hidden;
-  }
-
-  
-  .about-card svg path {
-    stroke: #81919e;
-    fill: #81919e;
-  }
   
   .headline-wrapper {
     display: flex;
@@ -96,27 +80,17 @@ ABOUT STYLE
     max-height: 1px;
     max-width: 1px;
     opacity: 0;
+    background: none;
   }
   
-  .about-card[data-openWebCard="true"][style],
-  .about-card[data-openUXCard="true"][style],
-  .about-card[data-openBackCard="true"][style] {
-    backdrop-filter: blur(9px);
-    background: rgba(0,0,0,1);
-    background: -moz-linear-gradient(45deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 45%, rgba(71,71,71,1) 46%, rgba(17,17,17,1) 81%, rgba(43,43,43,1) 82%, rgba(28,28,28,1) 89%, rgba(102,102,102,1) 89%, rgba(19,19,19,1) 100%);
-    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(0,0,0,1)), color-stop(45%, rgba(0,0,0,1)), color-stop(46%, rgba(71,71,71,1)), color-stop(81%, rgba(17,17,17,1)), color-stop(82%, rgba(43,43,43,1)), color-stop(89%, rgba(28,28,28,1)), color-stop(89%, rgba(102,102,102,1)), color-stop(100%, rgba(19,19,19,1)));
-    background: -webkit-linear-gradient(45deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 45%, rgba(71,71,71,1) 46%, rgba(17,17,17,1) 81%, rgba(43,43,43,1) 82%, rgba(28,28,28,1) 89%, rgba(102,102,102,1) 89%, rgba(19,19,19,1) 100%);
-    background: -o-linear-gradient(45deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 45%, rgba(71,71,71,1) 46%, rgba(17,17,17,1) 81%, rgba(43,43,43,1) 82%, rgba(28,28,28,1) 89%, rgba(102,102,102,1) 89%, rgba(19,19,19,1) 100%);
-    background: -ms-linear-gradient(45deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 45%, rgba(71,71,71,1) 46%, rgba(17,17,17,1) 81%, rgba(43,43,43,1) 82%, rgba(28,28,28,1) 89%, rgba(102,102,102,1) 89%, rgba(19,19,19,1) 100%);
-    background: linear-gradient(45deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 45%, rgba(71,71,71,1) 46%, rgba(17,17,17,1) 81%, rgba(43,43,43,1) 82%, rgba(28,28,28,1) 89%, rgba(102,102,102,1) 89%, rgba(19,19,19,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#131313', GradientType=1 );
-    -webkit-box-shadow: inset 2px -2px 0px 0px rgba(255,255,255,1);
-    -moz-box-shadow: inset 2px -2px 0px 0px rgba(255,255,255,1);
-    box-shadow: inset 2px -2px 0px 0px rgba(255,255,255,1);
-    height: fit-content;
-    // width: 100%;
-    max-width: 600px;
-    margin: 1rem;
+  .about-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    // height: 15rem;
+    // max-width: 600px;
+    margin-bottom: 4rem;
     transition: all 1s ease-in;
     -webkit-transition: all 1s ease-in;
     -moz-transition: all 1s ease-in;
@@ -125,53 +99,32 @@ ABOUT STYLE
     z-index: 99;
   }
   
-  .about-card[data-openwebcard="true"] > .headline-wrapper,
-  .about-card[data-openuxcard="true"] > .headline-wrapper,
-  .about-card[data-openbackcard="true"] > .headline-wrapper {
+  .about-card > .headline-wrapper {
     justify-content: space-evenly;
     
   }
   
-  .about-card[data-openwebcard="true"] > .headline-wrapper h2,
-  .about-card[data-openuxcard="true"] > .headline-wrapper h2,
-  .about-card[data-openbackcard="true"] > .headline-wrapper h2 {
+  .about-card > .headline-wrapper h2 {
     margin: 0;
     opacity: 1;
-    animation: headlineGrow 1s ease-in 1s forwards ;
-    -webkit-animation: headlineGrow 1s ease-in 1s forwards ;
+    animation: headlineGrow 1s ease-in 3s forwards ;
+    -webkit-animation: headlineGrow 1s ease-in 3s forwards ;
   }
   
-  .about-card[data-openwebcard="true"] > .headline-wrapper svg,
-  .about-card[data-openuxcard="true"] >  .headline-wrapper svg,
-  .about-card[data-openbackcard="true"] > .headline-wrapper svg {
-    width: 6rem;
-    height: 6rem;
-    /* padding: 1rem; */
-    transition: all .5s ease;
-    -webkit-transition: all .5s ease;
-    -moz-transition: all .5s ease;
-    -ms-transition: all .5s ease;
-    -o-transition: all .5s ease;
-  }
 
-  .about-card[data-openWebCard="true"] svg path,
-  .about-card[data-openUXCard="true"] svg path,
-  .about-card[data-openBackCard="true"] svg path {
-    stroke: #ffffff;
-    fill: #ffffff;
-  }
-  
-  .about-card[data-openwebcard="true"] > .details-wrapper,
-  .about-card[data-openuxcard="true"] > .details-wrapper,
-  .about-card[data-openbackcard="true"] > .details-wrapper 
-   {
-    
+
+  .about-card > .details-wrapper {
     color: white;
-    margin: 0 auto;
+    margin-top: 2rem;
     padding: 0 .5rem 1rem .5rem;
-    opacity: 1;
-    animation: showDetails 1s ease-in-out 1s 1 normal forwards;
-    -webkit-animation: showDetails 1s ease-in-out 1s 1 normal forwards;
+    max-width: 0;   
+    opacity: 0;
+    -webkit-box-shadow: inset 0px 0px 2px -2px rgba(255,255,255,1);
+    -moz-box-shadow: inset 2px -2px 0px 0px rgba(255,255,255,1);
+    box-shadow: inset 0px 0px -2px 0px rgba(255,255,255,1);
+    animation: showDetails 1s ease-in-out 3s 1 normal forwards;
+    -webkit-animation: showDetails 1s ease-in-out 3s 1 normal forwards;
+    order: 2;
   }
   
   @keyframes showDetails {
@@ -179,25 +132,27 @@ ABOUT STYLE
       opacity: 0;
       max-width: 0;
       max-height: 0;
+      background: none;
     }
     50% {
       opacity: 0;
-      max-width: 500px;
+      max-width: var(--max-width);
       max-height: 700px;
       padding: 1rem;
     }
     100% {
-      max-width: 500px;
+      max-width: var(--max-width);
       max-height: 700px;
       padding: 1rem;
       opacity: 1;
-      
+      // background: rgba(179, 187, 193, 0.9);
     }
   }
   
   .details {
     margin: 0;
     padding: 0 .5rem;
+    font-size: larger;
   }
 
   
@@ -216,8 +171,25 @@ ABOUT STYLE
 
 @media screen and ( min-width: 750px ) {
 
+  :root {
+    --max-width: 600px;
+  }
+
   .section-wrapper {
     width: 80%;
+  }
+
+  .dev-icon {
+    width: 9rem;
+    height: 9rem;
+  }
+
+  .details-wrapper {
+    max-width: 600px;
+  }
+
+  .details {
+    font-size: 1.5rem;
   }
 }
 

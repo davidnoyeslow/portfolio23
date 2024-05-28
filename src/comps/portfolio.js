@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import {motion} from "framer-motion";
+import React, {useState, useRef} from "react";
+import {motion, useInView} from "framer-motion";
 import Div100vh from "react-div-100vh";
 import '../css/portfolio.scss';
 import '../css/backdrops.scss';
@@ -11,6 +11,9 @@ const Portfolio = ({ lastBackGrnd }) => {
         openWHCard: false,
         openAWCard: false
     });
+
+    const ref = useRef(null);
+    const isInView = useInView(ref, {once: true});
 
     const renderBackDrop = (arg1) => {
         switch(true) {
@@ -49,10 +52,13 @@ const Portfolio = ({ lastBackGrnd }) => {
 
     return (
 
-        
-            <div id="portfolio" className="portfolio-wrapper">
+        <div id="portfolio" ref={ref} style={{marginTop:"50px"}}>
+            {isInView ? (<motion.div className="portfolio-wrapper">
+                
                 <h1 className="section-header">WORK</h1>
                 {renderBackDrop(lastBackGrnd)}
+                
+                <div id="about" className="backdrop-3b"></div>
                 {/* <div className="overlay2" style={{backgroundSize:"6px", opacity: 0.9}}></div> */}
                 <div className="portfolio-list">
                     <motion.div className="portfolio-item"
@@ -139,9 +145,14 @@ const Portfolio = ({ lastBackGrnd }) => {
                         </div>
                     </motion.div>
                 </div>
-                
-            </div>
-            
+               
+    
+            </motion.div>)
+            : (
+                <div></div>
+            )}                        
+        
+         </div>   
         
     );
 }
