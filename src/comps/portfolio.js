@@ -1,11 +1,10 @@
 import React, {useState, useRef} from "react";
 import {motion, useInView} from "framer-motion";
-import Div100vh from "react-div-100vh";
 import '../css/portfolio.scss';
 import '../css/backdrops.scss';
 
-const Portfolio = ({ lastBackGrnd }) => {
-    const [hideElement, setHideElement ] = useState(false);
+const Portfolio = () => {
+    
     const [state, setState] = useState({
         openTWCard: false,
         openWHCard: false,
@@ -15,40 +14,6 @@ const Portfolio = ({ lastBackGrnd }) => {
     const ref = useRef(null);
     const isInView = useInView(ref, {once: true});
 
-    const renderBackDrop = (arg1) => {
-        switch(true) {
-            case (arg1 === 1): 
-                return <>
-                    <div className="backdrop-2a"></div> 
-                    <div id="about" className="backdrop-2b"></div>
-                </>
-            case (arg1 === 2 ):
-                return <>
-                    <div className="backdrop-3a"></div> 
-                    <div id="about" className="backdrop-3b"></div>
-                </>
-            case (arg1 === 3):
-                return <>
-                    <div className="backdrop-2a reverse-animation"></div> 
-                    <div id="about" className="backdrop-2b reverse-animation2"></div>
-                </>            
-        }
-    }
-
-    const card = {
-        offscreen: {
-            opacity: 0
-        },
-        
-        onscreen: {
-            opacity: 1,
-            transition: {
-                duration:1,
-                delay: 2,
-                ease: "easeIn"
-            }
-        }
-    }
 
     return (
 
@@ -56,8 +21,6 @@ const Portfolio = ({ lastBackGrnd }) => {
             {isInView ? (<motion.div className="portfolio-wrapper">
                 
                 <h1 className="section-header">WORK</h1>
-                {renderBackDrop(lastBackGrnd)}
-                
                 <div id="about" className="backdrop-3b"></div>
                 {/* <div className="overlay2" style={{backgroundSize:"6px", opacity: 0.9}}></div> */}
                 <div className="portfolio-list">
@@ -145,8 +108,6 @@ const Portfolio = ({ lastBackGrnd }) => {
                         </div>
                     </motion.div>
                 </div>
-               
-    
             </motion.div>)
             : (
                 <div></div>

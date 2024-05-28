@@ -2,8 +2,7 @@
 BACKDROP STYLES
 **********************************************************/
 
-.backdrop-2a,
-.backdrop-3a {
+.backdrop-2a {
   background: url('../img/grain.png') center repeat, url('../img/wallOverlay2.svg') top repeat;
   background-size: 50%;
   position: absolute;
@@ -15,29 +14,14 @@ BACKDROP STYLES
   -moz-transform:rotateY(-40deg);
   -ms-transform:rotateY(-40deg);
   -o-transform:rotateY(-40deg);
-}
-
-.backdrop-2a {
   animation: blinds 2s ease-in-out;
   animation-iteration-count: 1;
   -webkit-animation: blinds 2s ease-in-out;
   z-index: -98;
-  
 }
 
-.backdrop-3a {
-  animation: blinds2 2s ease-in-out;
-  -webkit-animation: blinds2 2s ease-in-out;
-  background-size: 10% 2%;
-  transform: rotateY(0) rotateX(-75deg) translateY(-50%);
-  -webkit-transform: rotateY(0) rotateX(-75deg) translateY(-50%) translateZ(-200px);
-  -moz-transform: rotateY(0) rotateX(-75deg) translateY(-50%);
-  -ms-transform: rotateY(0) rotateX(-75deg) translateY(-50%);
-  -o-transform: rotateY(0) rotateX(-75deg) translateY(-50%);
-  z-index: -98;
-}
 
-.backdrop-2b,
+
 .backdrop-3b {
   background: url('../img/sillouette2.png') bottom no-repeat,#d4d4d4;
   background-size: contain;
@@ -52,12 +36,6 @@ BACKDROP STYLES
   height: inherit;
 }
 
-.backdrop-2b {
-  mask-image: url('../img/wallOverlay.svg');
-  animation: mask 4s ease-in-out forwards ;
-  -webkit-animation: mask 4s ease-in-out forwards;
-  z-index: -97;
-}
 
 .backdrop-3b {
   background-size: 100%;

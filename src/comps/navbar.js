@@ -1,4 +1,4 @@
-import React, {useEffect,useState, useRef} from "react";
+import React, {useEffect,useState} from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-scroll";
 import '../css/navbar.scss';
@@ -35,7 +35,7 @@ const Navbar = ({ clicked, setClicked }) => {
     return(() => {
         window.removeEventListener('resize', setDimension);
     })
-  }, [screenSize])
+  }, [screenSize, setClicked])
  
   const closeMenu = (e) => {
     if( clicked && screenSize.dynamicWidth < 760) {
