@@ -8,6 +8,7 @@ HOME STYLE
     height: 100vh;
     z-index: -96;
     // margin-bottom: 1rem;
+    overflow: hidden;
     animation: turn-on 1s ease;
     // filter: url(#glitch);
     -webkit-animation: turn-on 1s ease;

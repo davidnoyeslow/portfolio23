@@ -15,8 +15,6 @@ const Navbar = ({ clicked, setClicked }) => {
     portfolioActive: false
   })
 
-
-
   const setDimension = () => {
     getDimension({
       dynamicWidth: window.innerWidth,

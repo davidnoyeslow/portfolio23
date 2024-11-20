@@ -3,6 +3,8 @@ import { motion, useInView } from "framer-motion";
 import NodeSVG from './node-svg';
 import ReactSVG from "./reactSVG";
 import JsSVG from "./jsSVG";
+import Line from "./line";
+import aboutLineSVG from "./aboutlineSVG";
 import '../css/about.scss';
 import '../css/backdrops.scss';
 
@@ -55,6 +57,7 @@ const About = () => {
                     <motion.li className="about-card"  
                         variants={card}>
                         <ReactSVG />
+                        <Line />
                         <div className="details-wrapper">
                             <p className="details">Passionate about creating an aesthetic and user friendly UI/UX
                                 that runs fast and efficient. Experienced in HTML, CSS, SASS, React and Next.js

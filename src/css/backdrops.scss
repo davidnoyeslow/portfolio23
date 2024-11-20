@@ -4,8 +4,9 @@ BACKDROP STYLES
 
 .backdrop-2a {
   background: url('../img/grain.png') center repeat, url('../img/wallOverlay2.svg') top repeat;
-  background-size: 50%;
+  background-size: contain;
   position: absolute;
+  bottom: 0;
   height: inherit;
   width: 100%;
   overflow: visible;

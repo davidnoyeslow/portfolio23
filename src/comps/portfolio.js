@@ -1,5 +1,6 @@
 import React, {useState, useRef} from "react";
 import {motion, useInView} from "framer-motion";
+import { Link } from "react-scroll";
 import '../css/portfolio.scss';
 import '../css/backdrops.scss';
 
@@ -22,7 +23,8 @@ const Portfolio = () => {
                 
                 <h1 className="section-header">WORK</h1>
                 <div id="about" className="backdrop-3b"></div>
-                {/* <div className="overlay2" style={{backgroundSize:"6px", opacity: 0.9}}></div> */}
+                { (state.openAWCard || state.openTWCard || state.openWHCard) &&
+                    <div className="work-overlay"></div>}
                 <div className="portfolio-list">
                     <motion.div className="portfolio-item"
                         initial={{opacity: 0}}
